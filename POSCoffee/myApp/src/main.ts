@@ -39,7 +39,7 @@ import './theme/variables.css';
  
 import PrimeVue from 'primevue/config';
  
-
+import 'primeflex/primeflex.css';
 
 
 

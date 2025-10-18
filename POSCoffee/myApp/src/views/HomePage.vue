@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-
+      <Drawer />
     </ion-content>
   </ion-menu>
   <ion-page id="main-content">
@@ -26,5 +26,6 @@
 
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import Drawer from "@/views/Layout/Drawer.vue"
 </script>
  
