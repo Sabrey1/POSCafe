@@ -34,10 +34,19 @@ import '@ionic/vue/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
+// primevue
+ 
+import PrimeVue from 'primevue/config';
+ 
+
+
+
+
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
-
+  .use(router)
+.use(PrimeVue);
 router.isReady().then(() => {
   app.mount('#app');
 });
