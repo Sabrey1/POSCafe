@@ -47,11 +47,14 @@ import './theme/variables.css';
 
 // primevue
  
-import PrimeVue from 'primevue/config';
- 
+
+/* PrimeVue CSS */
+
+
+import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
- 
-import Aura from '@primeuix/themes/aura';
+ import PrimeVue from 'primevue/config';
+
 
 const app = createApp(App)
   .use(IonicVue)
@@ -74,10 +77,4 @@ app.component('IonToolbar', IonToolbar)
 window.t = (key) => i18n.global.t(key)
 router.isReady().then(() => {
   app.mount('#app');
-});
-
-app.use(PrimeVue, {
-    theme: {
-        preset: Aura
-    }
 });
