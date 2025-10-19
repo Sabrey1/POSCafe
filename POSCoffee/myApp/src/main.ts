@@ -1,9 +1,19 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
-
-import { IonicVue } from '@ionic/vue';
-
+import i18n from './i18n'
+import { 
+  IonicVue, 
+  IonButton, 
+  IonItem, 
+  IonList, 
+  IonPopover,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from '@ionic/vue'
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
 
@@ -40,13 +50,34 @@ import './theme/variables.css';
 import PrimeVue from 'primevue/config';
  
 import 'primeflex/primeflex.css';
-
-
+ 
+import Aura from '@primeuix/themes/aura';
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
-.use(PrimeVue);
+.use(PrimeVue)
+.use(i18n);
+
+
+// ✅ Global registration of Ionic components
+app.component('IonButton', IonButton)
+app.component('IonItem', IonItem)
+app.component('IonList', IonList)
+app.component('IonPopover', IonPopover)
+app.component('IonContent', IonContent)
+app.component('IonHeader', IonHeader)
+app.component('IonPage', IonPage)
+app.component('IonTitle', IonTitle)
+app.component('IonToolbar', IonToolbar)
+
+window.t = (key) => i18n.global.t(key)
 router.isReady().then(() => {
   app.mount('#app');
+});
+
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura
+    }
 });
