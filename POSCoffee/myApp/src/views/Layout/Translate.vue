@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button @click="switchLang" class="btnChange">{{ t("Switch Language")}}</button>
+      <button @click="switchLang" class="btnChange">{{ t("Change Language")}}</button>
   </div>
 
 </template>

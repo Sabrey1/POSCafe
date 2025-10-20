@@ -54,7 +54,7 @@ import './theme/variables.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
  import PrimeVue from 'primevue/config';
-
+import ToastService from 'primevue/toastservice'
 
 const app = createApp(App)
   .use(IonicVue)
@@ -73,6 +73,7 @@ app.component('IonHeader', IonHeader)
 app.component('IonPage', IonPage)
 app.component('IonTitle', IonTitle)
 app.component('IonToolbar', IonToolbar)
+app.use(ToastService)
 
 window.t = (key) => i18n.global.t(key)
 router.isReady().then(() => {

@@ -11,5 +11,27 @@
   "Report": "របាយការណ៍",
   "Logout": "ចាកចេញ",
   "User Profile": "ប្រវត្តិរូប",
-  "Change Language": "ប្ដូរភាសា"
+  "Change Language": "ប្ដូរភាសា",
+  "Customer List":" បញ្ជីអតិថិជន",
+  "No.": "ល.រ",
+  "Name#": "ឈ្មោះ",
+  "Gender": "ភេទ",
+  "Email": "អ៊ីម៉ែល",
+  "Phone Number": "លេខទូរស័ព្ទ",
+  "Address": "អាសយដ្ឋាន",
+  "Action": "សកម្មភាព",
+  "Edit": "កែសម្រួល",
+  "Delete": "លុប",
+  "Add Customer": "បន្ថែមអតិថិជន",
+  "Name": "ឈ្មោះ",
+  "Enter name customer":"បញ្ចូលឈ្មោះអតិថិជន",
+  "Customer Name": "ឈ្មោះអតិថិជន",
+  "Select gender": "ជ្រើសរើសភេទ",
+  "Female": "ភេទស្រី",
+  "Male": "ភេទប្រុស",
+  "Enter email":"បញ្ចូលអ៊ីម៉ែល",
+  "Enter phone number":"បញ្ចូលលេខទូរស័ព្ទ",
+  "Enter Adress":"បញ្ចូលអាសយដ្ឋាន",
+  "Save": "រក្សាទុក"
+  
 }

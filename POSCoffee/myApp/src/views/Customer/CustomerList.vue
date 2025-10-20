@@ -2,41 +2,53 @@
     <ion-page>
         <ion-header>
             <ion-toolbar>
-                <ion-title>Customer List</ion-title>
+                <ion-title>{{t("Customer List")}}</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content>
-
-           <!-- <Search v-model="data" placeholder="Search Customers" /> -->
-
+        <div >
+            <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
+              <ion-fab-button >
+                <ion-icon :icon="add"></ion-icon>
+            </ion-fab-button>
+            </ion-fab>
+        </div>
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
-            <Column header="No." class="p-3" style="width: 50px">
+            <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
                     {{ slotProps.index + 1 }}
                 </template>
             </Column>
             <!-- Other columns with padding -->
-            <Column field="name" header="Name#" sortable class="p-2">
+            <Column field="name" :header="t('Name#')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.name }}</span>
             </template>
             </Column>
 
-            <Column field="gender" header="Gender" sortable class="p-2">
+            <Column field="gender" :header="t('Gender')" sortable class="p-2" style="width:100px">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.gender }}</span>
             </template>
             </Column>
 
-            <Column field="email" header="Email" sortable class="p-2">
+            <Column field="email" :header="t('Email')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-4">{{ slotProps.data.email }}</span>
             </template>
             </Column>
 
-            <Column field="phone" header="Phone Number" sortable class="p-2">
+            <Column field="phone" :header="t('Phone Number')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.phone }}</span>
+            </template>
+            </Column>
+            <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
+            <template #body="slotProps">
+                <div>
+                    <ion-button fill="outline" size="small" color="primary" @click="onEdit(slotProps.data.id)">{{t("Edit")}}</ion-button>
+                    <ion-button fill="outline" size="small" color="danger" @click="onDelete(slotProps.data.id)">{{t("Delete")}}</ion-button>
+                </div>
             </template>
             </Column>
         </DataTable>
@@ -49,8 +61,10 @@ import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
-import Search from '@/views/Layout/Search.vue';
-
+import { IonFabButton, IonIcon,modalController  } from '@ionic/vue';
+import { add } from 'ionicons/icons';
+import CustomerAdd from "@/views/Customer/components/CustomerAdd.vue"
+const t = window.t
 const data = ref();
 
 async function getdate (){
@@ -62,8 +76,40 @@ async function getdate (){
     }
 }
 
+async function onEdit(id){
+    const editRes = await axios.put(`http://127.0.0.1:8000/api/customer/${id}`);
+    if(editRes.data){
+            alert("hello" + id)
+    }
+}
+
+const openModal = async () => {
+  const modal = await modalController.create({
+    component: CustomerAdd,
+    cssClass: 'custom-modal',
+  });
+  await modal.present();
+};
+
+async function onDelete(id) {
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this customer?"));
+  if (confirmDelete) {
+    try {
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/customer/${id}`);
+      if (deleteRes.data.success) {
+        alert(t("Customer deleted successfully"));
+        await getdate();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("Failed to delete customer"));
+    }
+  }
+}
+
 onMounted(() => {
     getdate();
 });
 
 </script>
+
