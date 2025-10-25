@@ -6,6 +6,13 @@
             </ion-toolbar>
         </ion-header>
         <ion-content>
+        <div >
+            <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
+              <ion-fab-button >
+                <ion-icon :icon="add"></ion-icon>
+            </ion-fab-button>
+            </ion-fab>
+        </div>
             {{ data }}
             <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
@@ -70,13 +77,14 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { ref, onMounted } from 'vue'
-
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
-const t = window.t
+import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
+import { add } from 'ionicons/icons';
+import EmployeeAdd from "@/views/Employee/components/EmployeeAdd.vue"
 
 const data = ref()
-
+const t = window.t
 async function getData(){
     const res = await axios.get('http://127.0.0.1:8000/api/employee')
     if(res.data){
@@ -84,6 +92,14 @@ async function getData(){
         console.log(data.value);
     }
 }
+
+const openModal = async () => {
+  const modal = await modalController.create({
+    component: EmployeeAdd,
+    cssClass: 'employee-modal',
+  });
+  await modal.present();
+};
 
 onMounted(() => {
     getData()

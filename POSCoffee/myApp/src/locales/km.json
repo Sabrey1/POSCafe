@@ -37,6 +37,9 @@
   "Employee List":"បញ្ជីបុគ្គលិក",
   "Hire Date":"ថ្ងៃចូលធ្វើការ",
   "Position":"តួនាទី",
-  "Created At":"កាលបរិច្ឆេទ"
+  "Created At":"កាលបរិច្ឆេទ",
+  "Add Employee":"បញ្ចូលបុគ្គលិក",
+  "Adress":"អាសយដ្ឋាន",
+  "Employee Name":"ឈ្មោះបុគ្គលិក"
   
 }
