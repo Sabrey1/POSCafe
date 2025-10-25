@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string('employee_code')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone')->nullable();
@@ -20,9 +21,13 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->date('dob')->nullable();
             $table->date('hire_date')->nullable();
+            $table->string('employee_type')->nullable();
             $table->string('position')->nullable();
             $table->decimal('salary',10,2)->nullable();
             $table->string('address')->nullable();
+            $table->string('status')->nullable();
+            $table->string('note')->nullable();
+            $table->boolean('disabled')->defult(false);
             $table->string('image')->nullable();
             $table->timestamps();
         });
