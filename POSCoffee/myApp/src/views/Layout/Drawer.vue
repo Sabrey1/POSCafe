@@ -21,6 +21,12 @@
         <ion-label>{{t("Sale")}}</ion-label>
       </ion-item>
     </RouterLink>
+    <RouterLink to="/category" style="text-decoration: none;">
+      <ion-item>
+          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+        <ion-label>{{t("Category")}}</ion-label>
+      </ion-item>
+    </RouterLink>
 
     <RouterLink to="/product" style="text-decoration: none;">
       <ion-item>

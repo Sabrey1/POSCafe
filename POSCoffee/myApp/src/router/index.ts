@@ -13,6 +13,7 @@ import OrderList from '@/views/Order/components/OrderList.vue'
 import Report from '@/views/Report/Report.vue'
 import Setting from '@/views/Setting/setting.vue'
 import Product from '@/views/Product/Product.vue'
+import Category from '@/views/Category/Category.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -83,6 +84,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/product',
     name: 'Product',
     component: Product
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category
   }
 ]
 

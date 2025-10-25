@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -17,3 +18,7 @@ Route::delete('/customer/{id}',[CustomerController::class,'destroy'])->name('cus
 
 //Employee
 Route::get('/employee',[EmployeeController::class,'index'])->name('employee');
+
+
+//Product
+Route::get('/product',[ProductController::class,'index'])->name('product');
