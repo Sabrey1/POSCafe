@@ -2,7 +2,7 @@
 <ion-page>
      <ion-header>
         <ion-toolbar>
-            <ion-title>{{(t("Sale"))}}</ion-title>
+            <ion-title>{{(t("Report"))}}</ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content>

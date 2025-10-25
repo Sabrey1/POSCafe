@@ -7,6 +7,10 @@ import Dashboard from '@/views/Dashboard/Dashboard.vue'
 import Order from '@/views/Order/Order.vue'
 import RoleList from '@/views/Role/RoleList.vue'
 import positionList from '@/views/Position/positionList.vue'
+import workingDay from "@/views/WorkingDay/workingDay.vue"
+import Shift from '@/views/Shift/Shift.vue'
+import OrderList from '@/views/Order/components/OrderList.vue'
+import Report from '@/views/Report/Report.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -47,6 +51,26 @@ const routes: Array<RouteRecordRaw> = [
     path: '/position-list',
     name: 'positionList',
     component: positionList
+  },
+  {
+    path: '/working-day',
+    name: 'workingDay',
+    component: workingDay
+  },
+  {
+    path: '/shift',
+    name: 'Shift',
+    component: Shift
+  },
+  {
+    path: '/order-list',
+    name: 'OrderList',
+    component: OrderList
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: Report
   }
 ]
 

@@ -1,16 +1,17 @@
 <template>
-<ion-page>
+    <ion-page>
      <ion-header>
         <ion-toolbar>
-            <ion-title>{{(t("Sale"))}}</ion-title>
+            <ion-title>{{(t("Sale List"))}}</ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        Hello World
+        Sale List
     </ion-content>
 </ion-page>
 </template>
 
 <script setup lang="ts">
 const t = window.t
+
 </script>
