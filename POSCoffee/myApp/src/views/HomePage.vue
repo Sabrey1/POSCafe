@@ -2,7 +2,7 @@
  <ion-menu content-id="main-content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>{{t("Home")}}</ion-title>
+        <ion-title>{{t("Coffee Shop")}}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
@@ -17,13 +17,15 @@
         </ion-buttons>
         <div style="display: flex;">
         <ion-title>{{t("Home")}}</ion-title>
-        <ion-item lines="none">
+        <ion-item lines="none" >
+          <Timer style="margin-right: 10px"/>
           <UserProfile slot="end" />
         </ion-item>
         </div>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
+      <CardHome />
     </ion-content>
   </ion-page>
 </template>
@@ -32,6 +34,8 @@
 
 import Drawer from "@/views/Layout/Drawer.vue"
 import UserProfile from "@/views/Layout/UserProfile/UserProfile.vue"
+import CardHome from "@/views/Layout/CardHome.vue"
+import Timer from "@/views/Layout/Timer.vue"
 const t = window.t
 </script>
  
