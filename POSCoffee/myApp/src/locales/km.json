@@ -40,6 +40,11 @@
   "Created At":"កាលបរិច្ឆេទ",
   "Add Employee":"បញ្ចូលបុគ្គលិក",
   "Adress":"អាសយដ្ឋាន",
-  "Employee Name":"ឈ្មោះបុគ្គលិក"
-  
+  "Employee Name":"ឈ្មោះបុគ្គលិក",
+  "Select Role":"ជ្រើសរើសតួនាទី",
+  "Select Status":"ជ្រើសរើសស្ថានភាព",
+  "Enter Note":"បញ្ចូលកំណត់ចំណាំ",
+  "Note":"កំណត់ចំណាំ",
+  "Salary":"ប្រាក់ខែ",
+  "Enter Salary":"បញ្ចូលប្រាក់ខែ"
 }
