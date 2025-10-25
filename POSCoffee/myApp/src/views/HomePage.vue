@@ -18,15 +18,18 @@
         <div style="display: flex;">
         <ion-title>{{t("Home")}}</ion-title>
         <ion-item lines="none" >
-        
           <Timer style="margin-right: 10px"/>
           <UserProfile slot="end" />
         </ion-item>
         </div>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
+    <ion-content>
+      <img src="/image/image.jpg" />
+      <div>
       <CardHome />
+      </div>
+      
     </ion-content>
   </ion-page>
 </template>
