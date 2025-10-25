@@ -20,11 +20,13 @@
     "@ionic/vue": "^8.0.0",
     "@ionic/vue-router": "^8.0.0",
     "axios": "^1.12.2",
+    "echarts": "^6.0.0",
     "ionicons": "^7.0.0",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.4.1",
     "vue": "^3.3.0",
+    "vue-echarts": "^8.0.1",
     "vue-i18n": "^12.0.0-alpha.3",
     "vue-router": "^4.2.0"
   },

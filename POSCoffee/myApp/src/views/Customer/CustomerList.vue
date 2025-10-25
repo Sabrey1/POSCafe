@@ -13,6 +13,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
+        
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -43,6 +44,16 @@
                 <span class="p-2">{{ slotProps.data.phone }}</span>
             </template>
             </Column>
+            <Column field="owner" :header="t('Created By')" sortable class="p-2">
+            <template #body="slotProps">
+                <span class="p-2">{{ slotProps.data.owner }}</span>
+            </template>
+            </Column>
+            <Column field="created_at" :header="t('Created At')" sortable class="p-2" style="width: 300px;">
+            <template #body="slotProps">
+                <span class="p-2">{{ slotProps.data.created_at }}</span>
+            </template>
+            </Column>
             <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
             <template #body="slotProps">
                 <div>
@@ -61,7 +72,7 @@ import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
-import { IonFabButton, IonIcon,modalController  } from '@ionic/vue';
+import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import CustomerAdd from "@/views/Customer/components/CustomerAdd.vue"
 const t = window.t

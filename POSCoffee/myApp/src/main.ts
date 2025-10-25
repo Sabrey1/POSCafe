@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 import i18n from './i18n'
+ 
 import { 
   IonicVue, 
   IonButton, 
@@ -44,9 +45,8 @@ import '@ionic/vue/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
-
-// primevue
- 
+import AppBar from "@/views/Layout/AppBar.vue"
+import ToolBar from "@/views/Layout/ToolBar.vue"
 
 /* PrimeVue CSS */
 
