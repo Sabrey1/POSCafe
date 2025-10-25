@@ -11,6 +11,7 @@ import workingDay from "@/views/WorkingDay/workingDay.vue"
 import Shift from '@/views/Shift/Shift.vue'
 import OrderList from '@/views/Order/components/OrderList.vue'
 import Report from '@/views/Report/Report.vue'
+import Setting from '@/views/Setting/setting.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -71,6 +72,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/report',
     name: 'Report',
     component: Report
+  },
+  {
+    path: '/setting',
+    name: 'Setting',
+    component: Setting
   }
 ]
 

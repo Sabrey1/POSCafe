@@ -43,7 +43,7 @@
                 {{t("Customer List")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="secondary">
+        <ion-card color="secondary" :routerLink='`/report`'>
             <ion-card-header class="icon-center">
                 <ion-icon :icon="barChartOutline"></ion-icon>
             </ion-card-header>
@@ -51,7 +51,7 @@
                 {{t("Report")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="secondary">
+        <ion-card color="secondary" :routerLink='`/setting`'>
             <ion-card-header class="icon-center">
                 <ion-icon :icon="settingsOutline"></ion-icon>
             </ion-card-header>
