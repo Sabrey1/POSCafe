@@ -1,10 +1,12 @@
 <template>
  <div>
   <ion-list>
+    <RouterLink to="/home" style="text-decoration: none;">
     <ion-item>
         <i class="fas fa-home" style="margin-right: 10px;"></i>
       <ion-label>{{t("Home")}}</ion-label>
     </ion-item>
+    </RouterLink>
     <ion-item>
         <i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i>
       <ion-label>{{t("Dashboard")}}</ion-label>
