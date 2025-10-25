@@ -29,6 +29,14 @@
     </ion-item>
     </RouterLink>
     <ion-item>
+        <i class="fas fa-users" style="margin-right: 10px;"></i>
+      <ion-label>{{t("Role")}}</ion-label>
+    </ion-item>
+    <ion-item>
+        <i class="fas fa-users" style="margin-right: 10px;"></i>
+      <ion-label>{{t("Position")}}</ion-label>
+    </ion-item>
+    <ion-item>
         <i class="fas fa-file" style="margin-right: 10px;"></i>
       <ion-label>{{t("Report")}}</ion-label>
     </ion-item>
