@@ -22,10 +22,12 @@
       <ion-label>{{t("Customer")}}</ion-label>
     </ion-item>
     </RouterLink>
+    <RouterLink to="/employee-list" style="text-decoration: none;">
     <ion-item>
         <i class="fas fa-users" style="margin-right: 10px;"></i>
       <ion-label>{{t("Employee")}}</ion-label>
     </ion-item>
+    </RouterLink>
     <ion-item>
         <i class="fas fa-file" style="margin-right: 10px;"></i>
       <ion-label>{{t("Report")}}</ion-label>

@@ -33,6 +33,10 @@
   "Enter phone number":"បញ្ចូលលេខទូរស័ព្ទ",
   "Enter Adress":"បញ្ចូលអាសយដ្ឋាន",
   "Save": "រក្សាទុក",
-  "Created By":"បង្កើតដោយ"
+  "Created By":"បង្កើតដោយ",
+  "Employee List":"បញ្ជីបុគ្គលិក",
+  "Hire Date":"ថ្ងៃចូលធ្វើការ",
+  "Position":"តួនាទី",
+  "Created At":"កាលបរិច្ឆេទ"
   
 }

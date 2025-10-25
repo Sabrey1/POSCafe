@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('status')->nullable();
             $table->string('note')->nullable();
-            $table->boolean('disabled')->defult(false);
+            $table->boolean('disabled')->defult(false)->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
