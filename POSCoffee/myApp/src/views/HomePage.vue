@@ -25,8 +25,11 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <img src="/image/image.jpg" />
-      <div>
+      <div style="z-index:-1;position: absolute;">
+         <img src="/image/image.jpg" style="height: 92vh;width: 100vw;" />
+      </div>
+
+      <div style="vertical-align: center; horizontal-align: center; display: flex; justify-content: center; align-items: center; height: 100%;">
       <CardHome />
       </div>
       

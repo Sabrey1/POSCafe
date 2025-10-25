@@ -82,6 +82,7 @@ const t = window.t
 ion-card{
     width: 250px;
     height: 130px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 ion-icon{
     font-size: 50px;

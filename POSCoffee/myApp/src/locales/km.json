@@ -51,5 +51,11 @@
   "Working Day":"ថ្ងៃធ្វើការ",
   "Shift":"វេនធ្វើការ",
   "Sale List":"បញ្ជីលក់",
-  "Setting":"ការកំណត់"
+  "Setting":"ការកំណត់",
+  "Customer Code":"លេខកូដអតិថិជន",
+  "Enter customer code":"បញ្ចូលលេខកូដអតិថិជន",
+  "Select Customer Type":"ជ្រើសរើសប្រភេទអតិថិជន",
+  "Customer Type":"ប្រភេទអតិថិជន",
+  "Enter Country":"បញ្ចូលប្រទេស",
+  "Country":"ប្រទេស"
 }

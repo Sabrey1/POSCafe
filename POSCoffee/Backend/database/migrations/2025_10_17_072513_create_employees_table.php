@@ -21,13 +21,11 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->date('dob')->nullable();
             $table->date('hire_date')->nullable();
-            $table->string('employee_type')->nullable();
             $table->string('position')->nullable();
             $table->decimal('salary',10,2)->nullable();
             $table->string('address')->nullable();
             $table->string('status')->nullable();
             $table->string('note')->nullable();
-            $table->boolean('disabled')->defult(false)->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

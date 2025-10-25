@@ -1,11 +1,11 @@
 <template>
-    <ion-page>
+    <ion-page style="overflow-y: hidden;">
         <ion-header>
             <ion-toolbar>
                 <ion-title>{{t("Customer List")}}</ion-title>
             </ion-toolbar>
         </ion-header>
-        <ion-content>
+        <ion-content class="content">
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
@@ -13,6 +13,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
+       
         
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
@@ -124,3 +125,8 @@ onMounted(() => {
 
 </script>
 
+<style> 
+.content {
+    overflow-y: hidden;
+}
+</style>
