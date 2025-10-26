@@ -77,10 +77,12 @@
       <ion-label>{{t("Report")}}</ion-label>
     </ion-item>
     </RouterLink>
+    <RouterLink to="/setting" style="text-decoration: none;">
     <ion-item>
         <i class="fas fa-cogs" style="margin-right: 10px;"></i>
       <ion-label>{{t("Settings")}}</ion-label>
     </ion-item>
+    </RouterLink>
     <ion-item>
         <i class="fas fa-sign-out-alt" style="margin-right: 10px; color: red;"></i>
       <ion-label class="text-red-500">{{t("Logout")}}</ion-label>
