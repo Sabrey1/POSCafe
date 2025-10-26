@@ -12,4 +12,25 @@ class ProductController extends Controller
         $products = Product::all();
         return response()->json($products);
     }
+
+    public function create(){
+        //
+    }
+
+    public function store(){
+        //
+    }
+
+    public function edit(){
+        // Show the form for editing a product
+    }
+
+    public function update(){
+        //
+    }
+
+    public function destroy(){
+
+    }
+
 }
