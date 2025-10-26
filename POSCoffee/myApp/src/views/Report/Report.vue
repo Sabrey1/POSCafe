@@ -6,7 +6,7 @@
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        Hello World
+        This is Report Page
     </ion-content>
 </ion-page>
 </template>

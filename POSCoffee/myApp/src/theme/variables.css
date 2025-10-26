@@ -62,3 +62,27 @@ http://ionicframework.com/docs/theming/ */
     --height: 68%;
     --width: 40%;
 }
+.category-modal {
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --height: 40%;
+    --width: 40%;
+}
+.product-modal {
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --height: 58%;
+    --width: 40%;
+}
+.role-modal {
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --height: 40%;
+    --width: 40%;
+}
+.position-modal {
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --height: 38%;
+    --width: 40%;
+}

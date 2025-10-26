@@ -1,17 +1,16 @@
 <template>
-<ion-page>
+    <ion-page>
      <ion-header>
         <ion-toolbar>
-            <ion-title>{{(t("Shift"))}}</ion-title>
+            <ion-title>{{(t("Working Day List"))}}</ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        This is Shift Page
+        This is Working Day Page
     </ion-content>
 </ion-page>
 </template>
 
 <script setup lang="ts">
 const t = window.t
-
 </script>

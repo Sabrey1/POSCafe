@@ -15,7 +15,7 @@
     </ion-item>
     </RouterLink>
 
-    <RouterLink to="/sale" style="text-decoration: none;">
+    <RouterLink to="/order" style="text-decoration: none;">
       <ion-item>
           <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
         <ion-label>{{t("Sale")}}</ion-label>
@@ -32,6 +32,18 @@
       <ion-item>
           <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
         <ion-label>{{t("Product")}}</ion-label>
+      </ion-item>
+    </RouterLink>
+    <RouterLink to="/working-day" style="text-decoration: none;">
+      <ion-item>
+          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+        <ion-label>{{t("Working Day")}}</ion-label>
+      </ion-item>
+    </RouterLink>
+    <RouterLink to="/shift" style="text-decoration: none;">
+      <ion-item>
+          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+        <ion-label>{{t("Shift")}}</ion-label>
       </ion-item>
     </RouterLink>
 
@@ -59,10 +71,12 @@
       <ion-label>{{t("Position")}}</ion-label>
     </ion-item>
     </RouterLink>
+    <RouterLink to="/report" style="text-decoration: none;">
     <ion-item>
         <i class="fas fa-file" style="margin-right: 10px;"></i>
       <ion-label>{{t("Report")}}</ion-label>
     </ion-item>
+    </RouterLink>
     <ion-item>
         <i class="fas fa-cogs" style="margin-right: 10px;"></i>
       <ion-label>{{t("Settings")}}</ion-label>
