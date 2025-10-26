@@ -14,11 +14,23 @@ import Report from '@/views/Report/Report.vue'
 import Setting from '@/views/Setting/setting.vue'
 import Product from '@/views/Product/Product.vue'
 import Category from '@/views/Category/Category.vue'
+import NotFound from '@/views/Layout/NotFound.vue'
+import Login from '@/views/Auth/Login.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: '/home'
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
   },
   {
     path: '/home',
@@ -98,3 +110,4 @@ const router = createRouter({
 })
 
 export default router
+
