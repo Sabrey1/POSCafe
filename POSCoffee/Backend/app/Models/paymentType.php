@@ -9,7 +9,7 @@ class paymentType extends Model
 {
     use HasFactory;
 
-    protected $table = 'payment_type';
+    protected $table = 'payment_types';
 
     protected $fillable = [
         'name',
