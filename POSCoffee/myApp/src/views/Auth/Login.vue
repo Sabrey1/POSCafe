@@ -1,15 +1,17 @@
 <template>
   <ion-page>
+    
     <div class="login-container">
-      <form>
+      <form  @submit.prevent="login">
         <div class="center">
           <h1 style="font-weight: bold;">{{t ("Login")}}</h1>
-
+          <p :v-model="email">{{ email }}</p>
           <p>{{t("Username")}}</p>
-          <input :placeholder="t('Input Your Username')" required />
+          <input type="text" v-model="email" :placeholder="t('Input Your Username')" required />
 
           <p>{{t("Password")}}</p>
-          <input type="password":placeholder="t('Input Your Password')"  required />
+          <p :v-model="password">{{ password }}</p>
+          <input type="password" v-model="password" :placeholder="t('Input Your Password')"  required />
 
           <button type="submit" class="btnSubmit">{{t("Save")}}</button>
         </div>
@@ -19,22 +21,31 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/router';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 const t = window.t
 
+const email = ref('');
+const password = ref('');
+
 const data = ref();
 
-async function getUser(){
-  const res = await axios.get('http://127.0.0.1:8000/api/user');
+async function login(){
+  const res = await axios.post('http://127.0.0.1:8000/api/user',{
+    email: email.value,
+    password: password.value
+  });
   if(res.data){
       data.value = res.data
+      router.push('/home')
   }
+   else {
+      alert(t("Invalid username or password"));
+    }
 }
 
-onMounted(() => {
-  getUser()
-})
+ 
 
 
 </script>

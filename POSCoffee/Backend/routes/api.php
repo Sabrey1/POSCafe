@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -32,5 +33,8 @@ Route::get('/category',[CategoryController::class,'index'])->name('category');
 //role
 Route::get('/role',[RoleController::class,'index'])->name('role');
 
+// user
+Route::get('/user',[UserController::class,'index'])->name('user');
+Route::post('/user',[UserController::class,'store'])->name('user.store');
 //position
 Route::get('/position',[PositionController::class,'index'])->name('position');
