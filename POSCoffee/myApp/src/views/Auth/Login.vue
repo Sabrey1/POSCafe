@@ -3,15 +3,15 @@
     <div class="login-container">
       <form>
         <div class="center">
-          <h1 style="font-weight: bold;">Login</h1>
+          <h1 style="font-weight: bold;">{{t ("Login")}}</h1>
 
-          <p>Username</p>
-          <input placeholder="Input Your Username" required />
+          <p>{{t("Username")}}</p>
+          <input :placeholder="t('Input Your Username')" required />
 
-          <p>Password</p>
-          <input placeholder="Input Your Password" type="password" required  />
+          <p>{{t("Password")}}</p>
+          <input type="password":placeholder="t('Input Your Password')"  required />
 
-          <button type="submit" class="btnSubmit">Save</button>
+          <button type="submit" class="btnSubmit">{{t("Save")}}</button>
         </div>
       </form>
     </div>
@@ -19,6 +19,24 @@
 </template>
 
 <script setup lang="ts">
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+const t = window.t
+
+const data = ref();
+
+async function getUser(){
+  const res = await axios.get('http://127.0.0.1:8000/api/user');
+  if(res.data){
+      data.value = res.data
+  }
+}
+
+onMounted(() => {
+  getUser()
+})
+
+
 </script>
 
 <style scoped>

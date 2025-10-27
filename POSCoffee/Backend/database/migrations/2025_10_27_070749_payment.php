@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payment', function (BluePrint $table){
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
-            $table->string('payment_method');
+            $table->foreignId('payment_type_id')->constrained()->onDelete('cascade');
             $table->string('payment_status');
             $table->string('payment_amount');
             $table->string('note');
