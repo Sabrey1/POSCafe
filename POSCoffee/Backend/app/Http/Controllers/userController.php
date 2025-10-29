@@ -16,6 +16,24 @@ class userController extends Controller
         return response()->json($users);
     }
 
+    public function login(Request $request){
+        $user = User::where('email', $request->email)->where('password', $request->password)->first();
+        if($user){
+            return response()->json([
+            'success' => true,
+            'user' => $user,
+            'message' => 'Login successfully'
+        ]);
+        }else{
+            return response()->json([
+            'success' => false,
+            'message' => 'Login failed'
+        ]);
+            
+        }
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      */

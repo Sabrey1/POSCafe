@@ -6,10 +6,10 @@
         <div class="center">
           <h1 style="font-weight: bold;">{{t ("Login")}}</h1>
           <p>{{t("Username")}}</p>
-          <input type="text" v-model="email" :placeholder="t('Input Your Username')" required />
+          <input type="text" v-model="user.email" :placeholder="t('Input Your Username')" required />
 
           <p>{{t("Password")}}</p>
-          <input type="password" v-model="password" :placeholder="t('Input Your Password')"  required />
+          <input type="password" v-model="user.password" :placeholder="t('Input Your Password')"  required />
 
           <button type="submit" class="btnSubmit">{{t("Save")}}</button>
         </div>
@@ -24,23 +24,28 @@ import axios from 'axios';
 import { onMounted, ref } from 'vue';
 const t = window.t
 
-const email = ref('');
-const password = ref('');
+const user = ref({
+  email: '',
+  password: ''
+})
 
-const data = ref();
+async function login() {
+  try {
+    const res = await axios.post('http://127.0.0.1:8000/api/login', user.value);
 
-async function login(){
-  const res = await axios.post('http://127.0.0.1:8000/api/user',{
-    email: email.value,
-    password: password.value
-  });
-  if(res.data){
-      data.value = res.data
-      router.push('/home')
-  }
-   else {
-      alert(t("Invalid username or password"));
+    if (res.data.success) {
+      // Save only what you need (e.g., token and user info)
+      localStorage.setItem('user', JSON.stringify(res.data.user));
+
+      // Redirect to home page
+      router.push('/home');
+    } else {
+      alert('Login failed: ' + (res.data.message || 'Invalid credentials'));
     }
+  } catch (error) {
+    console.error('Login error:', error);
+    alert('Unable to login. Please check your credentials.');
+  }
 }
 
 </script>

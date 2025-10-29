@@ -110,25 +110,25 @@ const router = createRouter({
 })
 
 
-// router.beforeEach((to, from, next) => {
-//   const user = JSON.parse(localStorage.getItem('user'))
+router.beforeEach((to, from, next) => {
+  const user = JSON.parse(localStorage.getItem('user'))
 
-//   if (to.path !== '/login' && !user) {
-//     next('/login')
-//     return
-//   }
+  if (to.path !== '/login' && !user) {
+    next('/login')
+    return
+  }
 
-//   const allowedRoles = to.meta.roles
-//   if (allowedRoles && user) {
-//     if (allowedRoles.includes(user.position)) {
-//       next()
-//     } else {
-//       next('/somepage')
-//     }
-//   } else {
-//     next()
-//   }
-// })
+  const allowedRoles = to.meta.roles
+  if (allowedRoles && user) {
+    if (allowedRoles.includes(user.position)) {
+      next()
+    } else {
+      next('/somepage')
+    }
+  } else {
+    next()
+  }
+})
 
 export default router
 

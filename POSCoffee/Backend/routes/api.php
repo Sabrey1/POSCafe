@@ -10,9 +10,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\UserController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
 
 // Customer
 Route::get('/customer',[CustomerController::class,'index'])->name('customer');
@@ -36,5 +36,9 @@ Route::get('/role',[RoleController::class,'index'])->name('role');
 // user
 Route::get('/user',[UserController::class,'index'])->name('user');
 Route::post('/user',[UserController::class,'store'])->name('user.store');
+
+// login
+Route::post('/login',[UserController::class,'login'])->name('login');
+
 //position
 Route::get('/position',[PositionController::class,'index'])->name('position');
