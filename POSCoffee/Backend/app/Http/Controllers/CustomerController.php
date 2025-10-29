@@ -10,8 +10,9 @@ class CustomerController extends Controller
     public function index(){
         return response()->json(Customer::all());
     }
-    public function store(){
+    public function store(Request $request){
          $request->validate([
+            'customer_code' => 'required',
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required'

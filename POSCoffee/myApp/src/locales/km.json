@@ -88,6 +88,11 @@
   "Role List":"បញ្ជីតួនាទី",
   "Position List":"បញ្ជីតំណែង",
   "Add Position":"បន្ថែមតំណែង",
-  "Position Code":"លេខកូដតំណែង"
+  "Position Code":"លេខកូដតំណែង",
+  "Username":"ឈ្មោះអ្នកប្រើប្រាស់",
+  "Password":"លេខសម្ងាត់",
+  "Input Your Username":"បញ្ចូលឈ្មោះអ្នកប្រើប្រាស់",
+  "Input Your Password":"បញ្ចូលលេខសម្ងាត់",
+  "Login":"ចូលប្រើប្រាស់"
  
 }

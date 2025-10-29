@@ -5,12 +5,10 @@
       <form  @submit.prevent="login">
         <div class="center">
           <h1 style="font-weight: bold;">{{t ("Login")}}</h1>
-          <p :v-model="email">{{ email }}</p>
           <p>{{t("Username")}}</p>
           <input type="text" v-model="email" :placeholder="t('Input Your Username')" required />
 
           <p>{{t("Password")}}</p>
-          <p :v-model="password">{{ password }}</p>
           <input type="password" v-model="password" :placeholder="t('Input Your Password')"  required />
 
           <button type="submit" class="btnSubmit">{{t("Save")}}</button>
@@ -44,9 +42,6 @@ async function login(){
       alert(t("Invalid username or password"));
     }
 }
-
- 
-
 
 </script>
 
