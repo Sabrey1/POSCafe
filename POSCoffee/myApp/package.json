@@ -20,6 +20,7 @@
     "@ionic/vue": "^8.0.0",
     "@ionic/vue-router": "^8.0.0",
     "axios": "^1.12.2",
+    "dayjs": "^1.11.18",
     "echarts": "^6.0.0",
     "ionicons": "^7.0.0",
     "primeflex": "^4.0.0",

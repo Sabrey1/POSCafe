@@ -13,7 +13,6 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-       {{ data }}
         
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
@@ -50,9 +49,9 @@
                 <span class="p-2">{{ slotProps.data.owner }}</span>
             </template>
             </Column>
-            <Column field="created_at" :header="t('Created At')" sortable class="p-2" style="width: 300px;">
+            <Column field="created_at" :header="t('Created At')" sortable class="p-2" headerStyle="text-center" bodyStyle="text-center" style="width: 300px;">
             <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.created_at }}</span>
+                {{ dayjs(slotProps.data.created_at).format("DD-MM-YYYY") }}
             </template>
             </Column>
             <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
@@ -70,12 +69,14 @@
 
 <script setup lang="ts">
 import axios from 'axios';
+import dayjs from 'dayjs';
 import { onMounted, ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import CustomerAdd from "@/views/Customer/components/CustomerAdd.vue"
+import CustomerEdit from "@/views/Customer/components/CustomerEdit.vue"
 const t = window.t
 const data = ref();
 
@@ -89,10 +90,14 @@ async function getdate (){
 }
 
 async function onEdit(id){
-    const editRes = await axios.put(`http://127.0.0.1:8000/api/customer/${id}`);
-    if(editRes.data){
-            alert("hello" + id)
-    }
+    const modal = await modalController.create({
+        component: CustomerEdit,
+        componentProps: {
+            id: id,
+        },
+        cssClass: 'custom-modal',
+    });
+    await modal.present();
 }
 
 const openModal = async () => {

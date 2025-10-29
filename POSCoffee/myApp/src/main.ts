@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 import i18n from './i18n'
+import dayjs from './helpers/dayjs.js'
  
 import { 
   IonicVue, 
@@ -79,6 +80,8 @@ app.component('IonTitle', IonTitle)
 app.component('IonToolbar', IonToolbar)
 app.component('Toast', Toast) // 👈 register globally
 app.use(ToastService)
+app.config.globalProperties.$dayjs = dayjs;
+
 
 window.t = (key) => i18n.global.t(key)
 router.isReady().then(() => {
