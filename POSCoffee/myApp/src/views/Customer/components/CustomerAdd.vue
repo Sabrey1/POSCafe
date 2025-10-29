@@ -28,7 +28,6 @@
             </ion-item>
           </ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -39,8 +38,8 @@
                 interface="popover"
                 :placeholder="t('Select gender')"
               >
-                <ion-select-option value="male">{{ t("Male") }}</ion-select-option>
-                <ion-select-option value="female">{{ t("Female") }}</ion-select-option>
+                <ion-select-option value="Male">{{ t("Male") }}</ion-select-option>
+                <ion-select-option value="Female">{{ t("Female") }}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-col>
@@ -100,14 +99,14 @@
           <ion-col>
             <ion-item lines="none">
               <ion-select
-                v-model="customer.type"
+                v-model="customer.customer_type"
                 aria-label="customer_type"
                 fill="outline"
                 interface="popover"
                 :placeholder="t('Select Customer Type')"
               >
-                <ion-select-option value="regular">{{ t("Regular") }}</ion-select-option>
-                <ion-select-option value="vip">{{ t("VIP") }}</ion-select-option>
+                <ion-select-option value="Regular">{{ t("Regular") }}</ion-select-option>
+                <ion-select-option value="Vip">{{ t("VIP") }}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-col>
@@ -171,7 +170,7 @@ const customer = ref({
   phone: "",
   status: "",
   address: "",
-  type: "",
+  customer_type: "",
   country: "",
   note: "",
 });

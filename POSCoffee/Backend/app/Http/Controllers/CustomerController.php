@@ -14,8 +14,15 @@ class CustomerController extends Controller
          $request->validate([
             'customer_code' => 'required',
             'name' => 'required',
+            'gender' => 'required',
             'email' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
+            'address' => 'required',
+            "status" => "required",
+            "customer_type" => "required",
+            "country" => "required",
+            "note" => "required",
+
         ]);
         
         $customer = Customer::create($request->all());
