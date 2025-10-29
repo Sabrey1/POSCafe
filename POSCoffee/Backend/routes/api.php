@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 
 // Customer
 Route::get('/customer',[CustomerController::class,'index'])->name('customer');
+Route::get('/customer/{id}', [CustomerController::class, 'show']);
 Route::post('/customer',[CustomerController::class,'store'])->name('customer.store');
 Route::put('/customer/{id}',[CustomerController::class,'update'])->name('customer.update');
 Route::delete('/customer/{id}',[CustomerController::class,'destroy'])->name('customer.destroy');

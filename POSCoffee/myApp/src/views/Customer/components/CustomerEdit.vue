@@ -4,6 +4,7 @@
       <h2 class="mb-2 text-center">{{ t("Edit Customer") }}</h2>
 
       <ion-grid>
+        <!-- Customer Code + Name -->
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -28,6 +29,8 @@
             </ion-item>
           </ion-col>
         </ion-row>
+  
+        <!-- Gender + Email -->
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -56,6 +59,7 @@
           </ion-col>
         </ion-row>
 
+        <!-- Phone + Status -->
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -84,6 +88,7 @@
           </ion-col>
         </ion-row>
 
+        <!-- Address + Type -->
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -112,6 +117,7 @@
           </ion-col>
         </ion-row>
 
+        <!-- Country + Note -->
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -147,7 +153,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
 import {
   IonContent,
@@ -159,10 +165,19 @@ import {
   modalController,
 } from "@ionic/vue";
 
+// Props from parent
+const props = defineProps({
+  id: {
+    type: [String, Number],
+    required: true,
+  },
+});
+
 const t = window.t;
 
-// Bind data
+// Default customer data
 const customer = ref({
+  id: "",
   customer_code: "",
   name: "",
   gender: "",
@@ -175,24 +190,53 @@ const customer = ref({
   note: "",
 });
 
-// Function to close modal
+// Load specific customer by ID
+const loadCustomer = async () => {
+  try {
+    const response = await axios.get(`http://127.0.0.1:8000/api/customer/${props.id}`);
+
+    // handle case where backend wraps data in `data`
+    customer.value = response.data.data || response.data;
+    console.log("Fetching customer with ID:", props.id);
+    console.log("Loaded customer:", customer.value);
+  } catch (error) {
+    console.error("Error loading customer:", error);
+    alert("Failed to load customer data");
+  }
+};
+
+// Close modal
 const close = async () => {
   const modal = await modalController.getTop();
   if (modal) await modal.dismiss();
 };
 
-// Function to insert data
+// Update data
 const editCustomer = async () => {
   try {
-    // Replace URL with your API endpoint
-    const response = await axios.put(`http://127.0.0.1:8000/api/customer/${id}`, customer.value);
+    const response = await axios.put(
+      `http://127.0.0.1:8000/api/customer/${props.id}`,
+      customer.value
+    );
 
-    console.log("Customer added:", response.data);
-    alert("Customer added successfully!");
+    console.log("Customer updated:", response.data);
+    alert("Customer updated successfully!");
     close();
   } catch (error) {
-    console.error("Error adding customer:", error);
-    alert("Failed to add customer");
+    console.error("Error updating customer:", error);
+    alert("Failed to update customer");
   }
 };
+
+// Load data when modal opens
+onMounted(() => {
+  loadCustomer();
+});
 </script>
+
+<style scoped>
+.modal-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+</style>

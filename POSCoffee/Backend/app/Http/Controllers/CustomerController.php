@@ -24,7 +24,7 @@ class CustomerController extends Controller
             "note" => "required",
 
         ]);
-        
+
         $customer = Customer::create($request->all());
         return response()->json([
             'success' => true,
@@ -32,6 +32,12 @@ class CustomerController extends Controller
             'customer' => $customer
         ]);
     }
+
+    public function show($id)
+{
+    $customer = Customer::find($id);
+    return response()->json($customer);
+}
     public function update(Request $request, $id){
         $customer = Customer::find($id);
         if(!$customer){
@@ -46,7 +52,7 @@ class CustomerController extends Controller
                 'customer' => $customer
             ]);
         }
-       
+
     }
     public function destroy($id){
         $customer = Customer::find($id);
@@ -60,7 +66,7 @@ class CustomerController extends Controller
             'success' => true,
             'message' => 'Customer deleted successfully'
         ]);
-        
+
     }
 
 }

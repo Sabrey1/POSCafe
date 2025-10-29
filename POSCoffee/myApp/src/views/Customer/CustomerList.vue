@@ -92,9 +92,7 @@ async function getdate (){
 async function onEdit(id){
     const modal = await modalController.create({
         component: CustomerEdit,
-        componentProps: {
-            id: id,
-        },
+         componentProps: { id },
         cssClass: 'custom-modal',
     });
     await modal.present();
