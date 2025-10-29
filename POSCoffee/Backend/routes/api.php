@@ -23,6 +23,10 @@ Route::delete('/customer/{id}',[CustomerController::class,'destroy'])->name('cus
 
 //Employee
 Route::get('/employee',[EmployeeController::class,'index'])->name('employee');
+Route::get('/employee/{id}',[EmployeeController::class,'show'])->name('employee.show');
+Route::post('/employee',[EmployeeController::class,'store'])->name('employee.store');
+Route::put('/employee/{id}',[EmployeeController::class,'update'])->name('employee.update');
+Route::delete('/employee/{id}',[EmployeeController::class,'destroy'])->name('employee.destroy');
 
 
 //Product

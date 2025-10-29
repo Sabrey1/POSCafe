@@ -7,13 +7,13 @@
         <ion-col>
             <!-- Employee Name -->
             <ion-item lines="none">
-                <ion-input :label="t('Employee Name')" label-placement="floating" fill="outline" :placeholder="t('Enter name customer')"></ion-input>
+                <ion-input :label="t('Employee Name')" v-model="employee.name" label-placement="floating" fill="outline" :placeholder="t('Enter name customer')"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col>
             <ion-item lines="none">
                 <!-- Employee Gender -->
-                <ion-select aria-label="gender" fill="outline" interface="popover" :placeholder="t('Select gender')">
+                <ion-select aria-label="gender" v-model="employee.gender" fill="outline" interface="popover" :placeholder="t('Select gender')">
                     <ion-select-option value="male">{{t("Male")}}</ion-select-option>
                     <ion-select-option value="female">{{t("Female")}}</ion-select-option>
                 </ion-select>
@@ -25,12 +25,12 @@
         <ion-col>
             <!-- Email -->
             <ion-item lines="none">
-                <ion-input :label="t('Email')" label-placement="floating" fill="outline" :placeholder="t('Enter email')"></ion-input>
+                <ion-input :label="t('Email')" v-model="employee.email" label-placement="floating" fill="outline" :placeholder="t('Enter email')"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col>
             <ion-item lines="none">
-                <ion-input :label="t('Phone Number')" label-placement="floating" fill="outline" :placeholder="t('Enter phone number')"></ion-input>
+                <ion-input :label="t('Phone Number')" v-model="employee.phone" label-placement="floating" fill="outline" :placeholder="t('Enter phone number')"></ion-input>
             </ion-item>
         </ion-col>
     </ion-row>
@@ -106,22 +106,51 @@
     </ion-row>
     <ion-row>
        <ion-col>
-               <ion-checkbox label-placement="end">Disabled</ion-checkbox>
+             <ion-item lines="none">
+                <!-- Employee code -->
+                 <ion-input :label="t('Employee Code')" v-model="employee.employee_code" label-placement="floating" fill="outline" :placeholder="t('Enter employee code')"></ion-input>
+            </ion-item>
         </ion-col>
         <ion-col>
             
         </ion-col>
-    </ion-row>    
-      <ion-button expand="block" color="primary" @click="close">{{t("Save")}}</ion-button>
+    </ion-row>
+       
+      <ion-button expand="block" color="primary" @click="addEmployee">{{t("Save")}}</ion-button>
       </ion-grid>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import axios from 'axios';
 import { IonContent, IonItem, IonLabel, IonInput, IonButton, modalController, IonList, IonSelect, IonSelectOption,IonCheckbox  } from '@ionic/vue';
 
 const t = window.t
+
+const employee = ref({
+    employee_code: "",
+    name: "",
+    email:"",
+    phone:"",
+    role:"",
+    gender:"",
+    dob:"",
+    hire_date:"",
+    position:"",
+    salary:"",
+    address:"",
+    note:"",
+});
+
+
+const addEmployee = async ()=> {
+    const res = await axios.post('http://127.0.0.1:8000/api/employee', employee.value);
+}
+
+
+
 
 const close = async () => {
   const modal = await modalController.getTop();

@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->decimal('salary',10,2)->nullable();
             $table->string('address')->nullable();
-            $table->string('status')->nullable();
             $table->string('image')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
