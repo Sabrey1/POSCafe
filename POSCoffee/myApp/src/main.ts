@@ -50,6 +50,10 @@ import ToolBar from "@/views/Layout/ToolBar.vue"
 
 /* PrimeVue CSS */
 
+import Toast from 'primevue/toast'
+
+import Aura from '@primeuix/themes/aura';
+
 
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
@@ -73,6 +77,7 @@ app.component('IonHeader', IonHeader)
 app.component('IonPage', IonPage)
 app.component('IonTitle', IonTitle)
 app.component('IonToolbar', IonToolbar)
+app.component('Toast', Toast) // 👈 register globally
 app.use(ToastService)
 
 window.t = (key) => i18n.global.t(key)

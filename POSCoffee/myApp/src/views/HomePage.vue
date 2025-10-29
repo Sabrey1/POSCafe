@@ -31,6 +31,11 @@
 
       <div style="vertical-align: center; horizontal-align: center; display: flex; justify-content: center; align-items: center; height: 100%;">
       <CardHome />
+
+
+      <p @click="showSuccess()">Hello</p>
+
+        <Toast />
       </div>
       
     </ion-content>
@@ -38,11 +43,25 @@
 </template>
 
 <script setup lang="ts">
-
+import { useToast } from "primevue/usetoast";
 import Drawer from "@/views/Layout/Drawer.vue"
 import UserProfile from "@/views/Layout/UserProfile/UserProfile.vue"
 import CardHome from "@/views/Layout/CardHome.vue"
 import Timer from "@/views/Layout/Timer.vue"
+import Toast from 'primevue/toast';
 const t = window.t
+
+const toast = useToast();
+window.toast = toast
+
+function showSuccess() {
+  toast.add({
+    severity: 'success',
+    summary: 'Success',
+    detail: 'Logged in successfully!',
+    life: 3000
+  })
+}
+
 </script>
  
