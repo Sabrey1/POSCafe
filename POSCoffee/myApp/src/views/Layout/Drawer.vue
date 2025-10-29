@@ -83,7 +83,7 @@
       <ion-label>{{t("Settings")}}</ion-label>
     </ion-item>
     </RouterLink>
-    <ion-item>
+    <ion-item @click="logout">
         <i class="fas fa-sign-out-alt" style="margin-right: 10px; color: red;"></i>
       <ion-label class="text-red-500">{{t("Logout")}}</ion-label>
     </ion-item>
@@ -95,4 +95,9 @@
 import { RouterLink } from 'vue-router';
 
 const t = window.t
+
+function logout() {
+  localStorage.removeItem('user')
+  window.location.href = '/login'
+}
 </script>

@@ -59,7 +59,7 @@
                 {{t("Setting")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="danger">
+        <ion-card color="danger" @click="logout">
             <ion-card-header class="icon-center">
             <ion-icon :icon="arrowForwardOutline"></ion-icon>
             </ion-card-header>
@@ -75,6 +75,11 @@
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonIcon  , IonSale } from '@ionic/vue';
 import { logoIonic, giftOutline, settingsOutline, cartOutline, arrowForwardOutline, alarmOutline, personOutline, timeOutline, priceTagOutline, readerOutline, peopleOutline, barChartOutline } from 'ionicons/icons';
 const t = window.t
+
+function logout() {
+  localStorage.removeItem('user')
+  window.location.href = '/login'
+}
 
 </script>
 
