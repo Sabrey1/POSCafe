@@ -23,26 +23,26 @@
     </RouterLink>
     <RouterLink to="/category" style="text-decoration: none;">
       <ion-item>
-          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+           <i class="fa-solid fa-layer-group" style="margin-right: 10px;"></i>
         <ion-label>{{t("Category")}}</ion-label>
       </ion-item>
     </RouterLink>
 
     <RouterLink to="/product" style="text-decoration: none;">
       <ion-item>
-          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+          <i class="far fa-window-maximize" style="margin-right: 10px;"></i>
         <ion-label>{{t("Product")}}</ion-label>
       </ion-item>
     </RouterLink>
     <RouterLink to="/working-day" style="text-decoration: none;">
       <ion-item>
-          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+         <i class="fa-regular fa-clock" style="margin-right: 10px;"></i> 
         <ion-label>{{t("Working Day")}}</ion-label>
       </ion-item>
     </RouterLink>
     <RouterLink to="/shift" style="text-decoration: none;">
       <ion-item>
-          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+          <i class="fa-regular fa-clock" style="margin-right: 10px;"></i>
         <ion-label>{{t("Shift")}}</ion-label>
       </ion-item>
     </RouterLink>
@@ -93,6 +93,8 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
+
+// import { logoIonic, giftOutline, settingsOutline, cartOutline, arrowForwardOutline, alarmOutline, personOutline, timeOutline, priceTagOutline, readerOutline, peopleOutline, barChartOutline } from 'ionicons/icons';
 
 const t = window.t
 

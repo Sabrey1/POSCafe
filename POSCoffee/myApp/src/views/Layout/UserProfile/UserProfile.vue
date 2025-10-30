@@ -17,12 +17,14 @@
               <Translate class="translate-component"/>
             </div>
         </ion-item>
-        <ion-item :button="true" :detail="false">
+        
+        <ion-item :button="true" @click="logout" :detail="false">
             <div>
-            <i class="fas fa-sign-out-alt"></i>
-            {{ t("Logout") }}
+              <i class="fas fa-sign-out-alt"></i>
+              {{ t("Logout") }}
             </div>
         </ion-item>
+        
       </ion-list>
     </ion-content>
   </ion-popover>
@@ -32,6 +34,11 @@
 
 import Translate from "@/views/Layout/Translate.vue"
 const t = window.t
+
+function logout(){
+  localStorage.removeItem('user')
+  window.location.href = '/login'
+}
 
 </script>
 
