@@ -32,13 +32,36 @@ class EmployeeController extends Controller
             'employee' => $employees
         ]);
     }
-    public function edit(){
-        // Show the form for editing an employee
-    }
+    
     public function update(){
-        //
+        $employee = Employee::find($id);
+        if(!$employee){
+            return response()->json([
+                'success' => false,
+                'message' => 'Employee not found'
+            ]);
+        }else{
+            $employee->update($request->all());
+            return response()->json([
+                'success' => true,
+                'message' => 'Employee updated successfully',
+                'employee' => $employee
+            ]);
+        }
     }
-    public function destroy(){
-        //
+    public function destroy($id){
+        $employee = Employee::find($id);
+        if(!$employee){
+            return response()->json([
+                'success' => false,
+                'message' => 'Employee not found'
+            ]);
+        }else{
+            $employee->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Employee deleted successfully'
+            ]);
+        }
     }
 }

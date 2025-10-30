@@ -85,12 +85,29 @@ import EmployeeAdd from "@/views/Employee/components/EmployeeAdd.vue"
 
 const data = ref()
 const t = window.t
+
 async function getData(){
     const res = await axios.get('http://127.0.0.1:8000/api/employee')
     if(res.data){
         data.value = res.data
         console.log(data.value);
     }
+}
+
+async function onDelete(id) {
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this employee?"));
+  if (confirmDelete) {
+    try {
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/employee/${id}`);
+      if (deleteRes.data.success) {
+        alert(t("Employee deleted successfully"));
+        await getData();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("Failed to delete employee"));
+    }
+  }
 }
 
 const openModal = async () => {
