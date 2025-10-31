@@ -1,10 +1,7 @@
 <template>
     <ion-page style="overflow-y: hidden;">
-        <ToolBar>
-            <ion-toolbar>
-                <ion-title class="p-0">{{t("Customer List")}}</ion-title>
-            </ion-toolbar>
-        </ToolBar>
+        <ToolBar>{{t("Customer List")}}</ToolBar>
+        
         <ion-content class="content">
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">

@@ -1,10 +1,8 @@
 <template>
     <ion-page>
-        <ion-header>
-        <ion-toolbar>
-            <ion-title>{{ t("Category List") }}</ion-title>
-        </ion-toolbar>
-        </ion-header>
+        <ToolBar>
+            <ion-title class="p-0">{{ t("Category List") }}</ion-title>
+        </ToolBar>
         <ion-content class="ion-padding">
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
@@ -69,6 +67,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import categoryAdd from '@/views/Category/components/categoryAdd.vue'
+import ToolBar from "@/views/Layout/ToolBar.vue"
 const data = ref();
 
 async function getdata(){

@@ -16,7 +16,7 @@
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <div style="display: flex;">
-        <ion-title>{{t("Home")}}</ion-title>
+        <ion-title class="p-0">{{t("Home")}}</ion-title>
         <ion-item lines="none" >
           <Timer style="margin-right: 10px"/>
           <UserProfile slot="end" />

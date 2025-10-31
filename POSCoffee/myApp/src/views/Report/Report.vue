@@ -1,10 +1,6 @@
 <template>
 <ion-page>
-     <ion-header>
-        <ion-toolbar>
-            <ion-title>{{(t("Report"))}}</ion-title>
-        </ion-toolbar>
-    </ion-header>
+        <ToolBar>{{(t("Report"))}}</ToolBar>
     <ion-content>
         This is Report Page
     </ion-content>
@@ -12,5 +8,6 @@
 </template>
 
 <script setup lang="ts">
+import ToolBar from "@/views/Layout/ToolBar.vue"
 const t = window.t
 </script>
