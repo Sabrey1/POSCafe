@@ -92,3 +92,13 @@ http://ionicframework.com/docs/theming/ */
     --height: 58%;
     --width: 40%;
 }
+
+.fix-container{
+	max-width: 1000px; width: 100%;  margin: 0 auto;;	
+}
+.fixed-container{
+	max-width: 1000px; width: 100%;  margin: 0 auto;  padding: 0 16px;
+}
+.fixed-container-cus{
+	max-width: 700px; width: 100%;  margin: 0 auto;  padding: 0 16px;
+}
