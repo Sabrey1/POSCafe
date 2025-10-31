@@ -1,12 +1,8 @@
 <template>
     <ion-page>
-        <ion-header>
-        <ion-toolbar>
-            <ion-title>{{ t("Product") }}</ion-title>
-        </ion-toolbar>
-        </ion-header>
+            <AppBar>{{ t("Product") }}</AppBar>
         <ion-content class="ion-padding">
-        <div >
+        <div>
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
                 <ion-icon :icon="add"></ion-icon>
@@ -73,7 +69,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import productAdd from '@/views/Product/components/productAdd.vue'
-
+import AppBar from "@/views/Layout/AppBar.vue"
 
 const t = window.t
 

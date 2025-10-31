@@ -1,12 +1,8 @@
 <template>
 <ion-page>
-    <ion-header>
-        <ion-toolbar>
-            <ion-title>{{ t("Position List") }}</ion-title>
-        </ion-toolbar>
-        </ion-header>
+        <AppBar>{{ t("Position List") }}</AppBar>
         <ion-content class="ion-padding">
-            {{ data }}
+          
             <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
@@ -62,6 +58,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import positionAdd from '@/views/Position/components/positionAdd.vue'
+import AppBar from "@/views/Layout/AppBar.vue"
 
 const data = ref();
 

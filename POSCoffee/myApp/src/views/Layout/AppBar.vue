@@ -4,7 +4,7 @@
       <ion-buttons slot="start">
         <ion-menu-button />
       </ion-buttons>
-      <ion-title>
+      <ion-title class="p-0">
         <slot></slot>
       </ion-title>
     </ion-toolbar>

@@ -1,10 +1,8 @@
 <template>
 <ion-page>
-    <ion-header>
-        <ion-toolbar>
-            <ion-title>{{ t("Role List") }}</ion-title>
-        </ion-toolbar>
-        </ion-header>
+  
+        <AppBar>{{ t("Role List") }}</AppBar>
+       
         <ion-content class="ion-padding">
             <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
@@ -61,6 +59,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import roleAdd from '@/views/Role/components/roleAdd.vue'
+import AppBar from "@/views/Layout/AppBar.vue"
 
 const data = ref();
 async function getdata(){

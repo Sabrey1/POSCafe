@@ -1,6 +1,6 @@
 <template>
     <ion-page>
-        <ToolBar>{{t("Dashboard")}}</ToolBar>
+        <AppBar>{{t("Dashboard")}}</AppBar>
         <ion-content>
             Dashboard
         </ion-content>
@@ -11,7 +11,7 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
 import { onMounted, ref } from 'vue';
-import ToolBar from "@/views/Layout/ToolBar.vue"
+import AppBar from "@/views/Layout/AppBar.vue"
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
  
 const t = window.t

@@ -1,10 +1,6 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>{{ t("Sale") }}</ion-title>
-      </ion-toolbar>
-    </ion-header>
+      <ToolBar>{{ t("Sale") }}</ToolBar>
 
     <!-- Main content area -->
     <ion-content>
@@ -53,6 +49,7 @@ import SelectCustomer from "@/views/Order/components/SelectCustomer.vue";
 import FooterPayment from "@/views/Order/components/FooterPayment.vue";
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonIcon  , IonSale } from '@ionic/vue';
 import { logoIonic, giftOutline, settingsOutline, cartOutline, arrowForwardOutline, alarmOutline, personOutline, timeOutline, priceTagOutline, readerOutline, peopleOutline, barChartOutline }  from 'ionicons/icons';
+import ToolBar from "@/views/Layout/ToolBar.vue"
 const t = window.t;
 </script>
 

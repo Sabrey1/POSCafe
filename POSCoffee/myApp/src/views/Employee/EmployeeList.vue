@@ -1,10 +1,7 @@
 <template>
     <ion-page>
-        <ion-header>
-            <ion-toolbar>
-                <ion-title>{{t("Employee List")}}</ion-title>
-            </ion-toolbar>
-        </ion-header>
+        <AppBar>{{t("Employee List")}}</AppBar>
+     
         <ion-content>
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
@@ -13,7 +10,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-            {{ data }}
+            
             <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -82,6 +79,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import EmployeeAdd from "@/views/Employee/components/EmployeeAdd.vue"
+import AppBar from "@/views/Layout/AppBar.vue"
 
 const data = ref()
 const t = window.t

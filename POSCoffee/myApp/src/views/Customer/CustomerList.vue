@@ -1,7 +1,6 @@
 <template>
     <ion-page style="overflow-y: hidden;">
-        <ToolBar>{{t("Customer List")}}</ToolBar>
-        
+        <AppBar>{{t("Customer List")}}</AppBar>
         <ion-content class="content">
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
@@ -74,7 +73,7 @@ import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue
 import { add } from 'ionicons/icons';
 import CustomerAdd from "@/views/Customer/components/CustomerAdd.vue"
 import CustomerEdit from "@/views/Customer/components/CustomerEdit.vue"
-import ToolBar from "@/views/Layout/ToolBar.vue"
+import AppBar from "@/views/Layout/AppBar.vue"
 const t = window.t
 const data = ref();
 
