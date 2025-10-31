@@ -1,7 +1,7 @@
 <template>
 <div style="width:1000px; margin: 0 auto;">
     <div style="display: flex; justify-content: space-between;">
-        <ion-card color="secondary" :routerLink='`/working-day`'>
+        <ion-card color="secondary" :routerLink='`/working-day`' class="card">
             <ion-card-header class="icon-center">
                 <ion-icon :icon="alarmOutline"></ion-icon>
             </ion-card-header>
@@ -9,7 +9,7 @@
                 {{t("Working Day")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="secondary" :routerLink='`/shift`'>
+        <ion-card color="secondary" :routerLink='`/shift`' class="card">
             <ion-card-header class="icon-center">
                 <ion-icon :icon="timeOutline"></ion-icon>
             </ion-card-header>
@@ -17,7 +17,7 @@
                 {{t("Shift")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="secondary" :routerLink='`/order`'>
+        <ion-card color="secondary" :routerLink='`/order`' class="card">
             <ion-card-header class="icon-center">
                 <ion-icon :icon="cartOutline"></ion-icon>
             </ion-card-header>
@@ -25,7 +25,7 @@
                 {{t("Sale")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="secondary" :routerLink='`/order-list`'>
+        <ion-card color="secondary" :routerLink='`/order-list`' class="card">
             <ion-card-header class="icon-center">
                 <ion-icon :icon="readerOutline"></ion-icon>
             </ion-card-header>
@@ -35,7 +35,7 @@
         </ion-card>
     </div>
     <div style="display: flex; justify-content: space-between;">
-        <ion-card color="secondary" :routerLink='`/customer-list`'>
+        <ion-card color="secondary" :routerLink='`/customer-list`' class="card">
             <ion-card-header class="icon-center">
                 <ion-icon :icon="peopleOutline"></ion-icon>
             </ion-card-header>
@@ -43,7 +43,7 @@
                 {{t("Customer List")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="secondary" :routerLink='`/report`'>
+        <ion-card color="secondary" :routerLink='`/report`' class="card">
             <ion-card-header class="icon-center">
                 <ion-icon :icon="barChartOutline"></ion-icon>
             </ion-card-header>
@@ -51,7 +51,7 @@
                 {{t("Report")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="secondary" :routerLink='`/setting`'>
+        <ion-card color="secondary" :routerLink='`/setting`' class="card">
             <ion-card-header class="icon-center">
                 <ion-icon :icon="settingsOutline"></ion-icon>
             </ion-card-header>
@@ -59,7 +59,7 @@
                 {{t("Setting")}}
             </ion-card-content>
         </ion-card>
-        <ion-card color="danger" @click="logout">
+        <ion-card color="danger" @click="logout" >
             <ion-card-header class="icon-center">
             <ion-icon :icon="arrowForwardOutline"></ion-icon>
             </ion-card-header>
@@ -84,6 +84,11 @@ function logout() {
 </script>
 
 <style scoped>
+.card{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
 ion-card{
     width: 250px;
     height: 130px;
