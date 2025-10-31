@@ -46,10 +46,10 @@
         <ion-label>{{t("Working Day List")}}</ion-label>
       </ion-item>
     </RouterLink>
-    <RouterLink to="/shift" style="text-decoration: none;">
+    <RouterLink to="/shift-list" style="text-decoration: none;">
       <ion-item>
           <i class="fa-regular fa-clock" style="margin-right: 10px;"></i>
-        <ion-label>{{t("Shift")}}</ion-label>
+        <ion-label>{{t("Shift List")}}</ion-label>
       </ion-item>
     </RouterLink>
 

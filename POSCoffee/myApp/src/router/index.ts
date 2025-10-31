@@ -8,6 +8,7 @@ import Order from '@/views/Order/Order.vue'
 import RoleList from '@/views/Role/RoleList.vue'
 import positionList from '@/views/Position/positionList.vue'
 import workingDay from "@/views/WorkingDay/WorkingDay.vue"
+import ShiftList from '@/views/Shift/ShiftList.vue'
 import Shift from '@/views/Shift/Shift.vue'
 import OrderList from '@/views/Order/OrderList.vue'
 import Report from '@/views/Report/Report.vue'
@@ -78,6 +79,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/working-day-list',
     name: 'WorkingDayList',
     component: WorkingDayList
+  },
+  {
+    path: '/shift-list',
+    name: 'ShiftList',
+    component: ShiftList
   },
   {
     path: '/shift',
