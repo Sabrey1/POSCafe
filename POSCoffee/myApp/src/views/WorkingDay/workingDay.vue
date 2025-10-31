@@ -1,10 +1,6 @@
 <template>
 <ion-page>
-     <ion-header>
-        <ion-toolbar>
-            <ion-title>{{(t("Working Day"))}}</ion-title>
-        </ion-toolbar>
-    </ion-header>
+        <ToolBar>{{(t("Working Day"))}}</ToolBar> 
     <ion-content>
         This is Working Day Page
     </ion-content>
@@ -12,5 +8,6 @@
 </template>
 
 <script setup lang="ts">
+import ToolBar from "@/views/Layout/ToolBar.vue"
 const t = window.t
 </script>

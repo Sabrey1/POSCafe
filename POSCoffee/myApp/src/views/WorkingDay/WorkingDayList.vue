@@ -1,10 +1,6 @@
 <template>
     <ion-page>
-     <ion-header>
-        <ion-toolbar>
-            <ion-title>{{(t("Working Day List"))}}</ion-title>
-        </ion-toolbar>
-    </ion-header>
+        <AppBar>{{(t("Working Day List"))}}</AppBar>
     <ion-content>
         This is Working Day Page
     </ion-content>
@@ -12,5 +8,6 @@
 </template>
 
 <script setup lang="ts">
+import AppBar from "@/views/Layout/AppBar.vue"
 const t = window.t
 </script>

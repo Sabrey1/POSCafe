@@ -1,10 +1,6 @@
 <template>
     <ion-page>
-     <ion-header>
-        <ion-toolbar>
-            <ion-title>{{(t("Sale List"))}}</ion-title>
-        </ion-toolbar>
-    </ion-header>
+        <AppBar>{{(t("Sale List"))}}</AppBar>
     <ion-content>
         Sale List
     </ion-content>
@@ -12,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+import AppBar from "@/views/Layout/AppBar.vue"
 const t = window.t
 
 </script>

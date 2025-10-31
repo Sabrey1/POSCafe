@@ -21,6 +21,12 @@
         <ion-label>{{t("Sale")}}</ion-label>
       </ion-item>
     </RouterLink>
+    <RouterLink to="/order-list" style="text-decoration: none;">
+      <ion-item>
+          <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
+        <ion-label>{{t("Sale List")}}</ion-label>
+      </ion-item>
+    </RouterLink>
     <RouterLink to="/category" style="text-decoration: none;">
       <ion-item>
            <i class="fa-solid fa-layer-group" style="margin-right: 10px;"></i>
@@ -34,10 +40,10 @@
         <ion-label>{{t("Product")}}</ion-label>
       </ion-item>
     </RouterLink>
-    <RouterLink to="/working-day" style="text-decoration: none;">
+    <RouterLink to="/working-day-list" style="text-decoration: none;">
       <ion-item>
          <i class="fa-regular fa-clock" style="margin-right: 10px;"></i> 
-        <ion-label>{{t("Working Day")}}</ion-label>
+        <ion-label>{{t("Working Day List")}}</ion-label>
       </ion-item>
     </RouterLink>
     <RouterLink to="/shift" style="text-decoration: none;">

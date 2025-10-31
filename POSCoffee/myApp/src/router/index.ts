@@ -7,14 +7,15 @@ import Dashboard from '@/views/Dashboard/Dashboard.vue'
 import Order from '@/views/Order/Order.vue'
 import RoleList from '@/views/Role/RoleList.vue'
 import positionList from '@/views/Position/positionList.vue'
-import workingDay from "@/views/WorkingDay/workingDay.vue"
+import workingDay from "@/views/WorkingDay/WorkingDay.vue"
 import Shift from '@/views/Shift/Shift.vue'
-import OrderList from '@/views/Order/components/OrderList.vue'
+import OrderList from '@/views/Order/OrderList.vue'
 import Report from '@/views/Report/Report.vue'
 import Setting from '@/views/Setting/setting.vue'
 import Product from '@/views/Product/Product.vue'
 import Category from '@/views/Category/Category.vue'
 import NotFound from '@/views/Layout/NotFound.vue'
+import WorkingDayList from '@/views/WorkingDay/WorkingDayList.vue'
 import Login from '@/views/Auth/Login.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -71,6 +72,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/working-day',
     name: 'workingDay',
     component: workingDay
+  },
+  {
+    path: '/working-day-list',
+    name: 'WorkingDayList',
+    component: WorkingDayList
   },
   {
     path: '/shift',

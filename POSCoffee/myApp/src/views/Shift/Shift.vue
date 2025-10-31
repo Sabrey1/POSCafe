@@ -1,6 +1,6 @@
 <template>
 <ion-page>
-        <AppBar>{{(t("Shift"))}}</AppBar>
+        <AppBar>{{(t("Shift List"))}}</AppBar>
     <ion-content>
         This is Shift Page
     </ion-content>
