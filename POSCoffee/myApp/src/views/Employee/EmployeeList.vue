@@ -85,6 +85,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import EmployeeAdd from "@/views/Employee/components/EmployeeAdd.vue"
+import EditEmployee from "@/views/Employee/components/EditEmployee.vue"
 import AppBar from "@/views/Layout/AppBar.vue"
 
 const data = ref()
@@ -112,6 +113,15 @@ async function onDelete(id) {
       alert(t("Failed to delete employee"));
     }
   }
+}
+
+async function onEdit(id){
+    const modal = await modalController.create({
+        component: EditEmployee,
+         componentProps: { id },
+        cssClass: 'employee-modal',
+    });
+    await modal.present();
 }
 
 const openModal = async () => {

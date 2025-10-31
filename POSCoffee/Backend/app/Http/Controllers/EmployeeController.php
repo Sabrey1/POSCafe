@@ -33,7 +33,7 @@ class EmployeeController extends Controller
         ]);
     }
     
-    public function update(){
+    public function update($id, Request $request){
         $employee = Employee::find($id);
         if(!$employee){
             return response()->json([
