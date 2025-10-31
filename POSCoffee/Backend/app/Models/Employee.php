@@ -11,9 +11,15 @@ class Employee extends Model
     protected $fillable = [
         'employee_code',
         'name',
+        'gender',
+        'dob',
+        'hire_date',
+        'position',
+        'salary',
         'email',
         'phone',
         'address',
+        'note',
 
     ];
      public function shifts()
