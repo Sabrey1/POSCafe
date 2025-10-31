@@ -79,7 +79,7 @@
             <ion-row>
                 <ion-col>
                     <ion-item lines="none">
-                        <ion-input :label="t('Note')" label-placement="floating" fill="outline" style="height: 100px;" :placeholder="t('Enter Note')"></ion-input>
+                        <ion-input :label="t('Note')" v-model="employee.note" label-placement="floating" fill="outline" style="height: 100px;" :placeholder="t('Enter Note')"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>

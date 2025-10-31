@@ -48,6 +48,12 @@
             </template>
             </Column>
 
+            <Column field="salary" :header="t('Salary')" sortable class="p-2">
+            <template #body="slotProps">
+                <span class="p-2">{{ slotProps.data.salary }}</span>
+            </template>
+            </Column>
+
             <Column field="position" :header="t('Position')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.position }}</span>
