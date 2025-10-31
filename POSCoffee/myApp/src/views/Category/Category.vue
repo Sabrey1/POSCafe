@@ -9,7 +9,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-       
+       {{ data }}
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -28,9 +28,9 @@
                 <span class="p-2">{{ slotProps.data.name }}</span>
             </template>
             </Column>
-            <Column field="note" :header="t('Note')" sortable class="p-2">
+            <Column field="note" :header="t('Description')" sortable class="p-2">
             <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.note }}</span>
+                <span class="p-2">{{ slotProps.data.description }}</span>
             </template>
             </Column>
             <Column field="owner" :header="t('Created By')" sortable class="p-2">

@@ -34,10 +34,10 @@ class CustomerController extends Controller
     }
 
     public function show($id)
-{
-    $customer = Customer::find($id);
-    return response()->json($customer);
-}
+    {
+        $customer = Customer::find($id);
+        return response()->json($customer);
+    }
     public function update(Request $request, $id){
         $customer = Customer::find($id);
         if(!$customer){

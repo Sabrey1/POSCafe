@@ -10,16 +10,25 @@ class CategoryController extends Controller
         $categories = Category::all();
         return response()->json($categories);
     }
-    public function create(){
-        //
+    
+    public function store(Request $request){
+        $request->validate([
+            'category_code' => 'required',
+            'name' => 'required',
+            
+        ]);
+
+        $categories = Category::create($request->all());
+        return response()->json([
+            'success' => true,
+            'message' => 'Category created successfully',
+            'category' => $categories
+        ]);
     }
 
-    public function store(){
-        //
-    }
-
-    public function edit(){
-        // Show the form for editing a category
+    public function show($id){
+        $categories = Category::find($id);
+        return response()->json($categories);
     }
 
     public function update(){
