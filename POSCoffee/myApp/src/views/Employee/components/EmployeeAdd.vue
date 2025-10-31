@@ -43,61 +43,37 @@
         </ion-col>
         <ion-col>
             <ion-item lines="none">
-                <!-- Employee Role -->
-                <ion-select aria-label="role" v-model="employee.role" fill="outline" interface="popover" :placeholder="t('Select Role')">
-                    <ion-select-option value="User">{{t("User")}}</ion-select-option>
-                    <ion-select-option value="Admin">{{t("Admin")}}</ion-select-option>
-                    <ion-select-option value="Manager">{{t("Manager")}}</ion-select-option>
-                </ion-select>
-            </ion-item>
-        </ion-col>
-    </ion-row>
-    <ion-row>
-        <ion-col>
-            <!-- Hire Date -->
-            <ion-item lines="none">
-                <ion-input :label="t('Hire Date')" v-model="employee.hire_date" label-placement="floating" type="date" fill="outline" :placeholder="t('Enter Hire Date')"></ion-input>
-            </ion-item>
-        </ion-col>
-        <ion-col>
-            <ion-item lines="none">
-                <!-- Employee Role -->
-                <ion-select aria-label="employee_type" v-model="employee.employee_type" fill="outline" interface="popover" :placeholder="t('Select Employee Type')">
-                    <ion-select-option value="VIP">{{t("VIP")}}</ion-select-option>
-                    <ion-select-option value="Normal">{{t("Normal")}}</ion-select-option>
-                </ion-select>
-            </ion-item>
-        </ion-col>
-    </ion-row>
-
-    <ion-row>
-        <ion-col>
-            <ion-item lines="none">
                 <!-- Employee Position -->
-                <ion-select aria-label="position" v-model="employee.position" fill="outline" interface="popover" :placeholder="t('Select Role')">
+                <ion-select aria-label="position" v-model="employee.position" fill="outline" interface="popover" :placeholder="t('Select Position')">
                     <ion-select-option value="IT Support">{{t("IT Support")}}</ion-select-option>
                     <ion-select-option value="Network Manager">{{t("Network Manager")}}</ion-select-option>
                     <ion-select-option value="Manager">{{t("Manager")}}</ion-select-option>
                 </ion-select>
             </ion-item>
         </ion-col>
+        
+         
+    </ion-row>
+    
+    <ion-row>
         <ion-col>
             <ion-item lines="none">
                 <ion-input :label="t('Salary')" v-model="employee.salary" label-placement="floating" type="number" fill="outline" :placeholder="t('Enter Salary')"></ion-input>
             </ion-item>
         </ion-col>
-    </ion-row>
-
-    <ion-row>
-       <ion-col>
+        <ion-col>
                <!-- Adress -->
             <ion-item lines="none">
                 <ion-input :label="t('Adress')" v-model="employee.address" label-placement="floating" fill="outline" :placeholder="t('Enter Adress')"></ion-input>
             </ion-item>
         </ion-col>
+    </ion-row>
+
+    <ion-row>
+       
         <ion-col>
             <ion-item lines="none">
-                <ion-input :label="t('Note')" label-placement="floating" fill="outline" :placeholder="t('Enter Note')"></ion-input>
+                <ion-input :label="t('Note')" label-placement="floating" fill="outline" style="height: 100px;" :placeholder="t('Enter Note')"></ion-input>
             </ion-item>
         </ion-col>
     </ion-row>
@@ -121,7 +97,6 @@ const employee = ref({
     name: "",
     email:"",
     phone:"",
-    role:"",
     gender:"",
     dob:"",
     employee_type:"",
