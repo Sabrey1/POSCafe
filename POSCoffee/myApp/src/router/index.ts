@@ -17,6 +17,7 @@ import Category from '@/views/Category/Category.vue'
 import NotFound from '@/views/Layout/NotFound.vue'
 import WorkingDayList from '@/views/WorkingDay/WorkingDayList.vue'
 import Login from '@/views/Auth/Login.vue'
+import UserInfo from "@/views/Layout/UserProfile/UserInfo.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -107,6 +108,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/category',
     name: 'Category',
     component: Category
+  },
+  {
+    path: '/user-info',
+    name: 'UserInfo',
+    component: UserInfo
   }
 ]
 

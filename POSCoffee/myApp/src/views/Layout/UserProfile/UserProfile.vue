@@ -5,12 +5,14 @@
   <ion-popover trigger="popover-button" :dismiss-on-select="true" class="full-width-popover">
     <ion-content>
       <ion-list>
-        <ion-item :button="true" :detail="false">
-            <div>
-                <i class="fas fa-user"></i>
-            {{ t("User Profile") }}
-            </div>
-        </ion-item>
+        <Router-Link to="/user-info" style="text-decoration: none;">
+          <ion-item :button="true" :detail="false">
+              <div>
+                  <i class="fas fa-user"></i>
+              {{ t("User Profile") }}
+              </div>
+          </ion-item>
+        </Router-Link>
          <ion-item :button="true" :detail="false" class="language-item">
             <div class="language-wrapper">
               <i class="fas fa-language"></i>
