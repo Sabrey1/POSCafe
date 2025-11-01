@@ -19,6 +19,7 @@ import NotFound from '@/views/Layout/NotFound.vue'
 import WorkingDayList from '@/views/WorkingDay/WorkingDayList.vue'
 import Login from '@/views/Auth/Login.vue'
 import UserInfo from "@/views/Layout/UserProfile/UserInfo.vue"
+import UserList from "@/views/Auth/User/UserList.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -49,6 +50,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/employee-list',
     name: 'EmployeeList',
     component: EmployeeList
+  },
+  {
+    path: '/user-list',
+    name: 'UserList',
+    component: UserList
   },
   {
     path: '/dashboard',

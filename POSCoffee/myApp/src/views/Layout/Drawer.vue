@@ -8,6 +8,12 @@
       <ion-label>{{t("Home")}}</ion-label>
     </ion-item>
     </RouterLink>
+    <RouterLink to="/user-list" style="text-decoration: none;">
+    <ion-item>
+        <i class="fas fa-user" style="margin-right: 10px;"></i>
+      <ion-label>{{t("User List")}}</ion-label>
+    </ion-item>
+    </RouterLink>
     <RouterLink to="/dashboard" style="text-decoration: none;">
     <ion-item>
         <i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i>
