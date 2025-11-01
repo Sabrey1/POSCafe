@@ -28,7 +28,7 @@
                 <span class="p-2">{{ slotProps.data.name }}</span>
             </template>
             </Column>
-            <Column field="note" :header="t('Description')" sortable class="p-2">
+            <Column field="description" :header="t('Description')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.description }}</span>
             </template>
