@@ -28,7 +28,7 @@ class RoleController extends Controller
         $role = Role::create($request->all());
         return response()->json([
             'success' => true,
-            'data' => $role,
+            'role' => $role,
             'message' => 'Role created successfully'
         ]);
     }
@@ -36,12 +36,12 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Role $role)
+    public function show(Role $role, $id)
     {
-        $role = Role::find($role->id);
+        $role = Role::find($id);
         return response()->json([
             'success' => true,
-            'data' => $role,
+            'role' => $role,
             'message' => 'Role retrieved successfully'
         ]);
     }
