@@ -6,50 +6,60 @@
     <ion-row>
         <ion-col>
             <!-- prodiuct Code -->
-            <ion-item lines="none">
+            <!-- <ion-item lines="none">
                 <ion-input :label="t('Product Code')" label-placement="floating" fill="outline" :placeholder="t('Enter product code')"></ion-input>
-            </ion-item>
+            </ion-item> -->
         </ion-col>
         <ion-col>
               <!-- product Name -->
             <ion-item lines="none">
-                <ion-input :label="t('Product Name')" label-placement="floating" fill="outline" :placeholder="t('Enter product name')"></ion-input>
+                <ion-input :label="t('Product Name')" v-model="product.name" label-placement="floating" fill="outline" :placeholder="t('Enter product name')"></ion-input>
             </ion-item>
         </ion-col>
       </ion-row>
      <ion-row>
         <ion-col>
              <ion-item lines="none">
-                <ion-input :label="t('Description')" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
+                <ion-input :label="t('Description')" v-model="product.description" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col>
              <!-- price -->
             <ion-item lines="none">
-                <ion-input :label="t('Price')" label-placement="floating" fill="outline" :placeholder="t('Enter price')"></ion-input>
+                <ion-input :label="t('Price')" v-model="product.price" type="number" label-placement="floating" fill="outline" :placeholder="t('Enter price')"></ion-input>
             </ion-item>
         </ion-col>
       </ion-row>
      <ion-row>
         <ion-col>
              <ion-item lines="none">
-                <ion-input :label="t('Quantity')" label-placement="floating" fill="outline" :placeholder="t('Enter quantity')"></ion-input>
+                <ion-input :label="t('Quantity')" v-model="product.quantity" type="number" label-placement="floating" fill="outline" :placeholder="t('Enter quantity')"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col>
             <ion-item lines="none">
-                <!-- Customer Category -->
-                <ion-select aria-label="category_id" fill="outline" interface="popover" :placeholder="t('Select category')">
-                    <ion-select-option value="electronics">{{t("Electronics")}}</ion-select-option>
-                    <ion-select-option value="clothing">{{t("Clothing")}}</ion-select-option>
-                </ion-select>
-            </ion-item>
+  <ion-select
+    aria-label="category_id"
+    v-model="product.category_id"
+    fill="outline"
+    interface="popover"
+    :placeholder="t('Select category')"
+  >
+    <ion-select-option
+      v-for="cat in categories"
+      :key="cat.id"
+      :value="cat.id"
+    >
+      {{ cat.name }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
         </ion-col>
       </ion-row>
        <ion-row>
         <ion-col>
              <ion-item lines="none">
-                <ion-input :label="t('Note')" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
+                <ion-input :label="t('Note')" v-model="product.note" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
             </ion-item>
         </ion-col>
         
@@ -63,12 +73,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
 import { IonContent, IonItem, IonInput, IonButton, modalController, IonSelect, IonSelectOption  } from '@ionic/vue';
 
 const t = window.t
-
+const categories = ref([]);
 const product = ref({
   // product_code: "",
   name: "",
@@ -79,6 +89,15 @@ const product = ref({
   note: "",
 });
 
+
+async function loadCategories() {
+  try {
+    const res = await axios.get("http://127.0.0.1:8000/api/category");
+    categories.value = res.data;
+  } catch (err) {
+    console.error("Failed to load categories:", err);
+  }
+}
 
 const addProduct = async () => {
   try {
@@ -100,4 +119,8 @@ const close = async () => {
   if (modal) await modal.dismiss();
 };
 
+
+onMounted(() => {
+  loadCategories();
+});
 </script>

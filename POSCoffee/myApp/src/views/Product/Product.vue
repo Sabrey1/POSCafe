@@ -82,6 +82,22 @@ async function getData(){
     }
 }
 
+async function onDelete(id) {
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this product?"));
+  if (confirmDelete) {
+    try {
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/product/${id}`);
+      if (deleteRes.data.success) {
+        alert(t("Product deleted successfully"));
+        await getData();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("Failed to delete poduct"));
+    }
+  }
+}
+
 
 const openModal = async () => {
   const modal = await modalController.create({
