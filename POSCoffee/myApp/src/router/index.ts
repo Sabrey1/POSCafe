@@ -20,6 +20,8 @@ import WorkingDayList from '@/views/WorkingDay/WorkingDayList.vue'
 import Login from '@/views/Auth/Login.vue'
 import UserInfo from "@/views/Layout/UserProfile/UserInfo.vue"
 import UserList from "@/views/Auth/User/UserList.vue"
+import CurrenyList from "@/views/Currency/CurrenyList.vue"
+import Country from "@/views/Country/Country.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -70,6 +72,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/role-list',
     name: 'RoleList',
     component: RoleList
+  },
+  {
+    path: '/currency-list',
+    name: 'CurrenyList',
+    component: CurrenyList
+  },
+  {
+    path: '/country-list',
+    name: 'Country',
+    component: Country
   },
   {
     path: '/position-list',
