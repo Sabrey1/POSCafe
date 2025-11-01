@@ -9,10 +9,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\CountryController;
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
 
 // Customer
 Route::get('/customer',[CustomerController::class,'index'])->name('customer');
@@ -27,7 +26,6 @@ Route::get('/employee/{id}',[EmployeeController::class,'show'])->name('employee.
 Route::post('/employee',[EmployeeController::class,'store'])->name('employee.store');
 Route::put('/employee/{id}',[EmployeeController::class,'update'])->name('employee.update');
 Route::delete('/employee/{id}',[EmployeeController::class,'destroy'])->name('employee.destroy');
-
 
 //Product
 Route::get('/product',[ProductController::class,'index'])->name('product');
@@ -54,10 +52,29 @@ Route::delete('/role/{id}',[RoleController::class,'destroy'])->name('role.delete
 Route::get('/user',[UserController::class,'index'])->name('user');
 Route::get('/user/{id}',[UserController::class,'show'])->name('user.show');
 Route::post('/user',[UserController::class,'store'])->name('user.store');
-
+Route::put('/user/{id}',[UserController::class,'update'])->name('user.update');
+Route::delete('/user/{id}',[UserController::class,'destroy'])->name('user.destroy');
 
 // login
 Route::post('/login',[UserController::class,'login'])->name('login');
 
 //position
 Route::get('/position',[PositionController::class,'index'])->name('position');
+Route::get('/position/{id}',[PositionController::class,'show'])->name('position.show');
+Route::post('/position',[PositionController::class,'store'])->name('position.store');
+Route::put('/position/{id}',[PositionController::class,'update'])->name('position.update');
+Route::delete('/position/{id}',[PositionController::class,'destroy'])->name('position.destroy');
+
+//Currency
+Route::get('/currency',[CurrencyController::class,'index'])->name('currency');
+Route::get('/currency/{id}',[CurrencyController::class,'show'])->name('currency.show');
+Route::post('/currency',[CurrencyController::class,'store'])->name('currency.store');
+Route::put('/currency/{id}',[CurrencyController::class,'update'])->name('currency.update');
+Route::delete('/currency/{id}',[CurrencyController::class,'destroy'])->name('currency.destroy');
+
+//Country
+Route::get('/country',[CountryController::class,'index'])->name('country');
+Route::get('/country/{id}',[CountryController::class,'show'])->name('country.show');
+Route::post('/country',[CountryController::class,'store'])->name('country.store');
+Route::put('/country/{id}',[CountryController::class,'update'])->name('country.update');
+Route::delete('/country/{id}',[CountryController::class,'destroy'])->name('country.destroy');
