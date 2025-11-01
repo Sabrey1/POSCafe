@@ -8,14 +8,10 @@ use App\Models\Order;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::all();
-        return response()->json($orders);
+        $order = Order::all();
+        return response()->json($order);
     }
-    public function create(){
-        //
-
-
-    }
+  
     public function store(){
         //
     }

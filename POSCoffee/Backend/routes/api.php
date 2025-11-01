@@ -78,3 +78,12 @@ Route::get('/country/{id}',[CountryController::class,'show'])->name('country.sho
 Route::post('/country',[CountryController::class,'store'])->name('country.store');
 Route::put('/country/{id}',[CountryController::class,'update'])->name('country.update');
 Route::delete('/country/{id}',[CountryController::class,'destroy'])->name('country.destroy');
+
+//Sale List
+Route::get('/order',[CountryController::class,'index'])->name('country');
+Route::get('/country/{id}',[CountryController::class,'show'])->name('country.show');
+Route::post('/country',[CountryController::class,'store'])->name('country.store');
+Route::put('/country/{id}',[CountryController::class,'update'])->name('country.update');
+Route::delete('/country/{id}',[CountryController::class,'destroy'])->name('country.destroy');
+
+
