@@ -1,6 +1,6 @@
 <template>
 <ion-page>
-  
+
         <AppBar>{{ t("Role List") }}</AppBar>
        
         <ion-content class="ion-padding">
@@ -11,6 +11,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
+        
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -67,6 +68,23 @@ async function getdata(){
     if(res.data){
         data.value = res.data;
     }
+}
+
+
+async function onDelete(id) {
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this role?"));
+  if (confirmDelete) {
+    try {
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/role/${id}`);
+      if (deleteRes.data.success) {
+        alert(t("Role deleted successfully"));
+        await getdata();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("Failed to delete role"));
+    }
+  }
 }
 
 const openModal = async () => {

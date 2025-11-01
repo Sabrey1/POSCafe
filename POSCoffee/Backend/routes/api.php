@@ -41,10 +41,16 @@ Route::delete('/category/{id}',[CategoryController::class,'destroy'])->name('cat
 
 //role
 Route::get('/role',[RoleController::class,'index'])->name('role');
+Route::get('/role/{id}',[RoleController::class,'show'])->name('role.show');
+Route::post('/role',[RoleController::class,'store'])->name('role.store');
+Route::put('/role/{id}',[RoleController::class,'update'])->name('role.update');
+Route::delete('/role/{id}',[RoleController::class,'destroy'])->name('role.delete');
 
 // user
 Route::get('/user',[UserController::class,'index'])->name('user');
+Route::get('/user/{id}',[UserController::class,'show'])->name('user.show');
 Route::post('/user',[UserController::class,'store'])->name('user.store');
+
 
 // login
 Route::post('/login',[UserController::class,'login'])->name('login');

@@ -17,19 +17,20 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'role_code'=> 'required',
+            'name'=> 'required'
+        ]);
+        $role = Role::create($request->all());
+        return response()->json([
+            'success' => true,
+            'data' => $role,
+            'message' => 'Role created successfully'
+        ]);
     }
 
     /**
@@ -37,30 +38,55 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        $role = Role::find($role->id);
+        return response()->json([
+            'success' => true,
+            'data' => $role,
+            'message' => 'Role retrieved successfully'
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Role $role)
-    {
-        //
-    }
-
+     
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Role $role, $id)
     {
-        //
+        $role = Role::find($id);
+        if(!$role){
+            return response()->json([
+                'success' => false,
+                'message' => 'Role not found'
+            ]);
+        }
+        else{
+            $role->update($request->all());
+            return response()->json([
+                'success' => true,
+                'message' => 'Role updated successfully',
+                'role' => $role
+            ]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+    public function destroy($id)
     {
-        //
+        $role = Role::find($id);
+        if(!$role){
+            return response()->json([
+                'success' => false,
+                'message' => 'Role not found'
+            ]);
+        }
+        else{
+            $role->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Role deleted successfully'
+            ]);
+        }
     }
 }

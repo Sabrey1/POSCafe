@@ -93,7 +93,7 @@ async function onDelete(id) {
       const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/category/${id}`);
       if (deleteRes.data.success) {
         alert(t("Category deleted successfully"));
-        await getdate();
+        await getdata();
       }
     } catch (error) {
       console.error(error);
