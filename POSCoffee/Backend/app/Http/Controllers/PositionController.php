@@ -17,50 +17,68 @@ class PositionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'position_code'=> 'required',
+            'name' => 'required',
+        ]);
+        $position = Position::create($request->all());
+        return response()->json([
+            'success' => true,
+            'message' => 'Position created successfully',
+            'position' => $position
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Position $position)
+   
+    public function show(Position $position, $id)
     {
-        //
+        $position = Position::find($id);
+        return response()->json($position);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Position $position)
-    {
-        //
-    }
+ 
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Position $position)
+    public function update(Request $request, Position $position, $id)
     {
-        //
+        $position = Position::find($id);
+        if(!$position){
+            return response()->json([
+                'success' => false,
+                'message' => 'Position not found'
+            ]);
+        }else{
+            $position->update($request->all());
+            return response()->json([
+                'success' => true,
+                'message' => 'Position updated successfully',
+                'position' => $position
+            ]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Position $position)
+    public function destroy(Position $position, $id)
     {
-        //
+        $position = Position::find($id);
+        if(!$position){
+            return response()->json([
+                'success' => false,
+                'message' => 'Position not found'
+            ]);
+        }else{
+            $position->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Position deleted successfully'
+            ]);
+        }
     }
 }

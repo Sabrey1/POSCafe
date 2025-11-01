@@ -7,40 +7,65 @@
         <ion-col>
             <!-- Role Code -->
             <ion-item lines="none">
-                <ion-input :label="t('Position Code')" label-placement="floating" fill="outline" :placeholder="t('Enter Position code')"></ion-input>
+                <ion-input :label="t('Position Code')" v-model="position.position_code" label-placement="floating" fill="outline" :placeholder="t('Enter Position code')"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col>
               <!-- Role Name -->
             <ion-item lines="none">
-                <ion-input :label="t('Position Name')" label-placement="floating" fill="outline" :placeholder="t('Enter position name')"></ion-input>
+                <ion-input :label="t('Position Name')" v-model="position.name" label-placement="floating" fill="outline" :placeholder="t('Enter position name')"></ion-input>
             </ion-item>
         </ion-col>
       </ion-row>
      <ion-row>
         <ion-col>
              <ion-item lines="none">
-                <ion-input :label="t('Description')" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
+                <ion-input :label="t('Description')" v-model="position.description" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col>
              <!-- Note -->
             <ion-item lines="none">
-                <ion-input :label="t('Note')" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
+                <ion-input :label="t('Note')" v-model="position.note" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
             </ion-item>
         </ion-col>
       </ion-row>
       <br>
-      <ion-button expand="block" color="primary" @click="close">{{t("Save")}}</ion-button>
+      <ion-button expand="block" color="primary" @click="addPosition">{{t("Save")}}</ion-button>
       </ion-grid>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+import axios from "axios";
 import { IonContent, IonItem, IonInput, IonButton, modalController } from '@ionic/vue';
 
 const t = window.t
+
+const position = ref({
+  position_code: "",
+  name: "",
+  description: "",
+  note: "",
+});
+
+const addPosition = async () => {
+  try {
+    // Replace URL with your API endpoint
+    const response = await axios.post("http://127.0.0.1:8000/api/position", position.value);
+
+    console.log("position added:", response.data);
+    alert("position added successfully!");
+    close();
+  } catch (error) {
+    console.error("Error adding position:", error);
+    alert("Failed to add position");
+  }
+};
+
+
 
 const close = async () => {
   const modal = await modalController.getTop();

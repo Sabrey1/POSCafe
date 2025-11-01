@@ -93,5 +93,24 @@
   "Password":"លេខសម្ងាត់",
   "Input Your Username":"បញ្ចូលឈ្មោះអ្នកប្រើប្រាស់",
   "Input Your Password":"បញ្ចូលលេខសម្ងាត់",
-  "Login":"ចូលប្រើប្រាស់"
+  "Login":"ចូលប្រើប្រាស់",
+  "User List":"បញ្ជីអ្នកប្រើប្រាស់",
+  "Currency List":"បញ្ជីរូបិយប័ណ្ណ",
+  "Country List":"បញ្ជីប្រទេស",
+  "Working Day List":"បញ្ជីថ្ងៃធ្វើការ",
+  "Shift List":"បញ្ជីវេនធ្វើការ",
+  "Cancel":"បោះបង់",
+  "View Working Day":"មើលវេនធ្វើការ",
+  "Open Working Day":"បើកវេនធ្វើការ",
+  "POS Profile":"POS Profile",
+  "Working Date":"ថ្ងៃធ្វើការ",
+  "Working Day Number":"លេខថ្ងៃធ្វើការ",
+  "Cash Float":"ប្រាក់ទុកអាប់",
+  "Cash Dollar": "ទឹកប្រាក់ដុល្លា",
+  "Cash Riel": "ទឹកប្រាក់រៀល",
+  "Total Cash Float:":"ចំនួនប្រាក់ទុកអាប់សរុប",
+  "View Shift":"មើលវេនធ្វើការ",
+  "Open Shift":"បើកវេនធ្វើការ",
+  "Start Cashier Shift":"ចាប់ផ្តើមវេនធ្វើការ"
+
 }
