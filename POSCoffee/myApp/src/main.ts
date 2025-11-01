@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router';
 import i18n from './i18n'
 import dayjs from './helpers/dayjs.js'
+import api from '@/services/api-service.js'
  
 import { 
   IonicVue, 
@@ -82,6 +83,11 @@ app.component('Toast', Toast) // 👈 register globally
 app.use(ToastService)
 app.config.globalProperties.$dayjs = dayjs;
 
+// Provide globally
+app.provide('api', api)
+// use this for call api
+// import { inject } from 'vue'
+// const api = inject('api') 
 
 window.t = (key) => i18n.global.t(key)
 router.isReady().then(() => {
