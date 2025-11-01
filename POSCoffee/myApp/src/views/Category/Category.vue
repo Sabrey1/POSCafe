@@ -9,7 +9,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-       {{ data }}
+     
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -65,6 +65,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import categoryAdd from '@/views/Category/components/categoryAdd.vue'
+import CategoryEdit from "@/views/Category/components/CategoryEdit.vue"
 import AppBar from "@/views/Layout/AppBar.vue"
 const data = ref();
 
@@ -74,6 +75,31 @@ async function getdata(){
         data.value = res.data;
     }
 
+}
+
+async function onEdit(id){
+    const modal = await modalController.create({
+        component: CategoryEdit,
+         componentProps: { id },
+        cssClass: 'category-modal',
+    });
+    await modal.present();
+}
+
+async function onDelete(id) {
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this category?"));
+  if (confirmDelete) {
+    try {
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/category/${id}`);
+      if (deleteRes.data.success) {
+        alert(t("Category deleted successfully"));
+        await getdate();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("Failed to delete category"));
+    }
+  }
 }
 
 const openModal = async () => {

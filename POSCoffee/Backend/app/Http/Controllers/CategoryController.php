@@ -13,7 +13,7 @@ class CategoryController extends Controller
     
     public function store(Request $request){
         $request->validate([
-            'category_code' => 'required',
+            // 'category_code' => 'required',
             'name' => 'required',
             
         ]);
@@ -31,12 +31,40 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
-    public function update(){
-        //
+    public function update($id, Request $request){
+        $categories = Category::find($id);
+        if(!$categories){
+            return response()->json([
+                'success' => false,
+                'message' => 'Category not found'
+            ]);
+        }
+        else{
+            $categories->update($request->all());
+            return response()->json([
+                'success' => true,
+                'message' => 'Category updated successfully',
+                'category' => $categories
+            ]);
+        }
+        
     }
 
-    public function destroy(){
-        //
+    public function destroy($id){
+        $categories = Category::find($id);
+        if(!$categories){
+            return response()->json([
+                'success' => false,
+                'message' => 'Category not found'
+            ]);
+        }
+        else{
+            $categories->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Category deleted successfully'
+            ]);
+        }
     }
 
 }
