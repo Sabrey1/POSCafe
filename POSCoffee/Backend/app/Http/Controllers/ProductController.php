@@ -12,25 +12,59 @@ class ProductController extends Controller
         $products = Product::all();
         return response()->json($products);
     }
-
-    public function create(){
-        //
+ 
+    public function store(Request $request){
+        $request-> validate([
+            'name' => 'required',
+            'price' => 'required',
+            'quantity' => 'required',
+        ]);
+        
+        $product = Product::create($request->all());
+        return response()->json([
+            'success' => true,
+            'message' => 'Product created successfully',
+            'product' => $product
+        ]);
     }
 
-    public function store(){
-        //
+    public function show($id){
+        $product = Product::find($id);
+        return response()->json($product);
     }
 
-    public function edit(){
-        // Show the form for editing a product
+    public function update($id){
+        $product = Product::find($id);
+        if(!$product){
+            return response()->json([
+                'success' => false,
+                'message' => 'Product not found'
+            ]);
+        }else{
+            $product->update($request->all());
+            return response()->json([
+                'success' => true,
+                'message' => 'Product updated successfully',
+                'product' => $product
+            ]);
+        }
     }
 
-    public function update(){
-        //
-    }
-
-    public function destroy(){
-
+    public function destroy($id){
+        $product = Product::find($id);
+        if(!$product){
+            return response()->json([
+                'success' => false,
+                'message' => 'Product not found'
+            ]);
+        }else{
+            $product->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Product deleted successfully',
+                'product' => $product
+            ]);
+        }
     }
 
 }

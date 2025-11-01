@@ -56,16 +56,44 @@
       </ion-row>
 
       <br>
-      <ion-button expand="block" color="primary" @click="close">{{t("Save")}}</ion-button>
+      <ion-button expand="block" color="primary" @click="addProduct">{{t("Save")}}</ion-button>
       </ion-grid>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonItem, IonLabel, IonInput, IonButton, modalController, IonList, IonSelect, IonSelectOption  } from '@ionic/vue';
+import { ref } from "vue";
+import axios from "axios";
+import { IonContent, IonItem, IonInput, IonButton, modalController, IonSelect, IonSelectOption  } from '@ionic/vue';
 
 const t = window.t
+
+const product = ref({
+  // product_code: "",
+  name: "",
+  description: "",
+  price: "",
+  quantity: "",
+  category_id: "",
+  note: "",
+});
+
+
+const addProduct = async () => {
+  try {
+    // Replace URL with your API endpoint
+    const response = await axios.post("http://127.0.0.1:8000/api/product", product.value);
+
+    console.log("product added:", response.data);
+    alert("product added successfully!");
+    close();
+  } catch (error) {
+    console.error("Error adding product:", error);
+    alert("Failed to add product");
+  }
+};
+
 
 const close = async () => {
   const modal = await modalController.getTop();
