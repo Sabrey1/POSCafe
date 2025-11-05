@@ -1,7 +1,7 @@
 <template>
-    <ion-page style="overflow-y: hidden;">
+    <div class="content" >
         <AppBar>{{t("Customer List")}}</AppBar>
-        <ion-content class="content">
+     
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
@@ -9,8 +9,15 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-        
-        <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
+       <DataTable
+  :value="data"
+  showGridlines
+  stripedRows
+  scrollable
+  scrollHeight="92vh"
+  tableStyle="min-width: 50rem"
+  class="mt-2"
+>
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
                     {{ slotProps.index + 1 }}
@@ -59,8 +66,8 @@
             </template>
             </Column>
         </DataTable>
-        </ion-content>
-    </ion-page>
+       
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -127,6 +134,11 @@ onMounted(() => {
 
 <style> 
 .content {
-    overflow-y: hidden;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.p-datatable-wrapper {
+  overflow: hidden !important;
 }
 </style>
