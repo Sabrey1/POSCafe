@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('working_days', function (Blueprint $table) {
             $table->id();
+            $table->string('working_day_code')->unique()->nullable();
             $table->string('name');
             $table->date('date');
             $table->string('description')->nullable();

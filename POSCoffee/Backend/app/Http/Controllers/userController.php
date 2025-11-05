@@ -29,17 +29,9 @@ class userController extends Controller
             'success' => false,
             'message' => 'Login failed'
         ]);
-            
-        }
-        
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        }
+
     }
 
     /**
@@ -47,7 +39,18 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'email'=> 'required',
+            'password'=> 'required',
+            'role_id'=> 'required',
+        ]);
+        $user = User::create($request->all());
+        return response()->json([
+            'success' => true,
+            'user' => $user,
+            'message' => 'User created successfully'
+        ]);
     }
 
     /**
@@ -55,30 +58,61 @@ class userController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::find($id);
+        if(!$user){
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found'
+            ]);
+        }
+        else{
+            return response()->json([
+                'success' => true,
+                'user' => $user,
+                'message' => 'User found successfully'
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::find($id);
+        if(!$user){
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found'
+            ]);
+        }
+        else{
+            $user->update($request->all());
+            return response()->json([
+                'success' => true,
+                'user' => $user,
+                'message' => 'User updated successfully'
+            ]);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+        if(!$user){
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found'
+            ]);
+        }
+        else{
+            $user->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'User deleted successfully'
+            ]);
+        }
     }
 }

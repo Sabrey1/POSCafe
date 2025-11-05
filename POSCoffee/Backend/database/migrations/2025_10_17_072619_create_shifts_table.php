@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('shifts', function (Blueprint $table) {
             $table->id();
+            $table->string('shift_code')->unique()->nullable();
             $table->string('name');
             $table->foreignId('working_day_id')
                     ->nullable()
