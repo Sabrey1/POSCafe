@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="mb-2 text-center">{{t("Add Category")}}</h2>
+        <h2 class="mb-2 text-center">{{t("Add User")}}</h2>
         <ion-grid>
             <ion-row>
                 <ion-col>

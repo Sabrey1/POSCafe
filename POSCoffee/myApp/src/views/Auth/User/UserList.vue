@@ -1,4 +1,5 @@
 <template>
+    <div>
     <AppBar>{{t("User List")}}</AppBar>
     <div>
         <div >
@@ -46,12 +47,14 @@
             </Column>
         </DataTable>
     </div>
+    </div>
 </template>
 
 <script setup>
 import AppBar from "@/views/Layout/AppBar.vue"
 import DataTable from 'primevue/datatable';
 import CreateUser from "@/views/Auth/User/components/CreateUser.vue"
+import EditUser from '@/views/Auth/User/components/EditUser.vue'
 import Column from 'primevue/column';
 import dayjs from "dayjs";
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
@@ -74,6 +77,15 @@ const openModal = async () => {
   });
   await modal.present();
 };
+
+async function onEdit(id){
+    const modal = await modalController.create({
+        component: EditUser,
+         componentProps: { id },
+        cssClass: 'user-modal',
+    });
+    await modal.present();
+}
 
 onMounted(() => {
     getData();
