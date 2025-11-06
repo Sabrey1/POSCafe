@@ -2,7 +2,7 @@
 <ion-page>
         <AppBar>{{ t("Position List") }}</AppBar>
         <ion-content class="ion-padding">
-          {{ data }}
+          
             <div>
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >

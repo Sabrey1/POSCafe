@@ -12,6 +12,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\WorkingDayController;
+use App\Http\Controllers\ShiftController;
 
 
 // Customer
@@ -85,6 +87,21 @@ Route::get('/order',[OrderController::class,'index'])->name('order');
 Route::get('/order/{id}',[OrderController::class,'show'])->name('order.show');
 Route::post('/order',[OrderController::class,'store'])->name('order.store');
 Route::put('/order/{id}',[OrderController::class,'update'])->name('order.update');
-Route::delete('/couorderntry/{id}',[OrderController::class,'destroy'])->name('order.destroy');
+Route::delete('/order/{id}',[OrderController::class,'destroy'])->name('order.destroy');
+
+
+//Working Day List
+Route::get('/workingday',[WorkingDayController::class,'index'])->name('workingday');
+Route::get('/workingday/{id}',[WorkingDayController::class,'show'])->name('workingday.show');
+Route::post('/workingday',[WorkingDayController::class,'store'])->name('workingday.store');
+Route::put('/workingday/{id}',[WorkingDayController::class,'update'])->name('workingday.update');
+Route::delete('/workingday/{id}',[WorkingDayController::class,'destroy'])->name('workingday.destroy');
+
+//Shift List
+Route::get('/shift',[ShiftController::class,'index'])->name('shift');
+Route::get('/shift/{id}',[ShiftController::class,'show'])->name('shift.show');
+Route::post('/shift',[ShiftController::class,'store'])->name('shift.store');
+Route::put('/shift/{id}',[ShiftController::class,'update'])->name('shift.update');
+Route::delete('/shift/{id}',[ShiftController::class,'destroy'])->name('shift.destroy');
 
 

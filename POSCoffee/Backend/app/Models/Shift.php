@@ -9,23 +9,25 @@ class Shift extends Model
      use HasFactory;
 
     protected $fillable = [
-        'employee_id',
+        'shift_code',
+        'name',
         'shift_date',
         'working_day_id',
+        'note',
     ];
 
-    public function employee()
-    {
-        return $this->belongsTo(Employee::class);
-    }
+    // public function employee()
+    // {
+    //     return $this->belongsTo(Employee::class);
+    // }
 
     public function workingDay()
     {
         return $this->belongsTo(WorkingDay::class, 'working_day_id');
     }
 
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
+    // public function orders()
+    // {
+    //     return $this->hasMany(Order::class);
+    // }
 }

@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class WorkingDay extends Model
 {
      protected $fillable = [
-        'working_date',
+        'working_day_code',
+        'name',
+        'date',
         'description',
+        'note'
     ];
 
     public function shifts()
