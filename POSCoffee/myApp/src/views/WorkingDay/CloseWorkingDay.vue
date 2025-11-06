@@ -1,6 +1,6 @@
 <template>
 <ion-page>
-        <ToolBar>{{(t("Start Working Day"))}}</ToolBar> 
+        <ToolBar>{{(t("Close Working Day"))}}</ToolBar> 
     <ion-content>
         <div class="p-2 fix-container">
             <ion-grid>
