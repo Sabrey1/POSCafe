@@ -53,7 +53,7 @@ Route::delete('/role/{id}',[RoleController::class,'destroy'])->name('role.delete
 
 // user
 Route::get('/user',[UserController::class,'index'])->name('user');
-Route::get('/user/{id}',[UserController::class,'show'])->name('user.show');
+Route::get('/users/{id}',[UserController::class,'show'])->name('user.show');
 Route::post('/user',[UserController::class,'store'])->name('user.store');
 Route::put('/user/{id}',[UserController::class,'update'])->name('user.update');
 Route::delete('/user/{id}',[UserController::class,'destroy'])->name('user.destroy');

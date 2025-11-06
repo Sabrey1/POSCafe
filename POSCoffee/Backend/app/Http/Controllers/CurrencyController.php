@@ -41,11 +41,7 @@ class CurrencyController extends Controller
     public function show(Currency $currency, $id)
     {
         $currency = Currency::find($id);
-        return response()->json([
-            'success' => true,
-            'message' => 'Currency retrieved successfully',
-            'currency' => $currency,
-        ]);
+        return response()->json( $currency);
     }
 
     /**

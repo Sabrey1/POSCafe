@@ -29,11 +29,7 @@ class ShiftController extends Controller
     public function show($id)
     {
         $shift = Shift::find($id);
-        return response()->json([
-            'success' => true,
-            'message' => 'Shift retrieved successfully',
-            'shift' => $shift
-        ]);
+        return response()->json($shift);
     }
     public function update(Request $request,$id)
     {

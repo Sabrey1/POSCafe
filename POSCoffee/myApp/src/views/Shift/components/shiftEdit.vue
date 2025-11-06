@@ -46,10 +46,10 @@
             <ion-item lines="none">
               <ion-input
                 v-model="shift.working_day_id"
-                :label="t('Description')"
+                :label="t('Working Day')"
                 label-placement="floating"
                 fill="outline"
-                :placeholder="t('Enter description')"
+                :placeholder="t('Enter Working Day')"
               />
             </ion-item>
           </ion-col>

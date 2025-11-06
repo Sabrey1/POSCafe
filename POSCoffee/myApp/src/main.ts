@@ -59,7 +59,8 @@ import {
   IonCol,
   IonSplitPane,
   IonMenu,
-  IonMenuToggle
+  IonMenuToggle,
+  
 } from '@ionic/vue';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';

@@ -58,11 +58,7 @@ class userController extends Controller
      */
     public function show(string $id){
         $user = User::find($id);
-        return response()->json([
-            'success' => true,
-            'message' => 'User retrieved successfully',
-            'user' => $user
-        ]);
+        return response()->json($user);
     }
 
     /**

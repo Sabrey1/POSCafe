@@ -39,14 +39,10 @@ class RoleController extends Controller
     public function show(Role $role, $id)
     {
         $role = Role::find($id);
-        return response()->json([
-            'success' => true,
-            'role' => $role,
-            'message' => 'Role retrieved successfully'
-        ]);
+        return response()->json($role);
     }
 
-     
+
     /**
      * Update the specified resource in storage.
      */

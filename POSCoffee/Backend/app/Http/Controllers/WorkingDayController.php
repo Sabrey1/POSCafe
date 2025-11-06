@@ -33,11 +33,7 @@ class WorkingDayController extends Controller
      public function show($id)
     {
         $workingday = WorkingDay::find($id);
-        return response()->json([
-            'success' => true,
-            'message' => 'Working Day retrieved successfully',
-            'workingday' => $workingday
-        ]);
+        return response()->json($workingday);
     }
 
     public function update(Request $request, $id)
