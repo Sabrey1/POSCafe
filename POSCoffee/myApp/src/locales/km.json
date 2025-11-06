@@ -112,6 +112,19 @@
   "View Shift":"មើលវេនធ្វើការ",
   "Open Shift":"បើកវេនធ្វើការ",
   "Start Cashier Shift":"ចាប់ផ្តើមវេនធ្វើការ",
-  "Add User":"បញ្ចូលអ្នកប្រើប្រាស់"
+  "Add User":"បញ្ចូលអ្នកប្រើប្រាស់",
+  "Symbol":"និមិត្តសញ្ញា",
+  "Add Currency":"បន្ថែមរូបិយប័ណ្ណ",
+  "Edit Currency":"កែប្រែរូបិយប័ណ្ណ",
+  "Edit Position":"កែប្រែតំណែង",
+  "Edit Role":"កែប្រែតួនាទី",
+  "Edit User":"កែប្រែអ្នកប្រើប្រាស់",
+  "Edit Working Day":"កែប្រែវេនធ្វើការ",
+  "Edit Shift":"កែប្រែវេនធ្វើការ",
+  "Currency Code":"លេខកូដរូបិយប័ណ្ណ",
+  "Enter currency code":"បញ្ចូលលេខកូដរូបិយប័ណ្ណ",
+  "Currency Name":"ឈ្មោះរូបិយប័ណ្ណ",
+  "Select symbol":"ជ្រើសរើសនិមិត្តសញ្ញា",
+  "Enter currency":"បញ្ចូលរូបិយប័ណ្ណ"
 
 }
