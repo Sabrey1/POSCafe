@@ -1,7 +1,7 @@
 <template>
     <div>
         <AppBar>{{ t("Country List") }}</AppBar>
-<!-- {{ data }} -->
+    <!-- {{ data }} -->
         <div>
             <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">

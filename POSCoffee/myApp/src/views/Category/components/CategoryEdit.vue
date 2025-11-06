@@ -6,9 +6,9 @@
     <ion-row>
         <ion-col>
             <!-- Category Code -->
-            <!-- <ion-item lines="none">
+            <ion-item lines="none">
                 <ion-input :label="t('Category Code')" v-model="category.category_code" label-placement="floating" fill="outline" :placeholder="t('Enter category code')"></ion-input>
-            </ion-item> -->
+            </ion-item>
         </ion-col>
         <ion-col>
               <!-- Category Name -->
@@ -45,7 +45,7 @@ import { IonContent, IonItem, IonLabel, IonInput, IonButton, modalController, Io
 const t = window.t
 
 const category = ref({
-    // category_code: "",
+    category_code: "",
     name: "",
     description: "",
     note: "",

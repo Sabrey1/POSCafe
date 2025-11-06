@@ -11,6 +11,7 @@ use App\Http\Controllers\PositionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\OrderController;
 
 
 // Customer
@@ -80,10 +81,10 @@ Route::put('/country/{id}',[CountryController::class,'update'])->name('country.u
 Route::delete('/country/{id}',[CountryController::class,'destroy'])->name('country.destroy');
 
 //Sale List
-Route::get('/order',[CountryController::class,'index'])->name('country');
-Route::get('/country/{id}',[CountryController::class,'show'])->name('country.show');
-Route::post('/country',[CountryController::class,'store'])->name('country.store');
-Route::put('/country/{id}',[CountryController::class,'update'])->name('country.update');
-Route::delete('/country/{id}',[CountryController::class,'destroy'])->name('country.destroy');
+Route::get('/order',[OrderController::class,'index'])->name('order');
+Route::get('/order/{id}',[OrderController::class,'show'])->name('order.show');
+Route::post('/order',[OrderController::class,'store'])->name('order.store');
+Route::put('/order/{id}',[OrderController::class,'update'])->name('order.update');
+Route::delete('/couorderntry/{id}',[OrderController::class,'destroy'])->name('order.destroy');
 
 

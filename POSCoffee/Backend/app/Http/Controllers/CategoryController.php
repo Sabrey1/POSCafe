@@ -10,12 +10,12 @@ class CategoryController extends Controller
         $categories = Category::all();
         return response()->json($categories);
     }
-    
+
     public function store(Request $request){
         $request->validate([
-            // 'category_code' => 'required',
+            'category_code' => 'required',
             'name' => 'required',
-            
+
         ]);
 
         $categories = Category::create($request->all());
@@ -47,7 +47,7 @@ class CategoryController extends Controller
                 'category' => $categories
             ]);
         }
-        
+
     }
 
     public function destroy($id){
