@@ -1,14 +1,7 @@
 <template>
      <div>
         <AppBar>{{(t("Sale List"))}}</AppBar>
-   <div >
-    {{ data }}
-            <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
-              <ion-fab-button >
-                <ion-icon :icon="add"></ion-icon>
-            </ion-fab-button>
-            </ion-fab>
-        </div>
+   
        <DataTable
   :value="data"
   showGridlines
@@ -29,47 +22,46 @@
                 <span class="p-2">{{ slotProps.data.name }}</span>
             </template>
             </Column>
-
-            <Column field="gender" :header="t('Gender')" sortable class="p-2" style="width:100px">
+            <Column field="quantity" :header="t('Quantity')" sortable class="p-2">
             <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.gender }}</span>
+                <span class="p-2">{{ slotProps.data.quantity }}</span>
+            </template>
+            </Column>
+            <Column field="total_price" :header="t('Total Amount')" sortable class="p-2">
+            <template #body="slotProps">
+                <span class="p-2">{{ slotProps.data.quantity }}</span>
+            </template>
+            </Column>
+            <Column field="status" :header="t('Status')" sortable class="p-2">
+            <template #body="slotProps">
+                <span class="p-2">{{ slotProps.data.status }}</span>
+            </template>
+            </Column>
+            <Column field="user_id" :header="t('By')" sortable class="p-2">
+            <template #body="slotProps">
+                <span class="p-2">{{ slotProps.data.user_id }}</span>
+            </template>
+            </Column>
+            <Column field="created_at" :header="t('Date')" sortable class="p-2">
+            <template #body="slotProps">
+                <span class="p-2">{{ dayjs(slotProps.data.created_at).format("DD-MM-YYYY") }}</span>
             </template>
             </Column>
 
-            <Column field="email" :header="t('Email')" sortable class="p-2">
-            <template #body="slotProps">
-                <span class="p-4">{{ slotProps.data.email }}</span>
-            </template>
-            </Column>
-
-            <Column field="phone" :header="t('Phone Number')" sortable class="p-2">
-            <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.phone }}</span>
-            </template>
-            </Column>
-            <Column field="owner" :header="t('Created By')" sortable class="p-2">
-            <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.owner }}</span>
-            </template>
-            </Column>
-            <Column field="created_at" :header="t('Created At')" sortable class="p-2" headerStyle="text-center" bodyStyle="text-center" style="width: 300px;">
-            <template #body="slotProps">
-                {{ dayjs(slotProps.data.created_at).format("DD-MM-YYYY") }}
-            </template>
-            </Column>
-            <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
+            <!-- <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
             <template #body="slotProps">
                 <div>
                     <ion-button fill="outline" size="small" color="primary" @click="onEdit(slotProps.data.id)">{{t("Edit")}}</ion-button>
                     <ion-button fill="outline" size="small" color="danger" @click="onDelete(slotProps.data.id)">{{t("Delete")}}</ion-button>
                 </div>
             </template>
-            </Column>
+            </Column> -->
         </DataTable>
 </div>
 </template>
 
 <script setup lang="ts">
+import dayjs from "dayjs"
 import { onMounted, ref } from "vue"
 import axios from "axios"
 import AppBar from "@/views/Layout/AppBar.vue"
