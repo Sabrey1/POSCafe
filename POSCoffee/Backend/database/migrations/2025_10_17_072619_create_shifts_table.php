@@ -21,7 +21,12 @@ return new class extends Migration
                   ->onUpdate('cascade')
                   ->onDelete('set null');
             $table->timestamps();
-            $table->date('shift_date');
+            $table->date('opening_date');
+            $table->date('closing_date');
+            $table->string('open_by')->nullable();
+            $table->string('close_by')->nullable();
+            $table->boolean('status')->nullable();
+            $table->string('owner')->nullable();
             $table->string('note')->nullable();
         });
     }

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('total_price',10,2);
             $table->string('status');
+            $table->string('owner')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
         });

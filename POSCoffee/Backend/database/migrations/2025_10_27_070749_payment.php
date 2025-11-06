@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('payment_type_id')->constrained()->onDelete('cascade');
             $table->string('payment_status');
             $table->string('payment_amount');
+            $table->string('owner')->nullable();
             $table->string('note');
             $table->timestamps();
         });

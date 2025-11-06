@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('image')->nullable();
             $table->string('address')->nullable();
-            $table->string('status')->nullable();
+            $table->boolean('status')->nullable();
             $table->string('customer_type')->nullable();
             $table->string('country')->nullable();
             $table->string('owner')->nullable();

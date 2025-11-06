@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('working_day_code')->unique()->nullable();
             $table->string('name');
-            $table->date('date');
+            $table->date('opening_date');
+            $table->date('close_date');
+            $table->string('open_by')->nullable();
+            $table->string('close_by')->nullable();
+            $table->string('status')->nullable();
             $table->string('description')->nullable();
+            $table->string('owner')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
         });

@@ -31,4 +31,8 @@ class Employee extends Model
     {
         return $this->hasMany(Order::class);
     }
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
