@@ -89,17 +89,17 @@ const openModal = async () => {
 };
 
 async function onDelete(id) {
-  const confirmDelete = window.confirm(t("Are you sure you want to delete this customer?"));
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this currency?"));
   if (confirmDelete) {
     try {
-      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/customer/${id}`);
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/currency/${id}`);
       if (deleteRes.data.success) {
-        alert(t("Customer deleted successfully"));
-        await getdate();
+        alert(t("Currency deleted successfully"));
+        await getdata();
       }
     } catch (error) {
       console.error(error);
-      alert(t("Failed to delete customer"));
+      alert(t("Failed to delete currency"));
     }
   }
 }

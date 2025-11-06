@@ -70,7 +70,7 @@
           </ion-col>
         </ion-row>      
         <br />
-        <ion-button expand="block" color="primary" @click="editCurrency">
+        <ion-button expand="block" color="primary" @click="editcurrency">
           {{ t("Save") }}
         </ion-button>
       </ion-grid>
@@ -79,7 +79,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
 import axios from "axios";
 import {
   IonContent,
@@ -93,6 +93,13 @@ import {
 
 const t = window.t;
 
+const props = defineProps({
+  id: {
+    type: [String, Number],
+    required: true,
+  },
+});
+
 // Bind data
 const currency = ref({
   currency_code: "",
@@ -102,5 +109,42 @@ const currency = ref({
   note:""
  
 });
+
+
+const loadCurrency = async () => {
+  try {
+    const response = await axios.get(`http://127.0.0.1:8000/api/currency/${props.id}`);
+
+    // handle case where backend wraps data in `data`
+    currency.value = response.data.data || response.data;
+    console.log("Fetching currency with ID:", props.id);
+    console.log("Loaded currency:", currency.value);
+  } catch (error) {
+    console.error("Error loading currency:", error);
+    alert("Failed to load currency data");
+  }
+};
+
+const editcurrency = async () => {
+  try {
+    const response = await axios.put(
+      `http://127.0.0.1:8000/api/currency/${props.id}`,
+      currency.value
+    );
+
+    console.log("currency updated:", response.data);
+    alert("currency updated successfully!");
+    close();
+  } catch (error) {
+    console.error("Error updating currency:", error);
+    alert("Failed to update currency");
+  }
+};
+
+// Load data when modal opens
+onMounted(() => {
+  loadCurrency();
+});
+
 
 </script>
