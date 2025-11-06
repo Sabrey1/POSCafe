@@ -9,7 +9,6 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-        {{ data }}
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -105,7 +104,7 @@ async function onEdit(id){
     const modal = await modalController.create({
         component: productEdit,
          componentProps: { id },
-        cssClass: 'custom-modal',
+        cssClass: 'product-modal',
     });
     await modal.present();
 }

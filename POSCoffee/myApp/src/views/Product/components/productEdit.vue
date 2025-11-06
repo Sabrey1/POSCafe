@@ -7,7 +7,7 @@
         <ion-col>
             <!-- prodiuct Code -->
             <ion-item lines="none">
-                <ion-input :label="t('Product Code')" label-placement="floating" fill="outline" :placeholder="t('Enter product code')"></ion-input>
+                <ion-input :label="t('Product Code')" v-model="product.product_code" label-placement="floating" fill="outline" :placeholder="t('Enter product code')"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col>
@@ -78,6 +78,15 @@ import axios from "axios";
 import { IonContent, IonItem, IonInput, IonButton, modalController, IonSelect, IonSelectOption  } from '@ionic/vue';
 
 const t = window.t
+
+// Props from parent
+const props = defineProps({
+  id: {
+    type: [String, Number],
+    required: true,
+  },
+});
+
 const categories = ref([]);
 const product = ref({
   product_code: "",
@@ -98,6 +107,21 @@ async function loadCategories() {
     console.error("Failed to load categories:", err);
   }
 }
+
+// Load specific customer by ID
+const loadProduct = async () => {
+  try {
+    const response = await axios.get(`http://127.0.0.1:8000/api/product/${props.id}`);
+
+    // handle case where backend wraps data in `data`
+    product.value = response.data.data || response.data;
+    console.log("Fetching customer with ID:", props.id);
+    console.log("Loaded product:", product.value);
+  } catch (error) {
+    console.error("Error loading product:", error);
+    alert("Failed to load product data");
+  }
+};
 
 const addProduct = async () => {
   try {
@@ -122,5 +146,6 @@ const close = async () => {
 
 onMounted(() => {
   loadCategories();
+  loadProduct();
 });
 </script>
