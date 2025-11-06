@@ -56,43 +56,32 @@ class userController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
+    public function show( $id){
         $user = User::find($id);
-        if(!$user){
-            return response()->json([
-                'success' => false,
-                'message' => 'User not found'
-            ]);
-        }
-        else{
-            return response()->json([
-                'success' => true,
-                'user' => $user,
-                'message' => 'User found successfully'
-            ]);
-        }
+        return response()->json([
+            'success' => true,
+            'message' => 'User retrieved successfully',
+            'user' => $user
+        ]);
     }
-
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $user = User::find($id);
+         $user = User::find($id);
         if(!$user){
             return response()->json([
                 'success' => false,
                 'message' => 'User not found'
             ]);
-        }
-        else{
+        }else{
             $user->update($request->all());
             return response()->json([
                 'success' => true,
-                'user' => $user,
-                'message' => 'User updated successfully'
+                'message' => 'Users updated successfully',
+                'users' => $user
             ]);
         }
     }

@@ -62,7 +62,7 @@ import axios from 'axios';
 const t = window.t
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
-import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
+import { IonFabButton, IonIcon,modalController } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import categoryAdd from '@/views/Category/components/categoryAdd.vue'
 import CategoryEdit from "@/views/Category/components/CategoryEdit.vue"
@@ -74,7 +74,6 @@ async function getdata(){
     if(res.data){
         data.value = res.data;
     }
-
 }
 
 async function onEdit(id){

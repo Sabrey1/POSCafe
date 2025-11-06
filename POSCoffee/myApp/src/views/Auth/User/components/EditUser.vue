@@ -39,17 +39,16 @@
                 </ion-col>
             </ion-row>
              <br>
-                <ion-button expand="block" color="primary" @click="User">{{t("Save")}}</ion-button>
+                <ion-button expand="block" color="primary" @click="userEdit">{{t("Save")}}</ion-button>
             
         </ion-grid>
     </div>
 </template>
 
-<script setup>
-import {ref} from "vue";
-import { IonContent, IonItem, IonLabel, IonInput, IonButton, modalController, IonList, IonSelect, IonSelectOption  } from '@ionic/vue';
-import axios from "axios";
+<script setup lang="ts">
+import { ref, onMounted} from 'vue'
 const t = window.t
+import axios from 'axios'
 
 
 const user = ref({
@@ -59,5 +58,43 @@ const user = ref({
   role_id: "",
 })
 
+const props = defineProps({
+  id: {
+    type: [String, Number],
+    required: true,
+  },
+});
+
+const loadUser = async () => {
+  try {
+    const response = await axios.get(`http://127.0.0.1:8000/api/user/${props.id}`);
+
+    // handle case where backend wraps data in `data`
+    user.value = response.data.data || response.data;
+    console.log("Fetching user with ID:", props.id);
+    console.log("Loaded user:", user.value);
+  } catch (error) {
+    console.error("Error loading user:", error);
+    alert("Failed to load user data");
+  }
+};
+
+const userEdit = async () => {
+  try {
+    const response = await axios.put(`http://127.0.0.1:8000/api/user/${props.id}`,user.value);
+
+    console.log("user updated:", response.data);
+    alert("user updated successfully!");
+    close();
+  } catch (error) {
+    console.error("Error updating user:", error);
+    alert("Failed to update user");
+  }
+};
+
+
+onMounted(() => {
+  loadUser();
+});
 
 </script>

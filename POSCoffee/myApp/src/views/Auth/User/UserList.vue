@@ -87,6 +87,23 @@ async function onEdit(id){
     await modal.present();
 }
 
+
+async function onDelete(id) {
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this user?"));
+  if (confirmDelete) {
+    try {
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/user/${id}`);
+      if (deleteRes.data.success) {
+        alert(t("User deleted successfully"));
+        await getData();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("Failed to delete user"));
+    }
+  }
+}
+
 onMounted(() => {
     getData();
 })
