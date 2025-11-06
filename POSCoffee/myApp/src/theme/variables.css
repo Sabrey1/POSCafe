@@ -60,43 +60,49 @@ http://ionicframework.com/docs/theming/ */
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --height: 52%;
-    --width: 40%;
+ 
 }
 .category-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --height: 31%;
-    --width: 40%;
+ 
 }
 .product-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --height: 45%;
-    --width: 40%;
+ 
 }
 .role-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --height: 30%;
-    --width: 40%;
+   
 }
 .user-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --height: 35%;
-    --width: 40%;
+  
 }
 .position-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --height: 31%;
-    --width: 40%;
+  
 }
 .employee-modal{
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --height: 63%;
-    --width: 40%;
+ 
+}
+.currency-modal{
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --height: 57%;
+    
 }
 
 .fix-container{

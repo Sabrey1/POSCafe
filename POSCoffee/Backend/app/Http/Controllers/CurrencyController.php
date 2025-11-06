@@ -17,50 +17,78 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'currency_code'=> 'required',
+            'symbol'=> 'required',
+        ]);
+
+        $currency = Currency::create($request->all());
+        return response()->json([
+            'success' => true,
+            'message' => 'Currency created successfully',
+            'currency' => $currency
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Currency $currency)
+    public function show(Currency $currency, $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Currency $currency)
-    {
-        //
+        $currency = Currency::find($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Currency retrieved successfully',
+            'currency' => $currency,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Currency $currency)
+    public function update(Request $request, Currency $currency, $id)
     {
-        //
+        $currency = Currency::find($id);
+        if(!$currency){
+            return response()->json([
+                'success' => false,
+                'message' => 'Currency not found'
+            ]);
+        }
+        else{
+            $currency->update($request->all());
+            return response()->json([
+                'success' => true,
+                'message' => 'Currency updated successfully',
+                'currency' => $currency
+            ]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Currency $currency)
+    public function destroy(Currency $currency,$id)
     {
-        //
+        $currency = Currency::find($id);
+        if(!$currency){
+            return response()->json([
+                'success' => false,
+                'message' => 'Currency not found',
+                'currency' => $currency
+            ]);
+        }
+        else{
+            $currency->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Currency deleted successfully'
+            ]);
+        }
     }
 }
