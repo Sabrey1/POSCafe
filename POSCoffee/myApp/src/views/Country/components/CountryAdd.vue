@@ -1,7 +1,7 @@
 <template>
   <ion-content class="ion-padding">
     <div class="modal-container">
-      <h2 class="mb-2 text-center">{{ t("Add Currency") }}</h2>
+      <h2 class="mb-2 text-center">{{ t("Add Country") }}</h2>
 
       <ion-grid>
         <ion-row>
@@ -9,10 +9,10 @@
             <ion-item lines="none">
               <ion-input
                 v-model="country.country_code"
-                :label="t('Currency Code')"
+                :label="t('Country Code')"
                 label-placement="floating"
                 fill="outline"
-                :placeholder="t('Enter currency code')"
+                :placeholder="t('Enter country code')"
               />
             </ion-item>
           </ion-col>
@@ -20,10 +20,10 @@
             <ion-item lines="none">
               <ion-input
                 v-model="country.name"
-                :label="t('Currency Name')"
+                :label="t('Country Name')"
                 label-placement="floating"
                 fill="outline"
-                :placeholder="t('Enter currency')"
+                :placeholder="t('Enter country name')"
               />
             </ion-item>
           </ion-col>

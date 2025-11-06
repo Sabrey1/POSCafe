@@ -17,15 +17,15 @@
                 </template>
             </Column>
 
-            <Column field="image" :header="t('Image')" sortable class="p-2">
-            <template #body="slotProps">
-                <span class="p-4">{{ slotProps.data.image }}</span>
-            </template>
-            </Column>
             <!-- Other columns with padding -->
             <Column field="name" :header="t('Name#')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.name }}</span>
+            </template>
+            </Column>
+            <Column field="category_id" :header="t('Category')" sortable class="p-2">
+            <template #body="slotProps">
+                <span class="p-2">{{ slotProps.data.category_id }}</span>
             </template>
             </Column>
             <Column field="price" :header="t('Price')" sortable class="p-2">
@@ -38,6 +38,7 @@
                 <span class="p-2">{{ slotProps.data.quantity }}</span>
             </template>
             </Column>
+            
              
             <Column field="owner" :header="t('Created By')" sortable class="p-2">
             <template #body="slotProps">
@@ -70,6 +71,7 @@ import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 import productAdd from '@/views/Product/components/productAdd.vue'
+import productEdit from "@/views/Product/components/productEdit.vue"
 import AppBar from "@/views/Layout/AppBar.vue"
 
 const t = window.t
@@ -98,6 +100,15 @@ async function onDelete(id) {
   }
 }
 
+
+async function onEdit(id){
+    const modal = await modalController.create({
+        component: productEdit,
+         componentProps: { id },
+        cssClass: 'custom-modal',
+    });
+    await modal.present();
+}
 
 const openModal = async () => {
   const modal = await modalController.create({

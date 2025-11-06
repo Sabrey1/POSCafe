@@ -1,7 +1,7 @@
 <template>
-    <ion-page>
+    <div>
         <AppBar>{{ t("Category List") }}</AppBar>
-        <ion-content class="ion-padding">
+         
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
@@ -52,8 +52,8 @@
             </template>
             </Column>
         </DataTable>
-        </ion-content>
-    </ion-page>
+    
+    </div>
 </template>
 
 <script setup >

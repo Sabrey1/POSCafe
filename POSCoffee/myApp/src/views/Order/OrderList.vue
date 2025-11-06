@@ -32,11 +32,6 @@
                 <span class="p-2">{{ slotProps.data.quantity }}</span>
             </template>
             </Column>
-            <Column field="status" :header="t('Status')" sortable class="p-2">
-            <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.status }}</span>
-            </template>
-            </Column>
             <Column field="user_id" :header="t('By')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.user_id }}</span>
@@ -45,6 +40,11 @@
             <Column field="created_at" :header="t('Date')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ dayjs(slotProps.data.created_at).format("DD-MM-YYYY") }}</span>
+            </template>
+            </Column>
+            <Column field="status" :header="t('Status')" sortable class="p-2">
+            <template #body="slotProps">
+                <ComStatus :status="slotProps.data.status" />
             </template>
             </Column>
 
@@ -68,6 +68,7 @@ import AppBar from "@/views/Layout/AppBar.vue"
 const t = window.t
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import ComStatus from "@/views/Layout/ComStatus.vue"
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 const data = ref()

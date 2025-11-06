@@ -4,7 +4,7 @@
      
 </template>
 <script setup>
-const t = window.t
+const t = window.t  
 const props = defineProps({
     status:String,
     csClass:String,
@@ -54,6 +54,14 @@ const getSeverity = () => {
         case 'Opened':
             return 'primary';
         case 'Not Opened':
+            return 'danger';
+        case 'pending':
+            return 'primary';
+        case 'completed':
+            return 'success';
+        case 'processing':
+            return 'secondary';
+        case 'cancelled':
             return 'danger';
 
 

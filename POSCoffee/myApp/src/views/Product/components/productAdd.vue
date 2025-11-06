@@ -6,9 +6,9 @@
     <ion-row>
         <ion-col>
             <!-- prodiuct Code -->
-            <!-- <ion-item lines="none">
+            <ion-item lines="none">
                 <ion-input :label="t('Product Code')" label-placement="floating" fill="outline" :placeholder="t('Enter product code')"></ion-input>
-            </ion-item> -->
+            </ion-item>
         </ion-col>
         <ion-col>
               <!-- product Name -->
@@ -80,7 +80,7 @@ import { IonContent, IonItem, IonInput, IonButton, modalController, IonSelect, I
 const t = window.t
 const categories = ref([]);
 const product = ref({
-  // product_code: "",
+  product_code: "",
   name: "",
   description: "",
   price: "",
