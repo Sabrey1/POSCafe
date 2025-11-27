@@ -7,6 +7,8 @@
       <ion-split-pane when="xs" content-id="main">
         <ion-menu content-id="main">
           <ion-content class="ion-padding">
+            <ion-chip>Food</ion-chip>
+            <ion-chip>Drink</ion-chip>
             <div class="flex">
               <ion-card v-for="item in saleDoc.product">
                 <ion-card-content>
@@ -18,8 +20,8 @@
             </div>
                
         <div class="fixed bottom-0 w-full left-0">
-            <ion-toolbar color="tertiary">
-            <ion-title>Footer</ion-title>
+            <ion-toolbar color="light">
+            <Footer />
             </ion-toolbar>
         </div>
           </ion-content>
@@ -31,32 +33,29 @@
               <SelectCustomer :saleDoc="saleDoc" />
             </div>
 
-            <ion-list class="center-list">
-            <ion-item lines="none">
-                <ion-icon :icon="cartOutline" ></ion-icon>
-                <ion-label class="center-label">{{ t("No items selected") }}</ion-label>
-            </ion-item>
+            <ion-list class="text-center">
+              <ion-item lines="none">
+                  <ion-icon :icon="cartOutline" ></ion-icon>
+                  <ion-label class="center-label">{{ t("No items selected") }}</ion-label>
+              </ion-item>
             </ion-list>
 
             <div class="fixed bottom-0 w-full">
-               
-            <ion-toolbar color="tertiary">
-            <ion-title>Footer</ion-title>
+            <ion-toolbar color="light">
+              <FooterPayment />
             </ion-toolbar>
-                <FooterPayment />
+               
             </div>
           </ion-content>
         </div>
       </ion-split-pane>
-       
-    
     </ion-content>
-
   </ion-page>
 </template>
 
 <script setup lang="ts">
 import SelectCustomer from "@/views/Order/components/SelectCustomer.vue";
+import Footer from '@/views/Order/components/Footer.vue'
 import FooterPayment from "@/views/Order/components/FooterPayment.vue";
 import {useSale} from '@/hooks/useSale.js'
 import { IonCard, IonCardContent, IonIcon   } from '@ionic/vue';
@@ -72,18 +71,5 @@ ion-split-pane {
   --side-width: 1100px;
   --side-max-width: 1100px;
   --border: 1px dashed #b3baff;
-}
- 
-.center-list {
-  width: 100%;
-  
-}
-
-.center-item {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 </style>
