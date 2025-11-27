@@ -1,5 +1,5 @@
 <template>
-    <ion-chip color="danger">{{ t("Cancel") }}</ion-chip>
+    <ion-chip color="danger" @click="back">{{ t("Cancel") }}</ion-chip>
     <ion-chip color="success">{{t('Save')}}</ion-chip>
     <ion-chip color="primary">{{t('Print')}}</ion-chip>
     <ion-chip color="danger">{{t('Quick Payment')}}</ion-chip>
@@ -8,6 +8,10 @@
 
 <script setup>
 const t = window.t
+
+function back(){
+    window.history.back()
+}
 </script>
 
  

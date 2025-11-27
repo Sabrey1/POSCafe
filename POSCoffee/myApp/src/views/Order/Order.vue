@@ -1,14 +1,18 @@
 <template>
   <ion-page>
-      <ToolBar>{{ t("Sale") }}</ToolBar>
+      <ToolBar>{{ t("Sale") }}
+        <template #end>
+          <ion-icon :icon="cartOutline" class="mr-3" size="large"></ion-icon>
+        </template>
+      </ToolBar>
 
     <!-- Main content area -->
     <ion-content>
       <ion-split-pane when="xs" content-id="main">
         <ion-menu content-id="main">
           <ion-content class="ion-padding">
-            <ion-chip>Food</ion-chip>
-            <ion-chip>Drink</ion-chip>
+            <ion-chip>{{t("Food")}}</ion-chip>
+            <ion-chip>{{t("Drink")}}</ion-chip>
             <div class="flex">
               <ion-card v-for="item in saleDoc.product">
                 <ion-card-content>
