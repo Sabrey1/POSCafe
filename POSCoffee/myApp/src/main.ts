@@ -4,7 +4,33 @@ import router from './router';
 import i18n from './i18n'
 import dayjs from './helpers/dayjs.js'
 import api from '@/services/api-service.js'
- 
+ import '@ionic/vue/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+import '@ionic/vue/css/normalize.css';
+import '@ionic/vue/css/structure.css';
+import '@ionic/vue/css/typography.css';
+
+/* Optional CSS utils that can be commented out */
+import '@ionic/vue/css/padding.css';
+import '@ionic/vue/css/float-elements.css';
+import '@ionic/vue/css/text-alignment.css';
+import '@ionic/vue/css/text-transformation.css';
+import '@ionic/vue/css/flex-utils.css';
+import '@ionic/vue/css/display.css';
+ import PrimeVue from 'primevue/config';
+import ToastService from 'primevue/toastservice';
+import Aura from '@primeuix/themes/aura';
+import 'primeicons/primeicons.css';
+import '@ionic/vue/css/palettes/dark.system.css';
+
+import Toast from 'primevue/toast';
+
+/* Theme variables */
+import './theme/variables.css';
+
+import AppBar from "@/views/Layout/AppBar.vue"
+import ToolBar from "@/views/Layout/ToolBar.vue"
 import { 
   IonLabel, 
   IonChip, 
@@ -63,20 +89,7 @@ import {
   
 } from '@ionic/vue';
 /* Core CSS required for Ionic components to work properly */
-import '@ionic/vue/css/core.css';
 
-/* Basic CSS for apps built with Ionic */
-import '@ionic/vue/css/normalize.css';
-import '@ionic/vue/css/structure.css';
-import '@ionic/vue/css/typography.css';
-
-/* Optional CSS utils that can be commented out */
-import '@ionic/vue/css/padding.css';
-import '@ionic/vue/css/float-elements.css';
-import '@ionic/vue/css/text-alignment.css';
-import '@ionic/vue/css/text-transformation.css';
-import '@ionic/vue/css/flex-utils.css';
-import '@ionic/vue/css/display.css';
 
 /**
  * Ionic Dark Mode
@@ -87,30 +100,23 @@ import '@ionic/vue/css/display.css';
 
 /* @import '@ionic/vue/css/palettes/dark.always.css'; */
 /* @import '@ionic/vue/css/palettes/dark.class.css'; */
-import '@ionic/vue/css/palettes/dark.system.css';
 
-/* Theme variables */
-import './theme/variables.css';
-
-import AppBar from "@/views/Layout/AppBar.vue"
-import ToolBar from "@/views/Layout/ToolBar.vue"
 
 /* PrimeVue CSS */
 
-import Toast from 'primevue/toast'
+// import Toast from 'primevue/toast'
 
-import Aura from '@primeuix/themes/aura';
+// import 'primeflex/primeflex.css';
 
-
-import 'primeicons/primeicons.css';
-import 'primeflex/primeflex.css';
- import PrimeVue from 'primevue/config';
-import ToastService from 'primevue/toastservice'
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
-.use(PrimeVue)
+.use(PrimeVue, {
+    theme: {
+        preset: Aura
+    }
+})
 .use(i18n);
 
 

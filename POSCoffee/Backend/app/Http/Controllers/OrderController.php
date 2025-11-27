@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Customer;
 
 class OrderController extends Controller
 {
@@ -15,6 +17,15 @@ class OrderController extends Controller
     public function show($id){
         $order = Order::find($id);
         return response()->json($order);
+    }
+
+    public function create(){
+        $product = Product::all();
+        $customer = Customer::all();
+        return response()->json([
+            'product' => $product,
+            'customer' => $customer
+        ]);
     }
 
     public function store(Request $request){

@@ -84,6 +84,7 @@ Route::delete('/country/{id}',[CountryController::class,'destroy'])->name('count
 
 //Sale List
 Route::get('/order',[OrderController::class,'index'])->name('order');
+Route::get('/order/create',[OrderController::class,'create'])->name('order.create');
 Route::get('/order/{id}',[OrderController::class,'show'])->name('order.show');
 Route::post('/order',[OrderController::class,'store'])->name('order.store');
 Route::put('/order/{id}',[OrderController::class,'update'])->name('order.update');

@@ -19,6 +19,7 @@
     "@capacitor/status-bar": "7.0.3",
     "@ionic/vue": "^8.0.0",
     "@ionic/vue-router": "^8.0.0",
+    "@primeuix/themes": "^2.0.1",
     "axios": "^1.12.2",
     "dayjs": "^1.11.18",
     "echarts": "^6.0.0",
