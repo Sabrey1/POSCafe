@@ -14,7 +14,7 @@
             <ion-chip>{{t("Food")}}</ion-chip>
             <ion-chip>{{t("Drink")}}</ion-chip>
             <div class="flex">
-              <ion-card v-for="item in saleDoc.product">
+              <ion-card v-for="item in saleDoc.product" :key="item.id" @click="selectItem(item) "  :class="{ 'selected-card': selectedItem?.id === item.id }">
                 <ion-card-content>
                     {{ item.image }}
                     {{ item.name }}
@@ -58,16 +58,30 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import SelectCustomer from "@/views/Order/components/SelectCustomer.vue";
 import Footer from '@/views/Order/components/Footer.vue'
 import FooterPayment from "@/views/Order/components/FooterPayment.vue";
 import {useSale} from '@/hooks/useSale.js'
-import { IonCard, IonCardContent, IonIcon   } from '@ionic/vue';
+import { IonCard, IonCardContent, IonIcon,modalController   } from '@ionic/vue';
 import {  cartOutline }  from 'ionicons/icons';
 import ToolBar from "@/views/Layout/ToolBar.vue"
+import CustomerEdit from "@/views/Customer/components/CustomerEdit.vue"
 
 const t = window.t;
 const { saleDoc } = useSale();
+const selectedItem = ref(null)
+
+async function selectItem(item) {
+  const modal = await modalController.create({
+        component: CustomerEdit,
+         componentProps: { item },
+        cssClass: 'custom-modal',
+    });
+    await modal.present();
+  // selectedItem.value = item
+  
+}
 </script>
 
 <style scoped>
@@ -76,4 +90,10 @@ ion-split-pane {
   --side-max-width: 1100px;
   --border: 1px dashed #b3baff;
 }
+.selected-card {
+  border: 2px solid #3b82f6; /* Blue border */
+  background-color: rgba(59, 130, 246, 0.1); /* Light blue background */
+  transition: 0.3s ease;
+}
+
 </style>
