@@ -16,23 +16,50 @@ class userController extends Controller
         return response()->json($users);
     }
 
-    public function login(Request $request){
-        $user = User::where('email', $request->email)->where('password', $request->password)->first();
-        if($user){
-            return response()->json([
-            'success' => true,
-            'user' => $user,
-            'message' => 'Login successfully'
-        ]);
-        }else{
-            return response()->json([
-            'success' => false,
-            'message' => 'Login failed'
+    public function login(Request $request)
+    {
+        // Validate input
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
         ]);
 
+        // Find user by email
+        $user = User::where('email', $request->email)->first();
+
+        // Check plain-text password
+        if (!$user || $user->password !== $request->password) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid email or password',
+            ], 401);
         }
 
+        // Return user info only (no token)
+        return response()->json([
+            'success' => true,
+            'message' => 'Login successful',
+            'user' => $user,
+        ]);
     }
+
+    // public function login(Request $request){
+    //     $user = User::where('email', $request->email)->where('password', $request->password)->first();
+    //     if($user){
+    //         return response()->json([
+    //         'success' => true,
+    //         'user' => $user,
+    //         'message' => 'Login successfully'
+    //     ]);
+    //     }else{
+    //         return response()->json([
+    //         'success' => false,
+    //         'message' => 'Login failed'
+    //     ]);
+
+    //     }
+
+    // }
 
     /**
      * Store a newly created resource in storage.

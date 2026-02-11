@@ -1,17 +1,27 @@
 <template>
   <ion-page>
-    
     <div class="login-container">
-      <form  @submit.prevent="login">
+      <form @submit.prevent="login">
         <div class="center">
-          <h1 style="font-weight: bold;">{{t ("Login")}}</h1>
-          <p>{{t("Username")}}</p>
-          <input type="text" v-model="user.email" :placeholder="t('Input Your Username')" required />
+          <h1 style="font-weight: bold;">{{ t("Login") }}</h1>
 
-          <p>{{t("Password")}}</p>
-          <input type="password" v-model="user.password" :placeholder="t('Input Your Password')"  required />
+          <p>{{ t("Username") }}</p>
+          <input
+            type="text"
+            v-model="user.email"
+            :placeholder="t('Input Your Username')"
+            required
+          />
 
-          <button type="submit" class="btnSubmit">{{t("Save")}}</button>
+          <p>{{ t("Password") }}</p>
+          <input
+            type="password"
+            v-model="user.password"
+            :placeholder="t('Input Your Password')"
+            required
+          />
+
+          <button type="submit" class="btnSubmit">{{ t("Login") }}</button>
         </div>
       </form>
     </div>
@@ -21,37 +31,39 @@
 <script setup lang="ts">
 import router from '@/router';
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
-const t = window.t
+import { ref } from 'vue';
+const t = window.t;
 
 const user = ref({
   email: '',
   password: ''
-})
+});
 
 async function login() {
   try {
     const res = await axios.post('http://127.0.0.1:8000/api/login', user.value);
 
+    // ✅ Check for success field (no token)
     if (res.data.success) {
-      // Save only what you need (e.g., token and user info)
+      // Save user info to localStorage
       localStorage.setItem('user', JSON.stringify(res.data.user));
 
-      // Redirect to home page
       router.push('/home');
+      
     } else {
       alert('Login failed: ' + (res.data.message || 'Invalid credentials'));
     }
-  } catch (error) {
-    console.error('Login error:', error);
-    alert('Unable to login. Please check your credentials.');
+  } catch (error: any) {
+    console.error('Login error:', error.response?.data || error.message);
+    alert(
+      error.response?.data?.message ||
+        'Unable to login. Please check your credentials.'
+    );
   }
 }
-
 </script>
 
 <style scoped>
-
 .login-container {
   display: flex;
   justify-content: center;
@@ -60,7 +72,6 @@ async function login() {
   background: linear-gradient(135deg, #d7f8e4, #f0fff4);
   font-family: "Poppins", sans-serif;
 }
-
 
 .center {
   background-color: #fff;
@@ -71,7 +82,6 @@ async function login() {
   width: 100%;
   max-width: 360px;
 }
-
 
 .center h1 {
   font-size: 26px;
@@ -118,7 +128,6 @@ async function login() {
   background-color: #388e3c;
   transform: translateY(-2px);
 }
-
 
 @media (max-width: 480px) {
   .center {
