@@ -1,7 +1,6 @@
 <template>
     <div>
         <AppBar>{{ t("Country List") }}</AppBar>
-    <!-- {{ data }} -->
         <div>
             <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
@@ -48,60 +47,9 @@
 
 <script setup>
 import dayjs from "dayjs";
-import AppBar from "@/views/Layout/AppBar.vue"
-import { onMounted, ref } from 'vue';
-import axios from 'axios';
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import { IonFabButton, IonIcon,modalController } from '@ionic/vue';
 import { add } from 'ionicons/icons';
-import CountryAdd from '@/views/Country/components/CountryAdd.vue'
-import CountryEdit from '@/views/Country/components/CountryEdit.vue'
 const t = window.t
 
-const data = ref()
-
-async function getdata(){
-    const res = await axios.get('http://127.0.0.1:8000/api/country');
-    if(res.data){
-        data.value = res.data;
-    }
-}
-async function onEdit(id){
-    const modal = await modalController.create({
-        component: CountryEdit,
-         componentProps: { id },
-        cssClass: 'country-modal',
-    });
-    await modal.present();
-}
-
-const openModal = async () => {
-  const modal = await modalController.create({
-    component: CountryAdd,
-    cssClass: 'country-modal',
-  });
-  await modal.present();
-};
-
-async function onDelete(id) {
-  const confirmDelete = window.confirm(t("Are you sure you want to delete this country?"));
-  if (confirmDelete) {
-    try {
-      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/country/${id}`);
-      if (deleteRes.data.success) {
-        alert(t("country deleted successfully"));
-        await getdata();
-      }
-    } catch (error) {
-      console.error(error);
-      alert(t("Failed to delete country"));
-    }
-  }
-}
-
-onMounted(()=>{
-    getdata();
-})
-
+import {useCountry} from '@/hooks/useCountry.js'
+const { data,onDelete,onEdit,openModal } = useCountry()
 </script>

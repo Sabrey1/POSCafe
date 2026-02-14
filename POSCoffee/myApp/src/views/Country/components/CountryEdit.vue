@@ -67,19 +67,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import axios from "axios";
-import {
-  IonContent,
-  IonItem,
-  IonInput,
-  IonButton,
-  IonSelect,
-  IonSelectOption,
-  modalController,
-} from "@ionic/vue";
+import { modalController } from "@ionic/vue";
 
 const t = window.t;
-
-
 const props = defineProps({
   id: {
     type: [String, Number],

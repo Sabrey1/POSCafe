@@ -82,12 +82,6 @@
 import { ref } from "vue";
 import axios from "axios";
 import {
-  IonContent,
-  IonItem,
-  IonInput,
-  IonButton,
-  IonSelect,
-  IonSelectOption,
   modalController,
 } from "@ionic/vue";
 

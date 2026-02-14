@@ -1,48 +1,49 @@
+import { onMounted, ref } from 'vue';
 import axios from 'axios';
- import { ref, onMounted } from 'vue';
 import { modalController } from '@ionic/vue';
-import CountryAdd from '@/views/Country/components/CountryAdd.vue'
-import CountryEdit from '@/views/Country/components/CountryEdit.vue'
+import CurrencyAdd from '@/views/Currency/components/CurrencyAdd.vue'
+import CurrencyEdit from '@/views/Currency/components/CurrencyEdit.vue'
 
-export function useCountry() {
+export function useCurrency() {
     
+
 const data = ref()
 
 async function getdata(){
-    const res = await axios.get('http://127.0.0.1:8000/api/country');
+    const res = await axios.get('http://127.0.0.1:8000/api/currency');
     if(res.data){
         data.value = res.data;
     }
 }
 async function onEdit(id){
     const modal = await modalController.create({
-        component: CountryEdit,
+        component: CurrencyEdit,
          componentProps: { id },
-        cssClass: 'country-modal',
+        cssClass: 'currency-modal',
     });
     await modal.present();
 }
 
 const openModal = async () => {
   const modal = await modalController.create({
-    component: CountryAdd,
-    cssClass: 'country-modal',
+    component: CurrencyAdd,
+    cssClass: 'currency-modal',
   });
   await modal.present();
 };
 
 async function onDelete(id) {
-  const confirmDelete = window.confirm(t("Are you sure you want to delete this country?"));
+  const confirmDelete = window.confirm(t("Are you sure you want to delete this currency?"));
   if (confirmDelete) {
     try {
-      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/country/${id}`);
+      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/currency/${id}`);
       if (deleteRes.data.success) {
-        alert(t("country deleted successfully"));
+        alert(t("Currency deleted successfully"));
         await getdata();
       }
     } catch (error) {
       console.error(error);
-      alert(t("Failed to delete country"));
+      alert(t("Failed to delete currency"));
     }
   }
 }
@@ -50,6 +51,7 @@ async function onDelete(id) {
 onMounted(()=>{
     getdata();
 })
+
     return {
         data,
         onDelete,
