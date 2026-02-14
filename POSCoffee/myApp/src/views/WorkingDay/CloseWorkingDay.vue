@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import ToolBar from "@/views/Layout/ToolBar.vue"
+ 
 import FooterWorkingDay from "@/views/WorkingDay/components/FooterWorkingDay.vue"
 const t = window.t
 </script>

@@ -87,7 +87,6 @@
 </template>
 
 <script setup lang="ts">
-import ToolBar from "@/views/Layout/ToolBar.vue"
 import FooterShift from "@/views/Shift/components/FooterShift.vue"
 
 const t = window.t

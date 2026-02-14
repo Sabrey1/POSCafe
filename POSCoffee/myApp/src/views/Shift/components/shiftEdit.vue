@@ -81,13 +81,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import axios from "axios";
-import {
-  IonContent,
-  IonItem,
-  IonInput,
-  IonButton,
-  IonSelect,
-  IonSelectOption,
+import { 
   modalController,
 } from "@ionic/vue";
 

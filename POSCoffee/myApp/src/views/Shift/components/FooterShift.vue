@@ -11,6 +11,5 @@
 </template>
 
 <script setup lang="ts">
-import { IonFooter, IonTitle, IonToolbar } from '@ionic/vue';
 const t = window.t
 </script>
