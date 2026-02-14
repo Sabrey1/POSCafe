@@ -11,8 +11,6 @@
   </ion-header>
 </template>
 <script setup lang="ts">
-  import { IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
- 
 
 const t = window.t;
  

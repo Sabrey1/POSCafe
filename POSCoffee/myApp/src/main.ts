@@ -96,7 +96,8 @@ import {
   IonSplitPane,
   IonMenu,
   IonMenuToggle,
-   
+  IonMenuButton,
+  
   
 } from '@ionic/vue';
 /* Core CSS required for Ionic components to work properly */
@@ -184,6 +185,10 @@ app.component('IonCol', IonCol)
 app.component('IonSplitPane', IonSplitPane)
 app.component('IonMenu', IonMenu)
 app.component('IonMenuToggle', IonMenuToggle)
+app.component('IonMenuButton', IonMenuButton)
+ 
+
+
 app.component('AppBar', AppBar)
 app.component('ToolBar', ToolBar)
 

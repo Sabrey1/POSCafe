@@ -8,6 +8,5 @@
 </template>
 
 <script setup lang="ts">
-import ToolBar from "@/views/Layout/ToolBar.vue"
 const t = window.t
 </script>

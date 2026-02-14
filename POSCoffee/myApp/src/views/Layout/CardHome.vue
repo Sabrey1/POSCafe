@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonIcon  , IonSale } from '@ionic/vue';
+import { IonSale } from '@ionic/vue';
 import { logoIonic, giftOutline, settingsOutline, cartOutline, arrowForwardOutline, alarmOutline, personOutline, timeOutline, priceTagOutline, readerOutline, peopleOutline, barChartOutline } from 'ionicons/icons';
 const t = window.t
 

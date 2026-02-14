@@ -2,16 +2,16 @@
 <div>
         <AppBar>{{(t("Shift List"))}}</AppBar>
     <div>
-        {{data}}
+        
          <DataTable
-  :value="data"
-  showGridlines
-  stripedRows
-  scrollable
-  scrollHeight="92vh"
-  tableStyle="min-width: 50rem"
-  class="mt-2"
->
+                :value="data"
+                showGridlines
+                stripedRows
+                scrollable
+                scrollHeight="92vh"
+                tableStyle="min-width: 50rem"
+                class="mt-2"
+                >
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
                     {{ slotProps.index + 1 }}
@@ -63,11 +63,8 @@
 import { onMounted, ref } from 'vue'
 import dayjs from 'dayjs';
 import axios from 'axios';
-import AppBar from "@/views/Layout/AppBar.vue"
-import DataTable from 'primevue/datatable';
 import shiftEdit from '@/views/Shift/components/shiftEdit.vue'
-import Column from 'primevue/column';
-import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
+import { modalController  } from '@ionic/vue';
 const t = window.t
 
 const data = ref()

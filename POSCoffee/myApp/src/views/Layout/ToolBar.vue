@@ -15,7 +15,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { IonBackButton, IonButtons, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
 const defaultHref = ref("/home");
 const router = useRouter();
 const route = useRoute();

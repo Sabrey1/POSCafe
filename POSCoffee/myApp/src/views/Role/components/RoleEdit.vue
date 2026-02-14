@@ -40,8 +40,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
-import { IonContent, IonItem , IonInput, IonButton } from '@ionic/vue';
-
 const t = window.t
 
 const role = ref({

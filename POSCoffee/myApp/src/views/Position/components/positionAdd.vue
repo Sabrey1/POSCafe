@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import axios from "axios";
-import { IonContent, IonItem, IonInput, IonButton, modalController } from '@ionic/vue';
+import { modalController } from '@ionic/vue';
 
 const t = window.t
 

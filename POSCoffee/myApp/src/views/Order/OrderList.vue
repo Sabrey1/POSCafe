@@ -3,14 +3,14 @@
         <AppBar>{{(t("Sale List"))}}</AppBar>
    
        <DataTable
-  :value="data"
-  showGridlines
-  stripedRows
-  scrollable
-  scrollHeight="92vh"
-  tableStyle="min-width: 50rem"
-  class="mt-2"
->
+            :value="data"
+            showGridlines
+            stripedRows
+            scrollable
+            scrollHeight="92vh"
+            tableStyle="min-width: 50rem"
+            class="mt-2"
+            >
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
                     {{ slotProps.index + 1 }}
@@ -48,14 +48,14 @@
             </template>
             </Column>
 
-            <!-- <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
+            <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
             <template #body="slotProps">
                 <div>
                     <ion-button fill="outline" size="small" color="primary" @click="onEdit(slotProps.data.id)">{{t("Edit")}}</ion-button>
                     <ion-button fill="outline" size="small" color="danger" @click="onDelete(slotProps.data.id)">{{t("Delete")}}</ion-button>
                 </div>
             </template>
-            </Column> -->
+            </Column>
         </DataTable>
 </div>
 </template>
@@ -64,13 +64,8 @@
 import dayjs from "dayjs"
 import { onMounted, ref } from "vue"
 import axios from "axios"
-import AppBar from "@/views/Layout/AppBar.vue"
 const t = window.t
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
 import ComStatus from "@/views/Layout/ComStatus.vue"
-import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
-import { add } from 'ionicons/icons';
 const data = ref()
 
 async function getData(){
