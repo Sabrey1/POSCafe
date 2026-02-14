@@ -50,12 +50,6 @@ import { ref, onMounted, reactive} from 'vue'
 const t = window.t
 import axios from 'axios'
 import {
-  IonContent,
-  IonItem,
-  IonInput,
-  IonButton,
-  IonSelect,
-  IonSelectOption,
   modalController,
 } from "@ionic/vue";
 
@@ -83,20 +77,6 @@ const loadUser = async () => {
     alert("Failed to load user data");
   }
 };
-
-// const userEdit = async () => {
-//   try {
-//     const response = await axios.put(`http://127.0.0.1:8000/api/user/${props.id}`,user.value);
-
-//     console.log("user updated:", response.data);
-//     alert("user updated successfully!");
-//     close();
-//   } catch (error) {
-//     console.error("Error updating user:", error);
-//     alert("Failed to update user");
-//   }
-// };
-
 
 onMounted(() => {
   loadUser();

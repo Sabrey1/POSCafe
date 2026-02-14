@@ -2,7 +2,6 @@
   <ion-content class="ion-padding">
     <div class="modal-container">
       <h2 class="mb-2 text-center">{{ t("Add Customer") }}</h2>
-
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -55,7 +54,6 @@
             </ion-item>
           </ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -83,7 +81,6 @@
             </ion-item>
           </ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -111,7 +108,6 @@
             </ion-item>
           </ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col>
             <ion-item lines="none">
@@ -136,7 +132,6 @@
             </ion-item>
           </ion-col>
         </ion-row>
-
         <br />
         <ion-button expand="block" color="primary" @click="addCustomer">
           {{ t("Save") }}
@@ -150,12 +145,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import {
-  IonContent,
-  IonItem,
-  IonInput,
-  IonButton,
-  IonSelect,
-  IonSelectOption,
+  
   modalController,
 } from "@ionic/vue";
 

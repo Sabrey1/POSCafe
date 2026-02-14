@@ -5,14 +5,14 @@
             <!-- {{data}} -->
 
              <DataTable
-  :value="data"
-  showGridlines
-  stripedRows
-  scrollable
-  scrollHeight="92vh"
-  tableStyle="min-width: 50rem"
-  class="mt-2"
->
+                :value="data"
+                showGridlines
+                stripedRows
+                scrollable
+                scrollHeight="92vh"
+                tableStyle="min-width: 50rem"
+                class="mt-2"
+                >
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
                     {{ slotProps.index + 1 }}
@@ -45,8 +45,6 @@
                 <span class="p-2">{{ slotProps.data.close_by}}</span>
             </template>
             </Column>
-
-            
             <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
             <template #body="slotProps">
                 <div>
@@ -65,8 +63,7 @@ import { onMounted, ref } from 'vue'
 import dayjs from 'dayjs';
 import axios from 'axios';
 import AppBar from "@/views/Layout/AppBar.vue"
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
+
 import WorkingDayEdit from '@/views/WorkingDay/components/WorkingDayEdit.vue'
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 const t = window.t

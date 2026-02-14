@@ -1,5 +1,5 @@
 <template>
-    <ion-page>
+    <ion-page v-if="isPageVisible" ref="myPage">
         <AppBar>{{t("Employee List")}}</AppBar>
      
         <ion-content>
@@ -77,9 +77,9 @@
     </ion-page>
 </template>
 
-<script setup lang="ts">
+<script setup  >
 import axios from 'axios';
-import { ref, onMounted } from 'vue'
+import { ref, onMounted ,nextTick} from 'vue'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
@@ -90,6 +90,10 @@ import AppBar from "@/views/Layout/AppBar.vue"
 
 const data = ref()
 const t = window.t
+
+const myPage = ref(null)
+const isPageVisible = ref(false)
+ 
 
 async function getData(){
     const res = await axios.get('http://127.0.0.1:8000/api/employee')
@@ -134,6 +138,14 @@ const openModal = async () => {
 
 onMounted(() => {
     getData()
+     isPageVisible.value = true
+
+  nextTick(() => {
+    const el = myPage.value?.$el || myPage.value
+    if (el && el.classList) {
+      el.classList.add('my-active-class')
+    }
+  })
 })
 
 </script>

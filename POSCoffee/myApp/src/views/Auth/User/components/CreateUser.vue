@@ -46,11 +46,9 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
-import { IonContent, IonItem, IonLabel, IonInput, IonButton, modalController, IonList, IonSelect, IonSelectOption  } from '@ionic/vue';
+import { ref } from "vue";
 import axios from "axios";
 const t = window.t
-
 
 const user = ref({
   name: "",
@@ -61,9 +59,7 @@ const user = ref({
 
 const User = async () => {
   try {
-    // Replace URL with your API endpoint
     const response = await axios.post("http://127.0.0.1:8000/api/user", user.value);
-
     console.log("User added:", response.data);
     alert("User added successfully!");
     close();

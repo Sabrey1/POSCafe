@@ -31,13 +31,22 @@ import './theme/variables.css';
 
 import AppBar from "@/views/Layout/AppBar.vue"
 import ToolBar from "@/views/Layout/ToolBar.vue"
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
+import InputText from 'primevue/inputtext';
+
+
+
 import { 
   IonLabel, 
   IonChip, 
   IonPage,
   IonContent, 
   IonicVue,
-  useIonRouter,
+  
   IonRippleEffect,
   IonCard,
   IonCardContent,
@@ -46,6 +55,7 @@ import {
   IonCardSubtitle, 
   IonIcon ,
   IonButton,
+  
   IonHeader,
   IonToolbar,
   IonTitle,
@@ -130,7 +140,63 @@ app.component('IonHeader', IonHeader)
 app.component('IonPage', IonPage)
 app.component('IonTitle', IonTitle)
 app.component('IonToolbar', IonToolbar)
-app.component('Toast', Toast) // 👈 register globally
+app.component('IonLabel', IonLabel)
+app.component('IonChip', IonChip)
+app.component('IonCard', IonCard)
+app.component('IonCardContent', IonCardContent)
+app.component('IonCardHeader', IonCardHeader)
+app.component('IonCardTitle', IonCardTitle)
+app.component('IonCardSubtitle', IonCardSubtitle)
+app.component('IonIcon', IonIcon)
+app.component('IonRippleEffect', IonRippleEffect) 
+app.component('IonImg', IonImg)
+app.component('IonSearchbar', IonSearchbar)
+app.component('IonFab', IonFab)
+app.component('IonFabButton', IonFabButton) 
+app.component('IonSegment', IonSegment)
+app.component('IonSegmentButton', IonSegmentButton)
+app.component('IonSegmentView', IonSegmentView)
+app.component('IonRefresher', IonRefresher)
+app.component('IonRefresherContent', IonRefresherContent)
+app.component('IonProgressBar', IonProgressBar)
+app.component('IonSpinner', IonSpinner) 
+app.component('IonButtons', IonButtons)
+app.component('IonBackButton', IonBackButton)
+app.component('IonInfiniteScroll', IonInfiniteScroll)
+app.component('IonInfiniteScrollContent', IonInfiniteScrollContent)
+app.component('IonFooter', IonFooter)
+app.component('IonModal', IonModal)
+app.component('IonAvatar', IonAvatar)
+app.component('IonDatetime', IonDatetime)
+app.component('IonDatetimeButton', IonDatetimeButton)
+app.component('IonAccordionGroup', IonAccordionGroup)
+app.component('IonAccordion', IonAccordion)
+app.component('IonText', IonText)
+app.component('IonInput', IonInput)
+app.component('IonSelect', IonSelect)
+app.component('IonSelectOption', IonSelectOption)
+app.component('IonItemGroup', IonItemGroup)
+app.component('IonItemDivider', IonItemDivider)
+app.component('IonGrid', IonGrid)
+app.component('IonRow', IonRow)
+app.component('IonCol', IonCol)
+app.component('IonSplitPane', IonSplitPane)
+app.component('IonMenu', IonMenu)
+app.component('IonMenuToggle', IonMenuToggle)
+app.component('AppBar', AppBar)
+app.component('ToolBar', ToolBar)
+
+
+// primvue
+app.component('DataTable', DataTable)
+app.component('Column', Column)
+app.component('IconField', IconField)
+app.component('InputIcon', InputIcon)
+app.component('Toast', Toast) 
+app.component('InputText', InputText) 
+
+
+
 app.use(ToastService)
 app.config.globalProperties.$dayjs = dayjs;
 

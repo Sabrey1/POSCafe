@@ -1,23 +1,28 @@
 <template>
-    <div class="content" >
-        <AppBar>{{t("Customer List")}}</AppBar>
-     
-        <div >
-            <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
-              <ion-fab-button >
-                <ion-icon :icon="add"></ion-icon>
-            </ion-fab-button>
-            </ion-fab>
-        </div>
-       <DataTable
-  :value="data"
-  showGridlines
-  stripedRows
-  scrollable
-  scrollHeight="92vh"
-  tableStyle="min-width: 50rem"
-  class="mt-2"
->
+    
+    <AppBar>{{t("Customer List")}}</AppBar>
+               
+                    <div >
+                        <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
+                        <ion-fab-button >
+                            <ion-icon :icon="add"></ion-icon>
+                        </ion-fab-button>
+                        </ion-fab>
+                    </div>
+
+            <div class="py-2 px-2">
+                <IconField>
+                    <InputIcon class="pi pi-search" />
+                    <InputText v-model="value1" placeholder="Search" fluid  size="large"/>
+                </IconField>
+            </div>
+            <DataTable
+            :value="data"
+            showGridlines
+            stripedRows
+            tableStyle="min-width: 50rem"
+            class="mt-2">
+           
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
                     {{ slotProps.index + 1 }}
@@ -66,79 +71,16 @@
             </template>
             </Column>
         </DataTable>
-       
-    </div>
 </template>
 
 <script setup lang="ts">
-import axios from 'axios';
 import dayjs from 'dayjs';
-import { onMounted, ref } from 'vue';
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
-import CustomerAdd from "@/views/Customer/components/CustomerAdd.vue"
-import CustomerEdit from "@/views/Customer/components/CustomerEdit.vue"
-import AppBar from "@/views/Layout/AppBar.vue"
+import { useCustomer } from "@/hooks/useCustomer.js"
+import { ref } from 'vue';
+
+const value1 = ref(null);
+
+const { data,onDelete,onEdit,openModal } = useCustomer();
 const t = window.t
-const data = ref();
-
-async function getdate (){
- const res = await axios.get('http://127.0.0.1:8000/api/customer')
-
-    if (res.data){
-        data.value = res.data;
-        console.log(data.value);
-    }
-}
-
-async function onEdit(id){
-    const modal = await modalController.create({
-        component: CustomerEdit,
-         componentProps: { id },
-        cssClass: 'custom-modal',
-    });
-    await modal.present();
-}
-
-const openModal = async () => {
-  const modal = await modalController.create({
-    component: CustomerAdd,
-    cssClass: 'custom-modal',
-  });
-  await modal.present();
-};
-
-async function onDelete(id) {
-  const confirmDelete = window.confirm(t("Are you sure you want to delete this customer?"));
-  if (confirmDelete) {
-    try {
-      const deleteRes = await axios.delete(`http://127.0.0.1:8000/api/customer/${id}`);
-      if (deleteRes.data.success) {
-        alert(t("Customer deleted successfully"));
-        await getdate();
-      }
-    } catch (error) {
-      console.error(error);
-      alert(t("Failed to delete customer"));
-    }
-  }
-}
-
-onMounted(() => {
-    getdate();
-});
-
 </script>
-
-<style> 
-.content {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.p-datatable-wrapper {
-  overflow: hidden !important;
-}
-</style>
