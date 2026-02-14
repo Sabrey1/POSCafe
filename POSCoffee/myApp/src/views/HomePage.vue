@@ -46,3 +46,8 @@ const t = window.t
 
 </script>
  
+<style scoped>
+ion-toolbar {
+  --min-height: 75px; /* default is around 56px */
+}
+</style>

@@ -104,6 +104,7 @@ ion-icon{
   justify-content: center;
   align-items: center;
   height: 70px;
+  padding: 0;
 }
 
 ion-card-content{

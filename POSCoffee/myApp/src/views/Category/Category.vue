@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <IonPage>
         <AppBar>{{ t("Category List") }}</AppBar>
          
         <div >
@@ -9,7 +9,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-     
+     <IonContent class="ion-no-padding">
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -22,7 +22,7 @@
                 <span class="p-4">{{ slotProps.data.image }}</span>
             </template>
             </Column>
-            <!-- Other columns with padding -->
+            
             <Column field="name" :header="t('Name#')" sortable class="p-2">
             <template #body="slotProps">
                 <span class="p-2">{{ slotProps.data.name }}</span>
@@ -52,12 +52,14 @@
             </template>
             </Column>
         </DataTable>
-    </div>
+        </IonContent>
+    </IonPage>
 </template>
 
 <script setup >
 import { add } from 'ionicons/icons';
 import {useCategory} from '@/hooks/useCategory.js'
+import { IonContent, IonPage } from '@ionic/vue';
 const t = window.t
 const { data,onEdit,openModal,onDelete } = useCategory()
 

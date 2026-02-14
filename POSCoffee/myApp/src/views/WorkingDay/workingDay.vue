@@ -1,7 +1,8 @@
 <template>
-<ion-page>
+<IonPage>
+    <IonContent> 
         <ToolBar>{{(t("Start Working Day"))}}</ToolBar> 
-    <ion-content>
+    
         <div class="p-2 fix-container">
             <ion-grid>
                 <ion-row>
@@ -38,13 +39,14 @@
             </ion-grid>
         </div>
         <FooterWorkingDay class="footer" />
-    </ion-content>
-</ion-page>
+    </IonContent>
+</IonPage>
 </template>
 
 <script setup lang="ts">
  
 import FooterWorkingDay from "@/views/WorkingDay/components/FooterWorkingDay.vue"
+import { IonContent } from "@ionic/vue";
 const t = window.t
 </script>
 

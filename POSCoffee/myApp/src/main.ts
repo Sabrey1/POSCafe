@@ -18,11 +18,13 @@ import '@ionic/vue/css/text-alignment.css';
 import '@ionic/vue/css/text-transformation.css';
 import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
- import PrimeVue from 'primevue/config';
+import PrimeVue from 'primevue/config';
 import ToastService from 'primevue/toastservice';
 import Aura from '@primeuix/themes/aura';
 import 'primeicons/primeicons.css';
 import '@ionic/vue/css/palettes/dark.system.css';
+
+import '/node_modules/primeflex/primeflex.css'
 
 import Toast from 'primevue/toast';
 
