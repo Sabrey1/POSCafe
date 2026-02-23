@@ -14,6 +14,11 @@ async function getdata (){
         data.value = res.data;
     }
 }
+
+function OnSearch(){
+
+}
+
 async function onEdit(id){
     const modal = await modalController.create({
         component: CustomerEdit,

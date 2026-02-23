@@ -64,7 +64,7 @@
             </Column>
             <Column :header="t('Action')" sortable class="p-2" style="width: 300px;">
             <template #body="slotProps">
-                <div class="flex gap-2 justify-content-center">
+                <div class="flex gap-2 align-items-center justify-content-center">
                     <CustomerShow :customer="slotProps.data" />
                     <ion-button fill="outline" size="small" color="primary" @click="onEdit(slotProps.data.id)">{{t("Edit")}}</ion-button>
                     <ion-button fill="outline" size="small" color="danger" @click="onDelete(slotProps.data.id)">{{t("Delete")}}</ion-button>
