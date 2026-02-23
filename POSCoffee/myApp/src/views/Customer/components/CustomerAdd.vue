@@ -62,6 +62,7 @@
                 :label="t('Phone Number')"
                 label-placement="floating"
                 fill="outline"
+                type="number"
                 :placeholder="t('Enter phone number')"
               />
             </ion-item>

@@ -72,7 +72,6 @@ const props = defineProps({
             {{ customer.name }}
           </div>
           
-          <!-- Status -->
           <Tag
             :value="customer.status"
             :severity="statusSeverity"
@@ -151,8 +150,8 @@ const props = defineProps({
 
         <!-- 🔷 Footer -->
         <div class="flex justify-content-between text-sm text-500 pt-3 border-top-1 surface-border">
-          <div>Created: {{ formatDate(customer.created_at) }}</div>
-          <div>Updated: {{ formatDate(customer.updated_at) }}</div>
+          <div>Created: {{ dayjs(customer.created_at).format("DD/MM/YYYY") }}</div>
+          <div>Updated: {{ dayjs(customer.updated_at).format("DD/MM/YYYY") }}</div>
         </div>
 
       </div>
@@ -162,6 +161,7 @@ const props = defineProps({
 
 <script setup>
 import { ref, computed } from "vue";
+import dayjs from "dayjs";
 
 const t = window.t
 const visible = ref(false)
@@ -169,13 +169,7 @@ const visible = ref(false)
 const props = defineProps({
   customer: Object
 })
-
-function formatDate(date) {
-  if (!date) return ''
-  return new Date(date).toLocaleString()
-}
-
-/* 🔥 Auto change tag color based on status */
+ 
 const statusSeverity = computed(() => {
   const status = props.customer?.status?.toLowerCase()
   if (status === 'active') return 'success'

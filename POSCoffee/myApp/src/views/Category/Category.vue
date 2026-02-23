@@ -43,9 +43,10 @@
                 <span class="p-2">{{ slotProps.data.created_at }}</span>
             </template>
             </Column>
-            <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
+            <Column :header="t('Action')" sortable class="p-2" style="width: 350px;">
             <template #body="slotProps">
-                <div>
+                <div class="flex gap-2 justify-content-center align-items-center">
+                    <ComShowCategory :category="slotProps.data" />
                     <ion-button fill="outline" size="small" color="primary" @click="onEdit(slotProps.data.id)">{{t("Edit")}}</ion-button>
                     <ion-button fill="outline" size="small" color="danger" @click="onDelete(slotProps.data.id)">{{t("Delete")}}</ion-button>
                 </div>
@@ -60,6 +61,9 @@
 import { add } from 'ionicons/icons';
 import {useCategory} from '@/hooks/useCategory.js'
 import { IonContent, IonPage } from '@ionic/vue';
+
+import ComShowCategory from '@/views/Category/components/ComShowCategory.vue'
+
 const t = window.t
 const { data,onEdit,openModal,onDelete } = useCategory()
 

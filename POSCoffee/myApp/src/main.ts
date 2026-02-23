@@ -41,6 +41,7 @@ import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
+import Tag from 'primevue/tag';
 
 
 
@@ -206,6 +207,7 @@ app.component('InputIcon', InputIcon)
 app.component('Toast', Toast) 
 app.component('InputText', InputText) 
 app.component('Button', Button) 
+app.component('Tag', Tag) 
 
 
 
