@@ -1,72 +1,88 @@
 <template>
-<div style="width:1000px; margin: 0 auto;">
-    <div style="display: flex; justify-content: space-between;">
-        <ion-card color="secondary" :routerLink='`/working-day`' class="card">
-            <ion-card-header class="icon-center">
-                <ion-icon :icon="alarmOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Working Day")}}
-            </ion-card-content>
-        </ion-card>
-        <ion-card color="secondary" :routerLink='`/shift`' class="card">
-            <ion-card-header class="icon-center">
-                <ion-icon :icon="timeOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Shift")}}
-            </ion-card-content>
-        </ion-card>
-        <ion-card color="secondary" :routerLink='`/order`' class="card">
-            <ion-card-header class="icon-center">
-                <ion-icon :icon="cartOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Sale")}}
-            </ion-card-content>
-        </ion-card>
-        <ion-card color="secondary" :routerLink='`/order-list`' class="card">
-            <ion-card-header class="icon-center">
-                <ion-icon :icon="readerOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Sale List")}}
-            </ion-card-content>
-        </ion-card>
+<div>
+    <div class="grid">
+        <div class="col">
+            <ion-card color="secondary" :routerLink='`/working-day`' class="card">
+                <ion-card-header class="icon-center">
+                    <ion-icon :icon="alarmOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Working Day")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="col">
+            <ion-card color="secondary" :routerLink='`/shift`' class="card">
+                <ion-card-header class="icon-center">
+                    <ion-icon :icon="timeOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Shift")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="col">
+            <ion-card color="secondary" :routerLink='`/order`' class="card">
+                <ion-card-header class="icon-center">
+                    <ion-icon :icon="cartOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Sale")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="col">
+            <ion-card color="secondary" :routerLink='`/order-list`' class="card">
+                <ion-card-header class="icon-center">
+                    <ion-icon :icon="readerOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Sale List")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
     </div>
-    <div style="display: flex; justify-content: space-between;">
-        <ion-card color="secondary" :routerLink='`/customer-list`' class="card">
-            <ion-card-header class="icon-center">
-                <ion-icon :icon="peopleOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Customer List")}}
-            </ion-card-content>
-        </ion-card>
-        <ion-card color="secondary" :routerLink='`/report`' class="card">
-            <ion-card-header class="icon-center">
-                <ion-icon :icon="barChartOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Report")}}
-            </ion-card-content>
-        </ion-card>
-        <ion-card color="secondary" :routerLink='`/setting`' class="card">
-            <ion-card-header class="icon-center">
-                <ion-icon :icon="settingsOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Setting")}}
-            </ion-card-content>
-        </ion-card>
-        <ion-card color="danger" @click="logout" >
-            <ion-card-header class="icon-center">
-            <ion-icon :icon="arrowForwardOutline"></ion-icon>
-            </ion-card-header>
-            <ion-card-content>
-                {{t("Logout")}}
-            </ion-card-content>
-        </ion-card>
+    <div class="grid">
+        <div class="col">
+            <ion-card color="secondary" :routerLink='`/customer-list`' class="card">
+                <ion-card-header class="icon-center">
+                    <ion-icon :icon="peopleOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Customer List")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="col">
+            <ion-card color="secondary" :routerLink='`/report`' class="card">
+                <ion-card-header class="icon-center">
+                    <ion-icon :icon="barChartOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Report")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="col">
+            <ion-card color="secondary" :routerLink='`/setting`' class="card">
+                <ion-card-header class="icon-center">
+                    <ion-icon :icon="settingsOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Setting")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="col">
+            <ion-card color="danger" @click="logout" >
+                <ion-card-header class="icon-center">
+                <ion-icon :icon="arrowForwardOutline"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    {{t("Logout")}}
+                </ion-card-content>
+            </ion-card>
+        </div>
     </div>
 </div>
 </template>

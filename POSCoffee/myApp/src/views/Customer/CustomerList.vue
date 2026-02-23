@@ -2,7 +2,7 @@
     
     <AppBar>{{t("Customer List")}}</AppBar>
                
-                    <div >
+                    <div>
                         <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
                         <ion-fab-button >
                             <ion-icon :icon="add"></ion-icon>
@@ -62,9 +62,10 @@
                 {{ dayjs(slotProps.data.created_at).format("DD-MM-YYYY") }}
             </template>
             </Column>
-            <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
+            <Column :header="t('Action')" sortable class="p-2" style="width: 300px;">
             <template #body="slotProps">
-                <div>
+                <div class="flex gap-2 justify-content-center">
+                    <CustomerShow :customer="slotProps.data" />
                     <ion-button fill="outline" size="small" color="primary" @click="onEdit(slotProps.data.id)">{{t("Edit")}}</ion-button>
                     <ion-button fill="outline" size="small" color="danger" @click="onDelete(slotProps.data.id)">{{t("Delete")}}</ion-button>
                 </div>
@@ -78,6 +79,7 @@ import dayjs from 'dayjs';
 import { add } from 'ionicons/icons';
 import { useCustomer } from "@/hooks/useCustomer.js"
 import { ref } from 'vue';
+import CustomerShow from '@/views/Customer/components/CustomerShow.vue'
 
 const value1 = ref(null);
 

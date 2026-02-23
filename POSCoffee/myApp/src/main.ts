@@ -39,6 +39,8 @@ import Column from 'primevue/column';
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
+import Dialog from 'primevue/dialog';
+import Button from 'primevue/button';
 
 
 
@@ -188,6 +190,7 @@ app.component('IonSplitPane', IonSplitPane)
 app.component('IonMenu', IonMenu)
 app.component('IonMenuToggle', IonMenuToggle)
 app.component('IonMenuButton', IonMenuButton)
+app.component('Dialog', Dialog)
  
 
 
@@ -202,6 +205,7 @@ app.component('IconField', IconField)
 app.component('InputIcon', InputIcon)
 app.component('Toast', Toast) 
 app.component('InputText', InputText) 
+app.component('Button', Button) 
 
 
 
