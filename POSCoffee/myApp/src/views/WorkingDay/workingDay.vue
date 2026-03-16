@@ -13,6 +13,7 @@
                             type="date"
                             fill="outline"
                             :placeholder="t('Select Working Day')"
+                            v-model="workingday"
                         />
                     </ion-col>
                     <ion-col>
@@ -38,16 +39,37 @@
                 </ion-row>
             </ion-grid>
         </div>
-        <FooterWorkingDay class="footer" />
+         
     </IonContent>
+    <ion-footer>
+        <ion-toolbar>
+            <ion-title class="ion-text-center">
+                 <ion-button color="danger">{{ t("Cancel") }}</ion-button>
+                 <ion-button color="warning">{{ t("View Working Day") }}</ion-button>
+                 <ion-button color="success" @click="openWorkingDay">{{ t("Open Working Day") }}</ion-button>
+            </ion-title>
+        </ion-toolbar>
+    </ion-footer>
 </IonPage>
 </template>
 
-<script setup lang="ts">
- 
-import FooterWorkingDay from "@/views/WorkingDay/components/FooterWorkingDay.vue"
+<script setup>
+import { ref } from "vue";
 import { IonContent } from "@ionic/vue";
+import dayjs from 'dayjs'
 const t = window.t
+
+const workingDay = ref({
+    name: "",
+    date:"",
+    note: "",
+}) 
+
+const workingday = ref(dayjs().format('YYYY-MM-DD'))
+
+function openWorkingDay() {
+    alert("Open Working Day");
+}
 </script>
 
 <style scoped>

@@ -39,12 +39,9 @@ async function onDelete(id) {
   }
 }
 
-
 onMounted(() => {
     getData();
 });
-
-
 
     return {
         data,

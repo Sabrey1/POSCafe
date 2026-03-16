@@ -12,7 +12,7 @@
 </template>
 <script setup lang="ts">
 
-const t = window.t;
+ 
  
 </script>
 
