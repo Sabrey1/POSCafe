@@ -1,7 +1,8 @@
 <template>
-     <div>
+     <IonPage>
         <AppBar>{{(t("Sale List"))}}</AppBar>
    
+        <IonContent>
        <DataTable
             :value="data"
             showGridlines
@@ -57,7 +58,8 @@
             </template>
             </Column>
         </DataTable>
-</div>
+        </IonContent>
+    </IonPage>
 </template>
 
 <script setup lang="ts">
@@ -66,6 +68,7 @@ import { onMounted, ref } from "vue"
 import axios from "axios"
 const t = window.t
 import ComStatus from "@/views/Layout/ComStatus.vue"
+import { IonPage } from "@ionic/vue"
 const data = ref()
 
 async function getData(){

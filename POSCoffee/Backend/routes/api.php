@@ -93,10 +93,12 @@ Route::delete('/order/{id}',[OrderController::class,'destroy'])->name('order.des
 
 //Working Day List
 Route::get('/workingday',[WorkingDayController::class,'index'])->name('workingday');
+Route::get('/workingday/current', [WorkingDayController::class, 'current'])->name('workingday.current');
 Route::get('/workingday/{id}',[WorkingDayController::class,'show'])->name('workingday.show');
 Route::post('/workingday',[WorkingDayController::class,'store'])->name('workingday.store');
 Route::put('/workingday/{id}',[WorkingDayController::class,'update'])->name('workingday.update');
 Route::delete('/workingday/{id}',[WorkingDayController::class,'destroy'])->name('workingday.destroy');
+
 
 //Shift List
 Route::get('/shift',[ShiftController::class,'index'])->name('shift');

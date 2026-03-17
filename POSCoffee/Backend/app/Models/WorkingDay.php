@@ -10,7 +10,8 @@ class WorkingDay extends Model
      protected $fillable = [
         'working_day_code',
         'name',
-        'date',
+        'close_date',
+        'opening_date',
         'description',
         'note'
     ];

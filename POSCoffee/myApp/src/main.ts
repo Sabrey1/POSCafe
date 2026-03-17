@@ -51,7 +51,6 @@ import {
   IonPage,
   IonContent, 
   IonicVue,
-  
   IonRippleEffect,
   IonCard,
   IonCardContent,
@@ -60,7 +59,6 @@ import {
   IonCardSubtitle, 
   IonIcon ,
   IonButton,
-  
   IonHeader,
   IonToolbar,
   IonTitle,
@@ -102,8 +100,6 @@ import {
   IonMenu,
   IonMenuToggle,
   IonMenuButton,
-  
-  
 } from '@ionic/vue';
 /* Core CSS required for Ionic components to work properly */
 

@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <IonPage>
         <AppBar>{{ t("Currency List") }}</AppBar>
-        <div>
+       
             <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
@@ -9,7 +9,7 @@
             </ion-fab-button>
             </ion-fab>
         </div>
-     
+     <IonContent>
         <DataTable :value="data" showGridlines stripedRows scrollable scrollHeight="92vh"  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -45,8 +45,9 @@
             </template>
             </Column>
         </DataTable>
-        </div>
-    </div>
+        </IonContent>
+        
+    </IonPage>
 </template>
 
 <script setup>
@@ -57,5 +58,5 @@ import {useCurrency} from '@/hooks/useCurrency.js'
 const { data,onDelete,onEdit,openModal } = useCurrency()
 
 const t = window.t
-
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 </script>

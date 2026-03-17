@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <IonPage>
         <AppBar>{{(t("Working Day List"))}}</AppBar>
-        <div>
+        <IonContent>
             <!-- {{data}} -->
 
              <DataTable
@@ -54,8 +54,8 @@
             </template>
             </Column>
         </DataTable>
-        </div>
-    </div>
+        </IonContent>
+    </IonPage>
 </template>
 
 <script setup lang="ts">
@@ -63,6 +63,7 @@ import dayjs from 'dayjs';
 const t = window.t
 
 import { useWorkingDay } from "@/hooks/useWorkingDay.js"
+import { IonContent, IonPage } from '@ionic/vue';
 const { data,onDelete,onEdit } = useWorkingDay()
 
 </script>

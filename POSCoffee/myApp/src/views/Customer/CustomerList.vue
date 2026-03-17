@@ -1,14 +1,15 @@
 <template>
-    
-    <AppBar>{{t("Customer List")}}</AppBar>
-               
-                    <div>
+         <IonPage>  
+             <AppBar>{{t("Customer List")}}</AppBar>
+              <div>
                         <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
                         <ion-fab-button >
                             <ion-icon :icon="add"></ion-icon>
                         </ion-fab-button>
                         </ion-fab>
                     </div>
+            <IonContent>
+                  
 
             <div class="py-2 px-2">
                 <IconField>
@@ -20,6 +21,7 @@
             :value="data"
             showGridlines
             stripedRows
+            
             tableStyle="min-width: 50rem"
             class="mt-2">
            
@@ -72,6 +74,8 @@
             </template>
             </Column>
         </DataTable>
+        </IonContent> 
+        </IonPage>   
 </template>
 
 <script setup lang="ts">
@@ -85,4 +89,5 @@ const value1 = ref(null);
 
 const { data,onDelete,onEdit,openModal } = useCustomer();
 const t = window.t
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 </script>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('working_day_code')->unique()->nullable();
             $table->string('name');
             $table->date('opening_date');
-            $table->date('close_date');
+            $table->date('close_date')->nullable();
             $table->string('open_by')->nullable();
             $table->string('close_by')->nullable();
             $table->string('status')->nullable();

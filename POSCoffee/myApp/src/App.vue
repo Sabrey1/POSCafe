@@ -1,19 +1,22 @@
-<!-- <template>
-  <ion-app>
-    <ion-router-outlet></ion-router-outlet>
-  </ion-app>
-</template>
-
-<script setup lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
-</script> -->
-
 <template>
   <IonApp>
-    <IonRouterOutlet />
+    <ion-menu content-id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ t("Coffee Shop") }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <Drawer />
+      </ion-content>
+    </ion-menu>
+
+    <IonRouterOutlet id="main-content" />
   </IonApp>
 </template>
 
 <script setup>
-import { IonApp, IonRouterOutlet } from '@ionic/vue'
+import { IonApp, IonRouterOutlet, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue'
+import Drawer from "@/views/Layout/Drawer.vue"
+const t = window.t
 </script>

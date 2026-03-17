@@ -1,7 +1,9 @@
-<template>
-    <div>
+<template> 
+    <IonPage>
         <AppBar>{{ t("Country List") }}</AppBar>
-        <div>
+        <IonContent>
+            
+                <div>
             <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
@@ -42,7 +44,8 @@
             </Column>
         </DataTable>
         </div>
-    </div>
+        </IonContent>
+  </IonPage>
 </template>
 
 <script setup>
@@ -52,4 +55,6 @@ const t = window.t
 
 import {useCountry} from '@/hooks/useCountry.js'
 const { data,onDelete,onEdit,openModal } = useCountry()
+
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 </script>

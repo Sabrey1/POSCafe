@@ -1,7 +1,7 @@
 <template>
-<div>
+<IonPage>
         <AppBar>{{(t("Shift List"))}}</AppBar>
-    <div>
+    <IonContent>
         
          <DataTable
                 :value="data"
@@ -55,8 +55,8 @@
             </template>
             </Column>
         </DataTable>
-    </div>
-</div>
+    </IonContent>
+</IonPage>
 </template>
 
 <script setup lang="ts">
@@ -64,5 +64,6 @@ import dayjs from 'dayjs';
 const t = window.t
 
 import { useShift } from "@/hooks/useShift.js"
+import { IonContent } from '@ionic/vue';
 const { data,onDelete,onEdit } = useShift()
 </script>

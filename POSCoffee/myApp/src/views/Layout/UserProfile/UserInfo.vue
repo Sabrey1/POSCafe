@@ -1,7 +1,7 @@
 <template>
-    <ion-page>
+    <IonPage>
         <ToolBar>{{(t("User Info"))}}</ToolBar>
-    <ion-content>
+    <IonContent>
         <div class="fix-container">
             <ion-card>
                 <ion-card-header>
@@ -34,8 +34,8 @@
                 </ion-card-content>
             </ion-card>
         </div> 
-    </ion-content>
-</ion-page>
+    </IonContent>
+</IonPage>
     
 </template>
 <script setup>
@@ -43,4 +43,5 @@ import dayjs from "dayjs";
 const userData = JSON.parse(localStorage.getItem("user"));
 
 const t = window.t
+
 </script>

@@ -15,20 +15,40 @@ class WorkingDayController extends Controller
 
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'working_day_code' => 'required',
-            'name' => 'required',
-            'date' => 'required',
-        ]);
+{
+    $request->validate([
+        'opening_date' => 'required',
+    ]);
 
-        $workingday = WorkingDay::create($request->all());
+    // ✅ check already open
+    $existing = WorkingDay::where('opening_date', $request->opening_date)
+                ->whereNull('close_date')
+                ->first();
+
+    if($existing){
         return response()->json([
-            'success' => true,
-            'message' => 'Working Day created successfully',
-            'workingday' => $workingday
-        ]);
+            'success' => false,
+            'message' => 'Working Day already opened'
+        ], 400);
     }
+
+    $workingday = WorkingDay::create($request->all());
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Working Day created successfully',
+        'workingday' => $workingday
+    ]);
+}
+
+
+public function current()
+{
+    // Get the latest working day that is still open
+    $workingday = WorkingDay::whereNull('close_date')->latest()->first();
+
+    return response()->json($workingday);
+}
 
      public function show($id)
     {

@@ -1,14 +1,15 @@
 <template>
-    <div>
+    <IonPage>
     <AppBar>{{t("User List")}}</AppBar>
-    <div>
+   
         <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >
                 <ion-icon :icon="add"></ion-icon>
             </ion-fab-button>
             </ion-fab>
-        </div>
+        </div> 
+        <IonContent>
         <DataTable :value="data" showGridlines stripedRows  tableStyle="min-width: 50rem" class="mt-2">
             <Column :header="t('No.')" class="p-3" :bodyStyle="{ textAlign: 'center' }"  style="width: 50px">
                 <template #body="slotProps">
@@ -45,8 +46,8 @@
             </template>
             </Column>
         </DataTable>
-    </div>
-    </div>
+    </IonContent>
+    </IonPage>
 </template>
 
 <script setup>
@@ -56,4 +57,6 @@ import {useUser} from '@/hooks/useUser.js'
 
 const {data,onDelete,onEdit,openModal} = useUser()
 const t = window.t
+
+
 </script>
