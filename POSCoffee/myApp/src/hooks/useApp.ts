@@ -10,20 +10,22 @@ const exchange_rate_input = ref(1)
 const change_exchange_rate =  ref(1)
 const appMenus = ref([])
 const bluetoothPrinters = ref([])
-let userPreference = reactive({sale_ui_setting:{
+let userPreference = reactive(
+  {
+    sale_ui_setting:
+    {
       product_card_height:200,
       product_columns:3,
       product_container_width:65,
       product_font_size:14,
       button_font_size:12,
       use_simple_product_list_ui:false
+    }
   }
-}
 )
 export function useApp() {
 
   const metas = ref<any[]>([])
-
 
   const currentLanguage = ref("en")
   const languages = [
@@ -42,29 +44,19 @@ export function useApp() {
     }
     ]
 
-
-    
-      async function getMeta(doctype:string){
-      
-        const existingDoctype = metas.value.find(r=>r.name == doctype);
-      
-        if(existingDoctype){
-        
-          return existingDoctype
-        }
-    
-        const response =await app.getApi("epos_restaurant_2023.api.api.get_meta",{
-          doctype:doctype
-        });
-        
-        if(response.data){
-          metas.value.push(response.data);
-          return response.data;
-        }
-    
-    
-      }
-
+  async function getMeta(doctype:string){
+    const existingDoctype = metas.value.find(r=>r.name == doctype);
+    if(existingDoctype){
+      return existingDoctype
+    }
+    const response =await app.getApi("epos_restaurant_2023.api.api.get_meta",{
+      doctype:doctype
+    });
+    if(response.data){
+      metas.value.push(response.data);
+      return response.data;
+    }
+  }
 
   async function getDoctypeDefaultFields(docType:string){
     let fields = ["name"]
@@ -72,53 +64,43 @@ export function useApp() {
     if (meta.image_field) {
       fields.push(meta.image_field)
     }
-
     if (meta.title_field) {
       fields.push(meta.title_field)
     }
-    
     if (meta.search_fields) {
       fields = [...fields, ...meta.search_fields.split(",").map((item: string) => item.trim())];
     }
-
     return [...new Set(fields)];
-
   }
 
-
   async function getUserPreference(){
- 
     const preference = await app.storageService.getItem("userPreference");
     if(preference){
       userPreference =
       Object.assign(userPreference,  JSON.parse(preference))
-
     }
   }
 
   onMounted(async ()=>{
-      currentLanguage.value = app.storageService.getItem("lang") || "en";  
-
-      await getUserPreference()
-
-
+    currentLanguage.value = app.storageService.getItem("lang") || "en";  
+    await getUserPreference()
   })
 
   return { 
     languages,
     currentProperty,
     currentLanguage,
-   isAppLoadReady,
-   isWorkingDayOpened ,
-   isCashierShiftOpened ,
-   change_exchange_rate,
-   exchange_rate_input,
-   exchange_rate,
-   appMenus,
-   bluetoothPrinters,
-   userPreference,
-   getUserPreference,
+    isAppLoadReady,
+    isWorkingDayOpened ,
+    isCashierShiftOpened ,
+    change_exchange_rate,
+    exchange_rate_input,
+    exchange_rate,
+    appMenus,
+    bluetoothPrinters,
+    userPreference,
+    getUserPreference,
     getMeta,
     getDoctypeDefaultFields
-};
+  };
 }

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('quantity');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('owner')->nullable();
-            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

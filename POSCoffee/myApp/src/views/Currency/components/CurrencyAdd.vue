@@ -1,11 +1,8 @@
 <template>
   <ion-content class="ion-padding">
     <div class="modal-container">
-      <h2 class="mb-2 text-center">{{ t("Add Currency") }}</h2>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col>
+      <h2 class="mb-2 ml-3">{{ t("Add Currency") }}</h2>
+      <div>
             <ion-item lines="none">
               <ion-input
                 v-model="currency.currency_code"
@@ -15,8 +12,7 @@
                 :placeholder="t('Enter currency code')"
               />
             </ion-item>
-          </ion-col>
-          <ion-col>
+          
             <ion-item lines="none">
               <ion-input
                 v-model="currency.name"
@@ -26,10 +22,7 @@
                 :placeholder="t('Enter currency')"
               />
             </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
+
             <ion-item lines="none">
               <ion-select
                 v-model="currency.symbol"
@@ -38,12 +31,10 @@
                 interface="popover"
                 :placeholder="t('Select symbol')"
               >
-                <ion-select-option value="Male">{{ t("Male") }}</ion-select-option>
-                <ion-select-option value="Female">{{ t("Female") }}</ion-select-option>
+                <ion-select-option value="$">{{ t("$") }}</ion-select-option>
+                <ion-select-option value="៛">{{ t("៛") }}</ion-select-option>
               </ion-select>
             </ion-item>
-          </ion-col>
-          <ion-col>
             <ion-item lines="none">
               <ion-input
                 v-model="currency.description"
@@ -52,11 +43,8 @@
                 fill="outline"
                 :placeholder="t('Enter description')"
               />
-            </ion-item>
-          </ion-col>
-        </ion-row>      
-        <ion-row>
-          <ion-col>
+            </ion-item>   
+       
             <ion-item lines="none">
               <ion-input
                 v-model="currency.note"
@@ -66,24 +54,29 @@
                 :placeholder="t('Enter note')"
                 style="height: 100px;"
               />
-            </ion-item>
-          </ion-col>
-        </ion-row>      
+            </ion-item>     
         <br />
+        <div>
+            <ion-button expand="block" color="primary" @click="addCurrency">
+          {{ t("Cancel") }}
+        </ion-button>
         <ion-button expand="block" color="primary" @click="addCurrency">
           {{ t("Save") }}
         </ion-button>
-      </ion-grid>
+        </div>
+        
+      </div>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import axios from "axios";
 import {
   modalController,
 } from "@ionic/vue";
+
+import app from '@/services/api-service.js';
 
 const t = window.t;
 
@@ -94,7 +87,6 @@ const currency = ref({
   symbol:"",
   description:"",
   note:""
- 
 });
 
 // Function to close modal
@@ -106,15 +98,10 @@ const close = async () => {
 // Function to insert data
 const addCurrency = async () => {
   try {
-    // Replace URL with your API endpoint
-    const response = await axios.post("http://127.0.0.1:8000/api/currency", currency.value);
-
-    console.log("Currency added:", response.data);
-    alert("Currency added successfully!");
+    await app.postApi("currency", currency.value);
     close();
   } catch (error) {
     console.error("Error adding currency:", error);
-    alert("Failed to add currency");
   }
 };
 </script>

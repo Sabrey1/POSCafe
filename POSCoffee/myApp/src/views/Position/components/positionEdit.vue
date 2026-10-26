@@ -23,12 +23,6 @@
                 <ion-input :label="t('Description')" v-model="position.description" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
             </ion-item>
         </ion-col>
-        <ion-col>
-             <!-- Note -->
-            <ion-item lines="none">
-                <ion-input :label="t('Note')" v-model="position.note" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
-            </ion-item>
-        </ion-col>
       </ion-row>
       <br>
       <ion-button expand="block" color="primary" @click="editPosition">{{t("Save")}}</ion-button>
@@ -47,8 +41,7 @@ const t = window.t
 const position = ref({
   position_code: "",
   name: "",
-  description: "",
-  note: "",
+  description: ""
 });
 
 const props = defineProps({
@@ -90,12 +83,11 @@ const editPosition = async () => {
 
 
 onMounted(()=>{
-    loadPosition();
+  loadPosition();
 })
 
 const close = async () => {
   const modal = await modalController.getTop();
   if (modal) await modal.dismiss();
 };
-
 </script>

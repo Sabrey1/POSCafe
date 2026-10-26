@@ -13,7 +13,6 @@ class Category extends Model
         'category_code',
         'name',
         'description',
-        'note',
         'image',
     ];
 

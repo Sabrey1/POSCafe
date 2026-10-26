@@ -1,4 +1,11 @@
 {
   "greeting": "Hello",
-  "goodbye": "Goodbye"
+  "goodbye": "Goodbye",
+  "Coffee Shop":"Coffee Shop",
+  "No.":"No.",
+  "Name#":"Name#",
+  "Created At":"Created At",
+  "Role":"Role",
+  "Email":"Email",
+  "Edit":"Edit"
 }

@@ -15,11 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('shift_code')->unique()->nullable();
             $table->string('name');
-            $table->foreignId('working_day_id')
-                    ->nullable()
-                  ->constrained('working_days')
-                  ->onUpdate('cascade')
-                  ->onDelete('set null');
             $table->timestamps();
             $table->date('opening_date');
             $table->date('closing_date');

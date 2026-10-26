@@ -20,7 +20,6 @@ class CustomerController extends Controller
             'address' => 'required',
             "status" => "required",
             "customer_type" => "required",
-            "country" => "required",
             "note" => "required",
 
         ]);

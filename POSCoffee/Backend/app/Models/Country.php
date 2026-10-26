@@ -13,6 +13,5 @@ class Country extends Model
         'country_code',
         'name',
         'description',
-        'note',
     ];
 }

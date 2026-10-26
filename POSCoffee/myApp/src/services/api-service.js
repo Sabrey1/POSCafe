@@ -1,35 +1,61 @@
 import axios from 'axios';
 
-// Read values from .env
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const API_TIMEOUT = import.meta.env.VITE_API_TIMEOUT
-  ? parseInt(import.meta.env.VITE_API_TIMEOUT)
-  : 10000; // default fallback
 
-// Create axios instance
+const API_TIMEOUT = import.meta.env.VITE_API_TIMEOUT
+  ? parseInt(import.meta.env.VITE_API_TIMEOUT, 10)
+  : 10000;
+
 const api = axios.create({
   baseURL: API_BASE_URL,
   timeout: API_TIMEOUT,
 });
 
-// Optional: Request interceptor
-api.interceptors.request.use(config => {
-  // For example, add an Authorization header if needed
-  // config.headers['Authorization'] = `Bearer ${import.meta.env.VITE_API_KEY}`;
-  return config;
-}, error => Promise.reject(error));
+// Request interceptor
+api.interceptors.request.use(
+  config => config,
+  error => Promise.reject(error)
+);
 
-// Optional: Response interceptor
+// Response interceptor
 api.interceptors.response.use(
   response => response,
   error => {
-    console.error('API Error:', error);
+    console.error(
+      'API Error:',
+      error.response?.data || error.message
+    );
+
     return Promise.reject(error);
   }
 );
 
-export default api;
+// Custom API methods
+const app = {
+  getApi: async (url, config = {}) => {
+    const response = await api.get(url, config);
+    return response.data;
+  },
 
+  postApi: async (url, data = {}, config = {}) => {
+    const response = await api.post(url, data, config);
+    return response.data;
+  },
 
-// VITE_API_BASE_URL=http://127.0.0.1:8000/api/
-// VITE_API_TIMEOUT=10000
+  putApi: async (url, data = {}, config = {}) => {
+    const response = await api.put(url, data, config);
+    return response.data;
+  },
+
+  patchApi: async (url, data = {}, config = {}) => {
+    const response = await api.patch(url, data, config);
+    return response.data;
+  },
+
+  deleteApi: async (url, config = {}) => {
+    const response = await api.delete(url, config);
+    return response.data;
+  },
+};
+
+export default app;

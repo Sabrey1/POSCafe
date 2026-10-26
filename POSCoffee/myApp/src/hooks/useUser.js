@@ -4,18 +4,19 @@ import { IonFabButton, IonIcon,modalController ,IonBackButton } from '@ionic/vue
 import CreateUser from "@/views/Auth/User/components/CreateUser.vue"
 
 import EditUser from '@/views/Auth/User/components/EditUser.vue'
+import app from '@/services/api-service.js';
 
 export function useUser() {
     
 const data = ref();
 
-async function getData(){
-    const res = await axios.get('http://127.0.0.1:8000/api/user');
-    if(res.data){
-        data.value = res.data
-    }
+async function getData() {
+  try {
+    data.value = await app.getApi('user');
+  } catch (error) {
+    console.error('Failed to fetch users:', error);
+  }
 }
-
 
 const openModal = async () => {
   const modal = await modalController.create({

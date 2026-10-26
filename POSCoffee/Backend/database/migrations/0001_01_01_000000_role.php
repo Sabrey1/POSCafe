@@ -16,8 +16,7 @@ return new class extends Migration
         $table->string('role_code')->unique();
         $table->string('name');
         $table->text('description')->nullable();
-        $table->boolean('status')->default(true); //delete
-        $table->string('note')->nullable();
+        $table->boolean('status')->default(true);
         $table->timestamps();
     });
     }

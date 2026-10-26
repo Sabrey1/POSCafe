@@ -44,12 +44,12 @@
     </div>
     <div class="grid">
         <div class="col">
-            <ion-card color="secondary" :routerLink='`/customer-list`' class="card">
+            <ion-card color="secondary" :routerLink='`/product`' class="card">
                 <ion-card-header class="icon-center">
                     <ion-icon :icon="peopleOutline"></ion-icon>
                 </ion-card-header>
                 <ion-card-content>
-                    {{t("Customer List")}}
+                    {{t("Product")}}
                 </ion-card-content>
             </ion-card>
         </div>

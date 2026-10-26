@@ -12,7 +12,6 @@ class Position extends Model
         'position_code',
         'name',
         'description',
-        'note',
         'status',
     ];
 }

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('symbol');
             $table->string('description')->nullable();
             $table->string('owner')->nullable();
-            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

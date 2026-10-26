@@ -1,73 +1,72 @@
 <template>
   <ion-content class="ion-padding">
     <div class="modal-container">
-      <h2 class="mb-2 text-center">{{ t("Add Currency") }}</h2>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-item lines="none">
-              <ion-input
-                v-model="country.country_code"
-                :label="t('Currency Code')"
-                label-placement="floating"
-                fill="outline"
-                :placeholder="t('Enter currency code')"
-              />
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item lines="none">
-              <ion-input
-                v-model="country.name"
-                :label="t('Currency Name')"
-                label-placement="floating"
-                fill="outline"
-                :placeholder="t('Enter currency')"
-              />
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          
-          <ion-col>
-            <ion-item lines="none">
-              <ion-input
-                v-model="country.description"
-                :label="t('Description')"
-                label-placement="floating"
-                fill="outline"
-                :placeholder="t('Enter description')"
-              />
-            </ion-item>
-          </ion-col>
-           <ion-col>
-            <ion-item lines="none">
-              <ion-input
-                v-model="country.note"
-                :label="t('Note')"
-                label-placement="floating"
-                fill="outline"
-                :placeholder="t('Enter note')"
-                
-              />
-            </ion-item>
-          </ion-col>
-        </ion-row>      
-             
+      <h2 class="mb-2 text-center">{{ t("Edit Country") }}</h2>
+      <div>
+        <div>
+          <ion-label>{{ t("Country Code") }}</ion-label>
+        </div>
+        <ion-input
+          v-model="country.country_code"
+          :label="t('Country Code')"
+          label-placement="floating"
+          fill="outline"
+          :placeholder="t('Enter country code')"
+        />
+      </div>  
+      <div>
+        <div>
+          <ion-label>{{ t("Country Name") }}</ion-label>
+        </div>
+        <ion-input
+          v-model="country.name"
+          :label="t('Country Name')"
+          label-placement="floating"
+          fill="outline"
+          :placeholder="t('Enter Country Name')"
+        />
+      </div>   
+      <div>
+        <div>
+          <ion-label>{{ t("Description") }}</ion-label>
+        </div>
+        <ion-input
+          v-model="country.description"
+          :label="t('Description')"
+          label-placement="floating"
+          fill="outline"
+          :placeholder="t('Enter description')"
+        />
+      </div>
+      <div>
+        <div>
+          <ion-label>{{ t("Note") }}</ion-label>
+        </div>
+        <ion-input
+          v-model="country.note"
+          :label="t('Note')"
+          label-placement="floating"
+          fill="outline"
+          :placeholder="t('Enter note')"
+        />
+      </div>  
         <br />
-        <ion-button expand="block" color="primary" @click="editCountry">
-          {{ t("Save") }}
-        </ion-button>
-      </ion-grid>
+        <div>
+          <ion-button expand="block" color="primary" @click="editCountry">
+            {{ t("Cancel") }}
+          </ion-button>
+          <ion-button expand="block" color="primary" @click="editCountry">
+            {{ t("Save") }}
+          </ion-button>
+        </div>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import axios from "axios";
 import { modalController } from "@ionic/vue";
+import app from '@/services/api-service.js';
 
 const t = window.t;
 const props = defineProps({
@@ -77,31 +76,23 @@ const props = defineProps({
   },
 });
 
-
 // Bind data
 const country = ref({
   country_code: "",
   name: "",
   description:"",
   note:""
- 
 });
 
-// Load specific customer by ID
 const loadcountry = async () => {
   try {
-    const response = await axios.get(`http://127.0.0.1:8000/api/country/${props.id}`);
-
-    // handle case where backend wraps data in `data`
-    country.value = response.data.data || response.data;
-    console.log("Fetching country with ID:", props.id);
-    console.log("Loaded country:", country.value);
+   const response =  await app.getApi(`country/${props.id}`);
+    country.value = response.data;
   } catch (error) {
     console.error("Error loading country:", error);
     alert("Failed to load country data");
   }
 };
-
 
 // Function to close modal
 const close = async () => {
@@ -112,21 +103,15 @@ const close = async () => {
 // Update data
 const editCountry = async () => {
   try {
-    const response = await axios.put(
-      `http://127.0.0.1:8000/api/country/${props.id}`,
+     await app.putApi(
+      `country/${props.id}`,
       country.value
-    );
-
-    console.log("country updated:", response.data);
-    alert("country updated successfully!");
+    );  
     close();
   } catch (error) {
     console.error("Error updating country:", error);
-    alert("Failed to update country");
   }
 };
-
-
 onMounted(() => {
   loadcountry();
 });

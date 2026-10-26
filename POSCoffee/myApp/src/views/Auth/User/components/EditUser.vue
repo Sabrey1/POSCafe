@@ -2,7 +2,7 @@
     <div>
         <h2 class="mb-2 text-center">{{t("Edit User")}}</h2>
         <ion-grid>
-            <ion-row>
+            <ion-col>
                 <ion-col>
                     <ion-item lines="none">
                         <ion-input :label="t('Name')"  v-model="users.name" label-placement="floating" fill="outline" :placeholder="t('Enter name')"></ion-input>
@@ -14,8 +14,8 @@
                         <ion-input :label="t('Email')" v-model="users.email" label-placement="floating" fill="outline" :placeholder="t('Enter Email')"></ion-input>
                     </ion-item>
                 </ion-col>
-            </ion-row>
-            <ion-row>
+            </ion-col>
+            <ion-col>
                 <ion-col>
                       <ion-item lines="none">
                         <ion-input :label="t('Password')" v-model="users.password" label-placement="floating" fill="outline" :placeholder="t('Enter Password')"></ion-input>
@@ -37,10 +37,9 @@
               </ion-select>
             </ion-item>
                 </ion-col>
-            </ion-row>
+            </ion-col>
              <br>
                 <ion-button expand="block" color="primary" @click="userEdit">{{t("Save")}}</ion-button>
-            
         </ion-grid>
     </div>
 </template>

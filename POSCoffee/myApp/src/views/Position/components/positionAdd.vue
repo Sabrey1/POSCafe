@@ -23,12 +23,6 @@
                 <ion-input :label="t('Description')" v-model="position.description" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
             </ion-item>
         </ion-col>
-        <ion-col>
-             <!-- Note -->
-            <ion-item lines="none">
-                <ion-input :label="t('Note')" v-model="position.note" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
-            </ion-item>
-        </ion-col>
       </ion-row>
       <br>
       <ion-button expand="block" color="primary" @click="addPosition">{{t("Save")}}</ion-button>
@@ -48,7 +42,6 @@ const position = ref({
   position_code: "",
   name: "",
   description: "",
-  note: "",
 });
 
 const addPosition = async () => {

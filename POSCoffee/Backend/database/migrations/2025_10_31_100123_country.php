@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('country_code');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->string('note')->nullable();
             $table->string('owner')->nullable();
             $table->timestamps();
         });

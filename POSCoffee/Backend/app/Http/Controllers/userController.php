@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+
 
 class userController extends Controller
 {
@@ -12,7 +14,13 @@ class userController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::join(
+            'roles', 'users.role_id', '=' , 'roles.id'
+        )->join('employees', 'users.employee_id', '=', 'employees.id')
+        ->select(
+            'users.*', 'roles.name as role_name',
+            'employees.name', 'employees.name as employee_name'
+        )->get();
         return response()->json($users);
     }
 
@@ -28,7 +36,7 @@ class userController extends Controller
         $user = User::where('email', $request->email)->first();
 
         // Check plain-text password
-        if (!$user || $user->password !== $request->password) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Invalid email or password',
@@ -42,24 +50,6 @@ class userController extends Controller
             'user' => $user,
         ]);
     }
-
-    // public function login(Request $request){
-    //     $user = User::where('email', $request->email)->where('password', $request->password)->first();
-    //     if($user){
-    //         return response()->json([
-    //         'success' => true,
-    //         'user' => $user,
-    //         'message' => 'Login successfully'
-    //     ]);
-    //     }else{
-    //         return response()->json([
-    //         'success' => false,
-    //         'message' => 'Login failed'
-    //     ]);
-
-    //     }
-
-    // }
 
     /**
      * Store a newly created resource in storage.

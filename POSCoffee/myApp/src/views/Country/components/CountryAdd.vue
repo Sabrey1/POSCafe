@@ -2,11 +2,10 @@
   <ion-content class="ion-padding">
     <div class="modal-container">
       <h2 class="mb-2 text-center">{{ t("Add Country") }}</h2>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-item lines="none">
+            <div>
+              <div>
+                <ion-label>{{ t("Country Code") }}</ion-label>
+              </div>
               <ion-input
                 v-model="country.country_code"
                 :label="t('Country Code')"
@@ -14,10 +13,11 @@
                 fill="outline"
                 :placeholder="t('Enter country code')"
               />
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item lines="none">
+            </div>
+            <div>
+              <div>
+                <ion-label>{{ t("Country Name") }}</ion-label>
+              </div>
               <ion-input
                 v-model="country.name"
                 :label="t('Country Name')"
@@ -25,13 +25,11 @@
                 fill="outline"
                 :placeholder="t('Enter country name')"
               />
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          
-          <ion-col>
-            <ion-item lines="none">
+            </div>
+            <div>
+              <div>
+                <ion-label>{{ t("Description") }}</ion-label>
+              </div>
               <ion-input
                 v-model="country.description"
                 :label="t('Description')"
@@ -39,36 +37,34 @@
                 fill="outline"
                 :placeholder="t('Enter description')"
               />
-            </ion-item>
-          </ion-col>
-           <ion-col>
-            <ion-item lines="none">
+            </div>
+            <div>  
+              <div>
+                <ion-label>{{ t("Note") }}</ion-label>
+              </div>
               <ion-input
                 v-model="country.note"
                 :label="t('Note')"
                 label-placement="floating"
                 fill="outline"
                 :placeholder="t('Enter note')"
-                
-              />
-            </ion-item>
-          </ion-col>
-        </ion-row>      
-             
+              /> 
+            </div>   
         <br />
+        <ion-button expand="block" color="primary" @click="addCountry">
+          {{ t("Cancel") }}
+        </ion-button>
         <ion-button expand="block" color="primary" @click="addCountry">
           {{ t("Save") }}
         </ion-button>
-      </ion-grid>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import axios from "axios";
+import app from "@/services/api-service.js";
 import {
-  
   modalController,
 } from "@ionic/vue";
 
@@ -80,7 +76,6 @@ const country = ref({
   name: "",
   description:"",
   note:""
- 
 });
 
 // Function to close modal
@@ -92,15 +87,10 @@ const close = async () => {
 // Function to insert data
 const addCountry = async () => {
   try {
-    // Replace URL with your API endpoint
-    const response = await axios.post("http://127.0.0.1:8000/api/country", country.value);
-
-    console.log("country added:", response.data);
-    alert("country added successfully!");
+    await app.postApi("country", country.value);
     close();
   } catch (error) {
     console.error("Error adding country:", error);
-    alert("Failed to add country");
   }
 };
 </script>

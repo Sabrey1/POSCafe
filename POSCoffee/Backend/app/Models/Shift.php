@@ -15,19 +15,4 @@ class Shift extends Model
         'working_day_id',
         'note',
     ];
-
-    // public function employee()
-    // {
-    //     return $this->belongsTo(Employee::class);
-    // }
-
-    public function workingDay()
-    {
-        return $this->belongsTo(WorkingDay::class, 'working_day_id');
-    }
-
-    // public function orders()
-    // {
-    //     return $this->hasMany(Order::class);
-    // }
 }

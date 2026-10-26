@@ -1,7 +1,6 @@
 <template>
     <IonPage>
         <AppBar>{{ t("Currency List") }}</AppBar>
-       
             <div >
             <ion-fab slot="fixed" vertical="bottom" horizontal="end" @click="openModal">
               <ion-fab-button >

@@ -20,18 +20,18 @@
       <ion-label>{{t("Currency List")}}</ion-label>
     </ion-item>
     </RouterLink>
-    <RouterLink to="/country-list" style="text-decoration: none;">
-    <ion-item>
-        <i class="fa-solid fa-flag" style="margin-right: 10px;"></i>
-      <ion-label>{{t("Country List")}}</ion-label>
-    </ion-item>
-    </RouterLink>
-    <RouterLink to="/dashboard" style="text-decoration: none;">
-    <ion-item>
-        <i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i>
-      <ion-label>{{t("Dashboard")}}</ion-label>
-    </ion-item>
-    </RouterLink>
+    <!-- <RouterLink to="/country-list" style="text-decoration: none;">
+      <ion-item>
+          <i class="fa-solid fa-flag" style="margin-right: 10px;"></i>
+        <ion-label>{{t("Country List")}}</ion-label>
+      </ion-item>
+    </RouterLink> -->
+    <!-- <RouterLink to="/dashboard" style="text-decoration: none;">
+      <ion-item>
+          <i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i>
+        <ion-label>{{t("Dashboard")}}</ion-label>
+      </ion-item>
+    </RouterLink> -->
 
     <RouterLink to="/order" style="text-decoration: none;">
       <ion-item>
@@ -58,12 +58,12 @@
         <ion-label>{{t("Product")}}</ion-label>
       </ion-item>
     </RouterLink>
-    <RouterLink to="/working-day-list" style="text-decoration: none;">
+    <!-- <RouterLink to="/working-day-list" style="text-decoration: none;">
       <ion-item>
          <i class="fa-regular fa-clock" style="margin-right: 10px;"></i> 
         <ion-label>{{t("Working Day List")}}</ion-label>
       </ion-item>
-    </RouterLink>
+    </RouterLink> -->
     <RouterLink to="/shift-list" style="text-decoration: none;">
       <ion-item>
           <i class="fa-regular fa-clock" style="margin-right: 10px;"></i>
