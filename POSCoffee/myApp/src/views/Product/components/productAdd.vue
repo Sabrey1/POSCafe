@@ -1,83 +1,97 @@
 <template>
   <ion-content class="ion-padding">
-    <div class="modal-container">
-      <h2 class="mb-2 text-center">{{t("Add Product")}}</h2>
-<ion-grid>
-    <ion-row>
-        <ion-col>
-            <!-- prodiuct Code -->
-            <ion-item lines="none">
-                <ion-input :label="t('Product Code')" label-placement="floating" fill="outline" :placeholder="t('Enter product code')"></ion-input>
-            </ion-item>
-        </ion-col>
-        <ion-col>
-              <!-- product Name -->
-            <ion-item lines="none">
-                <ion-input :label="t('Product Name')" v-model="product.name" label-placement="floating" fill="outline" :placeholder="t('Enter product name')"></ion-input>
-            </ion-item>
-        </ion-col>
-      </ion-row>
-     <ion-row>
-        <ion-col>
-             <ion-item lines="none">
-                <ion-input :label="t('Description')" v-model="product.description" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
-            </ion-item>
-        </ion-col>
-        <ion-col>
-             <!-- price -->
-            <ion-item lines="none">
-                <ion-input :label="t('Price')" v-model="product.price" type="number" label-placement="floating" fill="outline" :placeholder="t('Enter price')"></ion-input>
-            </ion-item>
-        </ion-col>
-      </ion-row>
-     <ion-row>
-        <ion-col>
-             <ion-item lines="none">
-                <ion-input :label="t('Quantity')" v-model="product.quantity" type="number" label-placement="floating" fill="outline" :placeholder="t('Enter quantity')"></ion-input>
-            </ion-item>
-        </ion-col>
-        <ion-col>
-            <ion-item lines="none">
-  <ion-select
-    aria-label="category_id"
-    v-model="product.category_id"
-    fill="outline"
-    interface="popover"
-    :placeholder="t('Select category')"
-  >
-    <ion-select-option
-      v-for="cat in categories"
-      :key="cat.id"
-      :value="cat.id"
-    >
-      {{ cat.name }}
-    </ion-select-option>
-  </ion-select>
-</ion-item>
-        </ion-col>
-      </ion-row>
-       <ion-row>
-        <ion-col>
-             <ion-item lines="none">
-                <ion-input :label="t('Note')" v-model="product.note" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
-            </ion-item>
-        </ion-col>
-        
-      </ion-row>
+    <div class="product-form">
+      <header class="form-header">
+        <h2>{{ t("Add Product") }}</h2>
+      </header>
 
-      <br>
-      <ion-button expand="block" color="primary" @click="addProduct">{{t("Save")}}</ion-button>
-      </ion-grid>
+      <div class="form-fields">
+        <div class="form-field">
+          <ion-label>{{ t("Product Code") }}</ion-label>
+          <ion-input
+            v-model="product.product_code"
+            fill="outline"
+            :placeholder="t('Enter product code')"
+          />
+        </div>
+
+        <div class="form-field">
+          <ion-label>{{ t("Product Name") }}</ion-label>
+          <ion-input
+            v-model="product.name"
+            fill="outline"
+            :placeholder="t('Enter product name')"
+          />
+        </div>
+
+        <div class="form-field">
+          <ion-label>{{ t("Description") }}</ion-label>
+          <ion-input
+            v-model="product.description"
+            fill="outline"
+            :placeholder="t('Enter description')"
+          />
+        </div>
+
+        <div class="form-field">
+          <ion-label>{{ t("Price") }}</ion-label>
+          <ion-input
+            v-model="product.price"
+            type="number"
+            fill="outline"
+            :placeholder="t('Enter price')"
+          />
+        </div>
+
+        <div class="form-field">
+          <ion-label>{{ t("Quantity") }}</ion-label>
+          <ion-input
+            v-model="product.quantity"
+            type="number"
+            fill="outline"
+            :placeholder="t('Enter quantity')"
+          />
+        </div>
+
+        <div class="form-field">
+          <ion-label>{{ t("Category") }}</ion-label>
+          <ion-select
+            v-model="product.category_id"
+            fill="outline"
+            interface="popover"
+            :placeholder="t('Select category')"
+          >
+            <ion-select-option
+              v-for="cat in categories"
+              :key="cat.id"
+              :value="cat.id"
+            >
+              {{ cat.name }}
+            </ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+
+      <footer class="form-actions">
+        <ion-button fill="outline" color="medium" @click="close">
+          {{ t("Cancel") }}
+        </ion-button>
+        <ion-button color="primary" @click="addProduct">
+          {{ t("Save") }}
+        </ion-button>
+      </footer>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import axios from "axios";
-import { modalController } from '@ionic/vue';
+import { modalController } from "@ionic/vue";
 
-const t = window.t
+import app from "@/services/api-service.js";
+
+const t = window.t;
 const categories = ref([]);
 const product = ref({
   product_code: "",
@@ -86,14 +100,14 @@ const product = ref({
   price: "",
   quantity: "",
   category_id: "",
-  note: "",
 });
-
 
 async function loadCategories() {
   try {
-    const res = await axios.get("http://127.0.0.1:8000/api/category");
-    categories.value = res.data;
+    const res = await app.getApi("category");
+    categories.value = res.data ?? res;
+
+    console.log("Categories loaded:", categories.value);
   } catch (err) {
     console.error("Failed to load categories:", err);
   }
@@ -101,26 +115,76 @@ async function loadCategories() {
 
 const addProduct = async () => {
   try {
-    // Replace URL with your API endpoint
-    const response = await axios.post("http://127.0.0.1:8000/api/product", product.value);
+    const response = await app.postApi(
+      "product",
+      product.value
+    );
 
     console.log("product added:", response.data);
     alert("product added successfully!");
-    close();
+    await close();
   } catch (error) {
     console.error("Error adding product:", error);
     alert("Failed to add product");
   }
 };
 
-
 const close = async () => {
   const modal = await modalController.getTop();
   if (modal) await modal.dismiss();
 };
 
-
 onMounted(() => {
   loadCategories();
 });
 </script>
+
+<style scoped>
+.product-form {
+  width: min(100%, 680px);
+  margin: 0 auto;
+  padding: 8px 4px;
+}
+
+.form-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.form-header h2 {
+  margin: 0;
+  color: var(--ion-color-dark);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field ion-label {
+  color: var(--ion-color-dark);
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.form-actions ion-button {
+  min-width: 112px;
+  margin: 0;
+}
+</style>

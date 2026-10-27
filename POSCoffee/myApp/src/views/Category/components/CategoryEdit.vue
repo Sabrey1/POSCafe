@@ -1,55 +1,64 @@
 <template>
   <ion-content class="ion-padding">
-    <div class="modal-container">
-      <h2 class="mb-2 text-center">{{t("Edit Category")}}</h2>
-<ion-grid>
-    <ion-row>
-        <ion-col>
-            <!-- Category Code -->
-            <ion-item lines="none">
-                <ion-input :label="t('Category Code')" v-model="category.category_code" label-placement="floating" fill="outline" :placeholder="t('Enter category code')"></ion-input>
-            </ion-item>
-        </ion-col>
-        <ion-col>
-              <!-- Category Name -->
-            <ion-item lines="none">
-                <ion-input :label="t('Category Name')" v-model="category.name" label-placement="floating" fill="outline" :placeholder="t('Enter category name')"></ion-input>
-            </ion-item>
-        </ion-col>
-      </ion-row>
-     <ion-row>
-        <ion-col>
-             <ion-item lines="none">
-                <ion-input :label="t('Description')" v-model="category.description" label-placement="floating" fill="outline" :placeholder="t('Enter description')"></ion-input>
-            </ion-item>
-        </ion-col>
-        <ion-col>
-             <!-- Note -->
-            <ion-item lines="none">
-                <ion-input :label="t('Note')" v-model="category.note" label-placement="floating" fill="outline" :placeholder="t('Enter note')"></ion-input>
-            </ion-item>
-        </ion-col>
-      </ion-row>
+    <div class="category-form">
+      <header class="form-header">
+        <h2>{{ t("Edit Category") }}</h2>
+      </header>
 
-      <br>
-      <ion-button expand="block" color="primary" @click="editCategory">{{t("Save")}}</ion-button>
-      </ion-grid>
+      <div class="form-fields">
+        <div class="form-field">
+          <ion-label>{{ t("Category Code") }}</ion-label>
+          <ion-input
+            v-model="category.category_code"
+            fill="outline"
+            :placeholder="t('Enter category code')"
+          />
+        </div>
+
+        <div class="form-field">
+          <ion-label>{{ t("Category Name") }}</ion-label>
+          <ion-input
+            v-model="category.name"
+            fill="outline"
+            :placeholder="t('Enter category name')"
+          />
+        </div>
+
+        <div class="form-field">
+          <ion-label>{{ t("Description") }}</ion-label>
+          <ion-input
+            v-model="category.description"
+            fill="outline"
+            :placeholder="t('Enter description')"
+          />
+        </div>
+      </div>
+
+      <footer class="form-actions">
+        <ion-button fill="outline" color="medium" @click="close">
+          {{ t("Cancel") }}
+        </ion-button>
+        <ion-button color="primary" @click="editCategory">
+          {{ t("Save") }}
+        </ion-button>
+      </footer>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import { modalController } from '@ionic/vue';
-const t = window.t
+import { onMounted, ref } from "vue";
+import axios from "axios";
+import { modalController } from "@ionic/vue";
+
+const t = window.t;
 
 const category = ref({
-    category_code: "",
-    name: "",
-    description: "",
-    note: "",
-})
+  category_code: "",
+  name: "",
+  description: "",
+  note: "",
+});
 
 const props = defineProps({
   id: {
@@ -60,9 +69,9 @@ const props = defineProps({
 
 const loadCustomer = async () => {
   try {
-    const response = await axios.get(`http://127.0.0.1:8000/api/category/${props.id}`);
-
-    // handle case where backend wraps data in `data`
+    const response = await axios.get(
+      `http://127.0.0.1:8000/api/category/${props.id}`
+    );
     category.value = response.data.data || response.data;
     console.log("Fetching category with ID:", props.id);
     console.log("Loaded category:", category.value);
@@ -71,7 +80,6 @@ const loadCustomer = async () => {
     alert("Failed to load category data");
   }
 };
-
 
 const close = async () => {
   const modal = await modalController.getTop();
@@ -87,17 +95,64 @@ const editCategory = async () => {
 
     console.log("category updated:", response.data);
     alert("category updated successfully!");
-    close();
+    await close();
   } catch (error) {
     console.error("Error updating category:", error);
     alert("Failed to update category");
   }
 };
 
-// Load data when modal opens
 onMounted(() => {
   loadCustomer();
 });
-
 </script>
-    
+
+<style scoped>
+.category-form {
+  width: min(100%, 680px);
+  margin: 0 auto;
+  padding: 8px 4px;
+}
+
+.form-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.form-header h2 {
+  margin: 0;
+  color: var(--ion-color-dark);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field ion-label {
+  color: var(--ion-color-dark);
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.form-actions ion-button {
+  min-width: 112px;
+  margin: 0;
+}
+</style>

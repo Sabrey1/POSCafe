@@ -135,6 +135,9 @@
         </ion-row>
         <br />
         <ion-button expand="block" color="primary" @click="addCustomer">
+          {{ t("Cancel") }}
+        </ion-button>
+        <ion-button expand="block" color="primary" @click="addCustomer">
           {{ t("Save") }}
         </ion-button>
       </ion-grid>

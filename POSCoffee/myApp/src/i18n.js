@@ -6,7 +6,7 @@ const savedLocale = localStorage.getItem('locale')
 
 const i18n = createI18n({
   legacy: false,
-   locale: savedLocale || '',
+   locale: savedLocale || 'en',
   fallbackLocale: 'en',
   messages: {
     en,

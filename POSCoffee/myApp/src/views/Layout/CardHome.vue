@@ -2,12 +2,12 @@
 <div>
     <div class="grid">
         <div class="col">
-            <ion-card color="secondary" :routerLink='`/working-day`' class="card">
+            <ion-card color="secondary" :routerLink='`/category`' class="card">
                 <ion-card-header class="icon-center">
                     <ion-icon :icon="alarmOutline"></ion-icon>
                 </ion-card-header>
                 <ion-card-content>
-                    {{t("Working Day")}}
+                    {{t("Category")}}
                 </ion-card-content>
             </ion-card>
         </div>

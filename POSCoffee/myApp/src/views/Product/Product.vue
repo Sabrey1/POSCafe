@@ -46,7 +46,7 @@
             </Column>
             <Column field="created_at" :header="t('Created At')" sortable class="p-2" style="width: 300px;">
             <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.created_at }}</span>
+                <span class="p-2">{{ dayjs(slotProps.data.created_at).format("DD-MM-YYYY") }}</span>
             </template>
             </Column>
             <Column :header="t('Action')" sortable class="p-2" style="width: 180px;">
@@ -64,10 +64,10 @@
 
 <script setup lang="ts">
 import { add } from 'ionicons/icons';
-const t = window.t
-
 import {useProduct} from '@/hooks/useProduct.js'
-const { data,onDelete,onEdit,openModal } = useProduct()
+import dayjs from "dayjs";
 
+const { data,onDelete,onEdit,openModal } = useProduct()
+const t = window.t
 
 </script>

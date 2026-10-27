@@ -40,7 +40,7 @@
             </Column>
             <Column field="created_at" :header="t('Created At')" sortable class="p-2" style="width: 300px;">
             <template #body="slotProps">
-                <span class="p-2">{{ slotProps.data.created_at }}</span>
+                <span class="p-2">{{ dayjs(slotProps.data.created_at).format("DD-MM-YYYY") }}</span>
             </template>
             </Column>
             <Column :header="t('Action')" sortable class="p-2" style="width: 350px;">
@@ -63,7 +63,7 @@ import {useCategory} from '@/hooks/useCategory.js'
 import { IonContent, IonPage } from '@ionic/vue';
 
 import ComShowCategory from '@/views/Category/components/ComShowCategory.vue'
-
+import dayjs from "dayjs";
 const t = window.t
 const { data,onEdit,openModal,onDelete } = useCategory()
 

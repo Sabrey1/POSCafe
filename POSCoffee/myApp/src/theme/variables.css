@@ -59,26 +59,18 @@ http://ionicframework.com/docs/theming/ */
 .custom-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 47%;
- 
 }
 .category-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 31%;
- 
 }
 .product-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 45%;
- 
 }
 .role-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 40%;
-   
 }
 .user-modal {
     --border-radius: 10px;
@@ -87,20 +79,14 @@ http://ionicframework.com/docs/theming/ */
 .position-modal {
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 31%;
-  
 }
 .employee-modal{
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 63%;
- 
 }
 .currency-modal{
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 57%;
-    
 }
 .country-modal{
     --border-radius: 10px;
@@ -109,20 +95,11 @@ http://ionicframework.com/docs/theming/ */
 .product-modal{
     --border-radius: 10px;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 58%;
-    
 }
-.workingday-modal{
-    --border-radius: 10px;
-    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 55%;
-    
-}
+
 .shift-modal{
     --border-radius: 10px;
-    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --height: 55%;
-    
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
 }
 
 .fix-container{
